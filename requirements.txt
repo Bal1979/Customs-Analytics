@@ -1,0 +1,4 @@
+# Runtime (prod).
+Flask>=3.0
+lxml>=5.2
+openpyxl>=3.1   # læsning af uploadede XLSX + officielle codelists

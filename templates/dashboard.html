@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customs Analytics — Imports Summary</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231B365D'/%3E%3Ctext x='16' y='22' font-family='sans-serif' font-size='17' font-weight='600' fill='white' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+</head>
+<body>
+    <header class="topbar">
+        <div class="wordmark">
+            <span class="wordmark-mark" aria-hidden="true">B</span>
+            <span class="wordmark-text">Bal AI · <span>Customs Analytics</span></span>
+        </div>
+        <label class="upload-btn">
+            Upload importdata (CSV/XLSX)
+            <input type="file" id="file-input" accept=".csv,.xlsx,.xlsm" hidden>
+        </label>
+    </header>
+
+    <main>
+        <p class="dataset-note" id="dataset-note">Indlæser …</p>
+
+        <nav class="tabs" id="tabs">
+            <button class="tab active" data-tab="overview">Oversigt</button>
+            <button class="tab" data-tab="suppliers">Leverandører</button>
+            <button class="tab" data-tab="sourcing">Sourcing</button>
+            <button class="tab" data-tab="cpc">Procedurekoder</button>
+            <button class="tab" data-tab="transport">Transport</button>
+            <button class="tab" data-tab="fta">FTA-muligheder</button>
+            <button class="tab" data-tab="classification">Klassifikation</button>
+        </nav>
+
+        <!-- Oversigt (Imports Summary) -->
+        <section class="panel active" data-panel="overview">
+            <div class="kpis" id="kpis"></div>
+            <div class="card"><h2>Toldværdi pr. oprindelsesland — verdenskort</h2><div class="chart map" id="chart-map"></div></div>
+            <div class="grid">
+                <div class="card"><h2>Toldværdi og told pr. måned</h2><div class="chart tall" id="chart-time"></div></div>
+                <div class="card"><h2>Toldværdi pr. oprindelsesland</h2><div class="chart tall" id="chart-origin"></div></div>
+            </div>
+            <div class="grid">
+                <div class="card"><h2>Toldværdi pr. HS-kode</h2><div class="chart" id="chart-hs"></div></div>
+                <div class="card"><h2>Toldværdi pr. varebeskrivelse</h2><div class="chart" id="chart-desc"></div></div>
+            </div>
+        </section>
+
+        <!-- Leverandører -->
+        <section class="panel" data-panel="suppliers">
+            <div class="grid">
+                <div class="card"><h2>Toldværdi pr. leverandør (top 12)</h2><div class="chart tall" id="chart-suppliers"></div></div>
+                <div class="card"><h2>Leverandøroversigt</h2><div class="table-wrap" id="table-suppliers"></div></div>
+            </div>
+        </section>
+
+        <!-- Sourcing -->
+        <section class="panel" data-panel="sourcing">
+            <div class="grid">
+                <div class="card"><h2>Pr. oprindelsesland</h2><div class="table-wrap" id="table-sourcing-country"></div></div>
+                <div class="card"><h2>Pr. HS-kode</h2><div class="table-wrap" id="table-sourcing-hs"></div></div>
+            </div>
+        </section>
+
+        <!-- Procedurekoder (CPC) -->
+        <section class="panel" data-panel="cpc">
+            <div class="grid">
+                <div class="card"><h2>Toldværdi pr. procedurekode</h2><div class="chart tall" id="chart-cpc"></div></div>
+                <div class="card"><h2>CPC-detaljer</h2><div class="table-wrap" id="table-cpc"></div></div>
+            </div>
+        </section>
+
+        <!-- FTA-muligheder -->
+        <section class="panel" data-panel="fta">
+            <div class="kpis" id="fta-kpis"></div>
+            <div class="grid">
+                <div class="card"><h2>Mulig besparelse pr. oprindelsesland</h2><div class="chart tall" id="chart-fta-country"></div></div>
+                <div class="card"><h2>Mulig besparelse pr. HS-kode</h2><div class="chart tall" id="chart-fta-hs"></div></div>
+            </div>
+            <div class="card"><h2>Største enkelt-muligheder</h2><div class="table-wrap" id="table-fta"></div></div>
+        </section>
+
+        <!-- Klassifikation -->
+        <section class="panel" data-panel="classification">
+            <div class="kpis" id="cls-kpis"></div>
+            <div class="card"><h2>Oplagte inkonsistenser — samme vare, forskellig HS-kode</h2><div class="table-wrap" id="table-cls-exact"></div></div>
+            <div class="card"><h2>Fuzzy match — lignende varer på tværs af beskrivelser</h2><div class="table-wrap" id="table-cls-fuzzy"></div></div>
+        </section>
+
+        <!-- Transport -->
+        <section class="panel" data-panel="transport">
+            <div class="grid thirds">
+                <div class="card"><h2>Transportform ved grænsen</h2><div class="chart" id="chart-border"></div></div>
+                <div class="card"><h2>Transportform indland</h2><div class="chart" id="chart-inland"></div></div>
+                <div class="card"><h2>Nettovægt pr. transportform (grænse)</h2><div class="chart" id="chart-weight"></div></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>Bal AI · Customs Analytics — demodata er syntetisk og fiktiv.</footer>
+
+    <script src="{{ url_for('static', filename='dashboard.js') }}"></script>
+</body>
+</html>

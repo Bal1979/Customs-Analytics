@@ -1,0 +1,15 @@
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store
+uploads/
+*.local
+
+# Downloadede TARIC-ekstrakter (transiente, store)
+reference/tariff/taric_raw/*.zip
+reference/tariff/taric_raw/*.xlsx
+reference/tariff/taric_raw/toldtarif*.zip
+reference/tariff/taric_raw/*.xml
+reference/tariff/taric_raw/Measure_*
+reference/tariff/taric_raw/GeographicalArea_*

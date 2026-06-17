@@ -1,0 +1,44 @@
+name: Månedlig TARIC-opdatering
+
+# Fokuseret vedligeholdelse af tarif-motoren: henter de officielle TARIC-kilder fra
+# Skattestyrelsen (gratis, ingen login), regenererer referencedata, kører selvtjek
+# (pytest) og committer de friske data. Manuelt kørbar via "Run workflow".
+# Skattestyrelsen udgiver månedligt (gyldigt fra den 1.) + ugentlige totaler.
+
+on:
+  schedule:
+    - cron: "0 6 2 * *"   # den 2. i hver måned kl. 06:00 UTC (efter månedsskifte)
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Installér afhængigheder
+        run: pip install -r requirements-dev.txt
+
+      - name: Hent kilder, regenerér og selvtjek
+        run: PYTHON=python bash tools/update_tariff.sh
+
+      - name: Commit friske tarifdata (hvis ændret)
+        run: |
+          if [ -n "$(git status --porcelain reference/tariff/)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add reference/tariff/mfn_rates.csv \
+                    reference/tariff/preferential_rates.csv \
+                    reference/tariff/geo_areas.json
+            git commit -m "chore(tariff): månedlig TARIC-opdatering ($(date -u +%Y-%m-%d))"
+            git push
+          else
+            echo "Ingen ændringer i tarifdata."
+          fi

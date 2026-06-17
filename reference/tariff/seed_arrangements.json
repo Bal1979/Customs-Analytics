@@ -1,0 +1,28 @@
+{
+  "_note": "SEED — EU's præference-/aftaledækning pr. oprindelsesland (illustrativ, til at drive motoren indtil fuld TARIC-sync). type: fta=frihandelsaftale, customs_union=toldunion, gsp_plus=GSP+, eba=Everything But Arms, gsp_standard=standard-GSP (delvis reduktion), none=ingen præference. rate (når sat) = ad valorem præferencesats; for gsp_standard beregnes en reduktion. Erstattes af officielle TARIC-measures pr. HS×geografisk område.",
+  "arrangements": {
+    "NO": {"name": "EØS", "type": "fta", "rate": 0.0},
+    "IS": {"name": "EØS", "type": "fta", "rate": 0.0},
+    "LI": {"name": "EØS", "type": "fta", "rate": 0.0},
+    "GB": {"name": "EU–UK TCA", "type": "fta", "rate": 0.0},
+    "CH": {"name": "EU–Schweiz", "type": "fta", "rate": 0.0},
+    "TR": {"name": "EU–Tyrkiet toldunion", "type": "customs_union", "rate": 0.0},
+    "UA": {"name": "EU–Ukraine DCFTA", "type": "fta", "rate": 0.0},
+    "VN": {"name": "EU–Vietnam (EVFTA)", "type": "fta", "rate": 0.0},
+    "JP": {"name": "EU–Japan EPA", "type": "fta", "rate": 0.0},
+    "KR": {"name": "EU–Sydkorea", "type": "fta", "rate": 0.0},
+    "CA": {"name": "CETA", "type": "fta", "rate": 0.0},
+    "SG": {"name": "EU–Singapore", "type": "fta", "rate": 0.0},
+    "IL": {"name": "EU–Israel", "type": "fta", "rate": 0.0},
+    "EG": {"name": "EU–Egypten", "type": "fta", "rate": 0.0},
+    "MA": {"name": "EU–Marokko", "type": "fta", "rate": 0.0},
+    "PK": {"name": "GSP+", "type": "gsp_plus", "rate": 0.0},
+    "LK": {"name": "GSP+", "type": "gsp_plus", "rate": 0.0},
+    "PH": {"name": "GSP+", "type": "gsp_plus", "rate": 0.0},
+    "BD": {"name": "EBA (mindst udviklede)", "type": "eba", "rate": 0.0},
+    "KH": {"name": "EBA (mindst udviklede)", "type": "eba", "rate": 0.0},
+    "MM": {"name": "EBA (mindst udviklede)", "type": "eba", "rate": 0.0},
+    "ID": {"name": "GSP standard", "type": "gsp_standard"}
+  },
+  "no_preference": ["CN", "IN", "TW", "MY", "TH", "US", "RU", "HK"]
+}
