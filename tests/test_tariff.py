@@ -42,6 +42,29 @@ def test_preference_respects_import_date(tmp_path):
     assert db.lookup("6303929090", "VN", date="20210501120000+00").has_preference  # DMS-format
 
 
+def test_temporal_mfn_and_suspension(tmp_path):
+    # Autonom suspension (type 112) gør tredjelandssatsen 0 % mens den er i kraft.
+    (tmp_path / "mfn_rates.csv").write_text(
+        "hs_code,description,mfn_rate\n8541100000,Diode,0.05\n", encoding="utf-8")
+    (tmp_path / "seed_arrangements.json").write_text('{"arrangements":{}}', encoding="utf-8")
+    (tmp_path / "third_country_rates.csv").write_text(
+        "hs_code,date_start,date_end,rate\n"
+        "8541100000,,,0.05\n"                      # MFN (altid)
+        "8541100000,2021-01-01,2023-12-31,0.0\n",  # suspension i en periode
+        encoding="utf-8")
+    db = TariffDatabase(reference_dir=tmp_path)
+    assert db.mfn_rate("8541100000", "2022-06-01") == Decimal("0.0")   # suspension aktiv
+    assert db.mfn_rate("8541100000", "2024-06-01") == Decimal("0.05")  # suspension udløbet
+
+    # EDR: en import under suspensionen (betalt 0 %) må IKKE fejl-flagges som for lav.
+    rows = [{
+        "item_number": 1, "commodity_code": "8541100000", "origin_country": "CN",
+        "customs_value_dkk": Decimal("1000"), "customs_duty": Decimal("0"),
+        "duty_regime_code": "100", "date": "2022-06-01",
+    }]
+    assert "CUS-E01" not in {f.code for f in duty_findings(rows, db)}
+
+
 def test_lookup_preference_for_fta_country():
     db = _db()
     look = db.lookup("6303929090", "VN")  # tekstil fra Vietnam

@@ -115,6 +115,17 @@ class TariffDatabase:
             self._country_groups = geo.get("country_groups", {})
             self._area_name = geo.get("area_name", {})
 
+        # Temporal tredjelandssats (MFN 103 + autonom suspension 112), erga omnes.
+        # Når til stede vinder den over det nuværende eVita-snapshot og er dato-bevidst,
+        # så en suspenderet kode giver 0 % på importdatoen (EDR fejl-flagges ikke).
+        self._tc: dict[str, list] = {}
+        tc_file = ref / "third_country_rates.csv"
+        if tc_file.exists():
+            with tc_file.open(encoding="utf-8") as f:
+                for row in csv.DictReader(f):
+                    self._tc.setdefault(row["hs_code"], []).append(
+                        (row.get("date_start", ""), row.get("date_end", ""), Decimal(row["rate"])))
+
     @staticmethod
     def _valid_at(date_start: str, date_end: str, date: Optional[str]) -> bool:
         """Er en gyldighedsperiode aktiv på importdatoen? date=None → gældende (åben slut)."""
@@ -146,12 +157,24 @@ class TariffDatabase:
                     return best
         return None, None, False
 
-    def mfn_rate(self, hs_code: Optional[str]) -> Optional[Decimal]:
-        """MFN-sats for en varekode. Matcher på faldende prefix (10→8→6→4 cifre)."""
+    def mfn_rate(self, hs_code: Optional[str], date: Optional[str] = None) -> Optional[Decimal]:
+        """Effektiv tredjelandssats for en varekode **gældende på importdatoen**.
+
+        Når temporal data findes (third_country_rates.csv): laveste gældende af MFN (103)
+        og autonom suspension (112) på datoen → en suspenderet kode giver 0 %. Ellers
+        nutidssnapshot (eVita). Matcher på faldende prefix (10→8→6→4 cifre)."""
         if not hs_code:
             return None
         digits = "".join(ch for ch in hs_code if ch.isdigit())
-        for length in (10, 8, 6, 4):
+        if self._tc:
+            d = _norm_date(date)
+            for length in (10, 8, 6, 4):
+                periods = self._tc.get(digits[:length])
+                if periods:
+                    valid = [r for ds, de, r in periods if self._valid_at(ds, de, d)]
+                    if valid:
+                        return min(valid)
+        for length in (10, 8, 6, 4):  # fallback: nutidssnapshot
             if self._mfn.get(digits[:length]) is not None:
                 return self._mfn[digits[:length]]
         return None
@@ -163,7 +186,7 @@ class TariffDatabase:
         `date` (ISO 'YYYY-MM-DD') = angivelsens dato, så kun de FTA'er/præferencer der
         var i kraft dengang matches. None → kun aktuelt gældende præferencer.
         """
-        mfn = self.mfn_rate(hs_code)
+        mfn = self.mfn_rate(hs_code, date)
         org = (origin or "").upper()
         pref_rate: Optional[Decimal] = None
         name = atype = None

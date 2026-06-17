@@ -62,3 +62,11 @@ i kraft på importdatoen — en ny FTA anvendes ikke på en ældre transaktion.
 Kendte næste-trin (dokumenteret): (1) temporal MFN (eVita er nutidssnapshot; historisk
 MFN ligger i Trader Export type-103 m. datoer — men told-tjek bruger faktisk betalt told,
 så lav prioritet); (2) temporal gruppemedlemskab (GSP-graduering), p.t. nuværende medlemskab.
+
+## Temporal MFN + autonome suspensioner (2026-06-17)
+
+`third_country_rates.csv` (fra Trader Export Measure) bærer den temporale tredjelandssats:
+measureType 103 (MFN) + 112 (autonom toldsuspension, alle lande, ubetinget), erga omnes,
+med date_start/date_end. `tariff.mfn_rate(hs, date)` = laveste gældende på datoen → suspenderet
+kode giver 0 %, og MFN er dato-bevidst. Type 115 (end-use, betinget) udeladt. Fallback til
+eVita-snapshot. Tilbage: temporal gruppemedlemskab (GSP-graduering).

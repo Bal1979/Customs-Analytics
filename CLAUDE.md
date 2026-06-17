@@ -76,8 +76,14 @@ ikke EY's mørke/gule look.
   en ny FTA lægges ikke ned over en gammel transaktion (verificeret: VN-gardin før EVFTA 2020-08-01
   → ingen præference; efter → 0 %). Importdatoen tages fra angivelsen (`issue_datetime`/`date`,
   både ISO og DMS-kompakt format normaliseres). `date=None` → kun aktuelt gældende. Told-tjekket
-  bruger desuden **faktisk betalt told** fra angivelsen, så MFN holdes p.t. som nutidssnapshot
-  (eVita) — temporal MFN + temporal gruppemedlemskab (GSP-graduering) er dokumenterede næste-trin.
+  bruger desuden **faktisk betalt told** fra angivelsen.
+- **Temporal MFN + autonome suspensioner (2026-06-17):** `third_country_rates.csv` (38.396 rækker,
+  13.309 koder) fra Trader Export — measureType **103 (MFN) + 112 (autonom toldsuspension, alle lande,
+  ubetinget)**, erga omnes, med gyldighedsperioder. `tariff.mfn_rate(hs, date)` returnerer laveste
+  gældende sats på datoen → en **suspenderet kode giver 0 %** (EDR-tjekket fejl-flagger den ikke længere),
+  og MFN er nu dato-bevidst. Fallback til eVita-nutidssnapshot når temporal ikke dækker. Type 115
+  (end-use-suspension, betinget) udeladt bevidst. Temporal gruppemedlemskab (GSP-graduering) er
+  fortsat dokumenteret næste-trin.
 - **38 tests** grønne. Kør appen via preview-config `customs-analytics` (port 5005)
   eller `venv/bin/python app.py`. Verificeret visuelt: alle 7 faner renderer korrekt.
 

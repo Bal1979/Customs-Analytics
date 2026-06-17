@@ -33,6 +33,11 @@ PREFERENCE_TYPES = {"142", "145", "141", "106"}
 # Kvote-baserede præferencer: kun gyldige mens kontingentet er åbent → markeres.
 QUOTA_TYPES = {"143", "146", "147"}
 ALL_PREF_TYPES = PREFERENCE_TYPES | QUOTA_TYPES
+# Tredjelandssats (erga omnes): 103 = MFN, 112 = autonom toldsuspension (alle lande,
+# ubetinget). 115 (end-use-suspension) er betinget og udelades. Den effektive
+# tredjelandssats på en dato = laveste gældende af disse.
+THIRD_COUNTRY_TYPES = {"103", "112"}
+ERGA_OMNES = {"1011"}
 REFERENCE = Path(__file__).resolve().parent.parent / "reference" / "tariff"
 
 
@@ -85,35 +90,47 @@ def build_preferences(measure_xml: Path, geo_xml: Path) -> dict:
     from lxml import etree
 
     country_groups, area_name = parse_geographical_areas(geo_xml)
-    # rows: (hs, area, date_start, date_end, rate, is_quota) — ALLE gyldighedsperioder
-    # bevares (ikke længere laveste-sats-på-tværs-af-tid), så opslag kan matche importdato.
+    # pref-rows: (hs, area, date_start, date_end, rate, is_quota); tc-rows: (hs, ds, de, rate).
+    # ALLE gyldighedsperioder bevares, så opslag kan matche importdatoen.
     rows: set = set()
+    tc_rows: set = set()
+
+    def ad_valorem(measure):
+        for comp in measure.iter(NS + "measureComponent"):
+            if comp.get(NS + "dutyExpressionId") == "01":  # ad valorem %
+                da = comp.get(NS + "dutyAmount")
+                if da not in (None, ""):
+                    try:
+                        return Decimal(da) / 100
+                    except Exception:
+                        return None
+                return None
+        return None
+
     ctx = etree.iterparse(str(measure_xml), events=("end",), tag=NS + "measure",
                           resolve_entities=False, no_network=True)
     for _, m in ctx:
         mt = m.get(NS + "measureType")
+        area = m.get(NS + "geographicalAreaId")
         if mt in ALL_PREF_TYPES:
             hs = _code10(m.get(NS + "goodsNomenclatureCode"))
-            area = m.get(NS + "geographicalAreaId")
-            is_quota = mt in QUOTA_TYPES
-            rate = None
-            for comp in m.iter(NS + "measureComponent"):
-                if comp.get(NS + "dutyExpressionId") == "01":  # ad valorem %
-                    da = comp.get(NS + "dutyAmount")
-                    if da not in (None, ""):
-                        try:
-                            rate = Decimal(da) / 100
-                        except Exception:
-                            rate = None
-                    break
+            rate = ad_valorem(m)
             if hs and area and rate is not None:
                 ds = (m.get(NS + "dateStart") or "")[:10]
                 de = (m.get(NS + "dateEnd") or "")[:10]
-                rows.add((hs, area, ds, de, str(rate), "1" if is_quota else "0"))
+                rows.add((hs, area, ds, de, str(rate), "1" if mt in QUOTA_TYPES else "0"))
+        elif mt in THIRD_COUNTRY_TYPES and area in ERGA_OMNES:
+            hs = _code10(m.get(NS + "goodsNomenclatureCode"))
+            rate = ad_valorem(m)
+            if hs and rate is not None:
+                ds = (m.get(NS + "dateStart") or "")[:10]
+                de = (m.get(NS + "dateEnd") or "")[:10]
+                tc_rows.add((hs, ds, de, str(rate)))
         m.clear()
         while m.getprevious() is not None:
             del m.getparent()[0]
-    return {"rows": rows, "country_groups": country_groups, "area_name": area_name}
+    return {"rows": rows, "tc_rows": tc_rows,
+            "country_groups": country_groups, "area_name": area_name}
 
 
 def write_preferences(data: dict, out_dir: Path) -> tuple[int, int]:
@@ -125,6 +142,12 @@ def write_preferences(data: dict, out_dir: Path) -> tuple[int, int]:
         for r in sorted(data["rows"]):
             w.writerow(r)
             rows += 1
+    # Temporal tredjelandssats (MFN + autonom suspension), erga omnes.
+    with (out_dir / "third_country_rates.csv").open("w", newline="", encoding="utf-8") as f:
+        w = csv.writer(f)
+        w.writerow(["hs_code", "date_start", "date_end", "rate"])
+        for r in sorted(data.get("tc_rows", [])):
+            w.writerow(r)
     (out_dir / "geo_areas.json").write_text(
         json.dumps({"_note": "Genereret af tools/sync_preferences.py fra Trader Export.",
                     "country_groups": data["country_groups"], "area_name": data["area_name"]},
