@@ -93,6 +93,17 @@ ikke EY's mørke/gule look.
   eller `venv/bin/python app.py`. Verificeret visuelt: alle 7 faner renderer korrekt.
   Repo: github.com/Bal1979/Customs-Analytics (månedlig TARIC-Action verificeret).
 
+## Deploy (Railway → customs.balai.dk)
+
+- Deploy-filer: `Procfile` + `railway.json` (gunicorn, 2 workers, gthread, `--preload` deler
+  ~123 MB referencedata via COW, bind til `$PORT`), `.python-version` 3.13.
+- **Env-variabler i prod (påkrævet):** `SECRET_KEY` (ellers tilfældig nøgle → sessions
+  nulstilles ved genstart), `AUTH_DB_PATH=/data/auth.db`, `AUDIT_DB_PATH=/data/audit.db` på et
+  **Railway persistent volume** mountet på `/data` (så brugere/login overlever genstarts/deploys).
+- **Login (auth.py, porteret):** første kørsel → `/setup` opretter admin; derefter `/login` +
+  invitationer (`/admin/invites`). CSRF på upload. data/*.db gitignored.
+- Auto-deploy på `main` → den månedlige TARIC-Action holder produktionen frisk.
+
 ## Genoptag hurtigt
 
 ```bash
