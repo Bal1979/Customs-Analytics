@@ -32,7 +32,7 @@ _ALIASES = {
     "invoice_currency": ["invoicecurrency", "valuta", "currency", "møntsort", "moentsort"],
     "net_mass": ["netmass", "nettovægt", "nettovaegt", "nettomasse", "netweight", "netweightkgm"],
     "gross_mass": ["grossmass", "bruttovægt", "bruttovaegt", "bruttomasse", "grossweight"],
-    "border_mot": ["bordermot", "motborder", "transportmådegrænse", "transportmaadegraense", "modeoftransport", "mot"],
+    "border_mot": ["bordermot", "motborder", "transportmådegrænse", "transportmaadegraense", "modeoftransport", "mot", "transportmådevedgrænsen", "transportmaadevedgraensen"],
     "inland_mot": ["inlandmot", "motinland", "transportmådeindland", "transportmaadeindland", "indenlandsktransportmåde", "indenlandsktransportmaade"],
     "cpc": ["cpc", "procedurekode", "customsprocedurecode"],
     "duty_regime_code": ["dutyregimecode", "præference", "praeference", "preference", "preferencerate"],

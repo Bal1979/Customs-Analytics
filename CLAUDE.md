@@ -153,7 +153,11 @@ Referencedata (MFN + præferencer) holdes friske **automatisk**:
   CIRCABC (interaktiv/registrering — ikke auto-fetchbar) og kør `tools/sync_taric.py` på den.
   Pipelinen er bygget+testet; verificér kolonnenavne mod det rigtige ekstrakt + tilføj
   anti-dumping/suspensioner/kvoter, så EDR-tjek kan strammes til RØD.
-- Legacy SAD-parser (gl. toldsystem, jf. `2025141060671.pdf`) + Excel/CSV-adapter.
+- ✅ Legacy SAD løst (2026-06-17): `customs/parsers/legacy_sad.py` parser rapportservlet-PDF'en
+  fra det gamle toldsystem (SAD-bokse 33/34/36/37/38/42/46 + Beregninger A-serie=told, B=moms),
+  med tekstudtræk (PyMuPDF, koordinat-parring) adskilt fra felt-logik (`_rows_from_lines`, testbar
+  uden rigtige data). Struktureret Excel/CSV fra gl. system dækkes af tabular-adapterens SAD-aliaser.
+  `app.py` dispatcher upload: .xml→WCO, .pdf→legacy SAD, .csv/.xlsx→tabular. 44 tests grønne.
 - Klassifikation: forbedr fuzzy (rigtig string-similarity/embeddings) + brug en
   produkt-/varereference frem for beskrivelse når DMS-data har den; samkør med
   TARIC-beskrivelser for at foreslå den *korrekte* kode (ikke kun laveste sats).

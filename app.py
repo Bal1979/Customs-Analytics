@@ -16,8 +16,20 @@ from flask import Flask, jsonify, render_template, request
 from customs.analytics import build_report
 from customs.classification import classification_report
 from customs.duty_checks import fta_opportunities
+from customs.parsers.legacy_sad import parse_legacy_sad
 from customs.parsers.tabular import parse_tabular
+from customs.parsers.wco_xml import parse_wco_xml
 from customs.tariff import TariffDatabase
+
+
+def _parse_upload(data: bytes, filename: str) -> list[dict]:
+    """Vælg indlæser ud fra filtype: XML=DMS/WCO, PDF=gammelt toldsystem, ellers Excel/CSV."""
+    name = (filename or "").lower()
+    if name.endswith(".xml"):
+        return parse_wco_xml(data).to_rows()
+    if name.endswith(".pdf"):
+        return parse_legacy_sad(data)
+    return parse_tabular(data, filename=filename)
 
 TARIFF = TariffDatabase()  # indlæses én gang ved opstart
 
@@ -65,7 +77,7 @@ def api_upload():
     if file is None or not file.filename:
         return jsonify({"error": "Ingen fil modtaget."}), 400
     try:
-        rows = parse_tabular(file.read(), filename=file.filename)
+        rows = _parse_upload(file.read(), file.filename)
     except Exception as exc:  # robust fejlbesked til brugeren
         return jsonify({"error": f"Kunne ikke læse filen: {exc}"}), 422
     if not rows:
