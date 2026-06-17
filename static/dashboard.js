@@ -298,7 +298,8 @@ document.getElementById("file-input").addEventListener("change", (e) => {
     if (!file) return;
     const fd = new FormData();
     fd.append("file", file);
-    load("/api/upload", { method: "POST", body: fd });
+    const csrf = document.querySelector('meta[name="csrf-token"]')?.content || "";
+    load("/api/upload", { method: "POST", body: fd, headers: { "X-CSRF-Token": csrf } });
 });
 
 window.addEventListener("resize", () => Object.values(charts).forEach((c) => c.resize()));

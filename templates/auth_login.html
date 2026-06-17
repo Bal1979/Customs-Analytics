@@ -1,0 +1,18 @@
+{% extends "auth_base.html" %}
+{% block title %}Log ind · Customs Analytics{% endblock %}
+{% block content %}
+<div class="card">
+  <h1>Log ind</h1>
+  <p class="sub">Adgang kræver en brugerkonto. Kontakt administrator, hvis du mangler en.</p>
+  {% if error %}<div class="alert alert-error">{{ error }}</div>{% endif %}
+  <form method="post" action="{{ url_for('auth.login') }}">
+    <input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+    <input type="hidden" name="next" value="{{ next }}">
+    <label for="username">Brugernavn</label>
+    <input type="text" id="username" name="username" autocomplete="username" autofocus required>
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" autocomplete="current-password" required>
+    <button type="submit">Log ind</button>
+  </form>
+</div>
+{% endblock %}

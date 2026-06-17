@@ -1,0 +1,24 @@
+{% extends "auth_base.html" %}
+{% block title %}Invitation · Customs Analytics{% endblock %}
+{% block content %}
+<div class="card">
+  {% if invalid %}
+    <h1>Invitationen er ikke gyldig</h1>
+    <p class="sub">Linket er udløbet, allerede brugt eller trukket tilbage. Bed administrator om et nyt invitationslink.</p>
+  {% else %}
+    <h1>Opret din konto</h1>
+    <p class="sub">Du er inviteret til Customs Analytics{% if note %} ({{ note }}){% endif %}. Vælg dit brugernavn og password.</p>
+    {% if error %}<div class="alert alert-error">{{ error }}</div>{% endif %}
+    <form method="post">
+      <input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+      <label for="username">Brugernavn</label>
+      <input type="text" id="username" name="username" autocomplete="username" autofocus required>
+      <label for="password">Password (mindst 10 tegn)</label>
+      <input type="password" id="password" name="password" autocomplete="new-password" required>
+      <label for="password2">Gentag password</label>
+      <input type="password" id="password2" name="password2" autocomplete="new-password" required>
+      <button type="submit">Opret konto og log ind</button>
+    </form>
+  {% endif %}
+</div>
+{% endblock %}

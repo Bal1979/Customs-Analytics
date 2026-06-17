@@ -13,6 +13,7 @@ from pathlib import Path
 
 from flask import Flask, jsonify, render_template, request
 
+import auth
 from customs.analytics import build_report
 from customs.classification import classification_report
 from customs.duty_checks import fta_opportunities
@@ -43,6 +44,7 @@ def _full_report(rows):
 
 app = Flask(__name__)
 app.config["MAX_CONTENT_LENGTH"] = 64 * 1024 * 1024  # 64 MB upload-loft
+auth.init_app(app)  # login, CSRF, sessioner, /login·/setup·/admin (porteret fra søsterprojekterne)
 
 SAMPLE = Path(__file__).resolve().parent / "sample_data" / "jysk_like_imports.csv"
 
@@ -59,11 +61,13 @@ def _jsonable(obj):
 
 
 @app.get("/")
+@auth.login_required
 def index():
     return render_template("dashboard.html")
 
 
 @app.get("/api/summary")
+@auth.login_required
 def api_summary():
     """Fuld kerne-rapport på den medfølgende demodata (syntetisk, JYSK-lignende)."""
     rows = parse_tabular(SAMPLE)
@@ -71,8 +75,10 @@ def api_summary():
 
 
 @app.post("/api/upload")
+@auth.login_required
 def api_upload():
     """Parse en uploadet CSV/XLSX i hukommelsen og returnér summary. Intet gemmes."""
+    auth._check_csrf()
     file = request.files.get("file")
     if file is None or not file.filename:
         return jsonify({"error": "Ingen fil modtaget."}), 400

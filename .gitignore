@@ -13,3 +13,7 @@ reference/tariff/taric_raw/toldtarif*.zip
 reference/tariff/taric_raw/*.xml
 reference/tariff/taric_raw/Measure_*
 reference/tariff/taric_raw/GeographicalArea_*
+
+# Auth/audit-databaser (lokale, persistente via Railway-volume i prod)
+data/*.db
+data/*.db-*
