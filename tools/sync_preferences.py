@@ -52,7 +52,7 @@ def parse_geographical_areas(geo_xml: Path) -> tuple[dict[str, list[str]], dict[
 
     sid_to_id: dict[str, str] = {}
     area_name: dict[str, str] = {}
-    memberships: list[tuple[str, str]] = []  # (medlems-id, gruppe-SID)
+    memberships: list[tuple] = []  # (medlems-id, gruppe-SID, date_start, date_end)
 
     ctx = etree.iterparse(str(geo_xml), events=("end",), tag=NS + "geographicalArea",
                           resolve_entities=False, no_network=True)
@@ -68,21 +68,23 @@ def parse_geographical_areas(geo_xml: Path) -> tuple[dict[str, list[str]], dict[
                 if d:
                     area_name[aid] = d.strip()
         for mem in ga.iter(NS + "geographicalAreaMembership"):
-            if mem.get(NS + "dateEnd"):  # kun aktive memberships
-                continue
+            # Behold gyldighedsperioden — medlemskab kan ophøre (GSP-graduering) eller
+            # begynde på en dato, så det skal matche importdatoen.
             grp_sid = mem.get(NS + "SIDGeographicalAreaGroup")
             if grp_sid:
-                memberships.append((aid, grp_sid))
+                memberships.append((aid, grp_sid, (mem.get(NS + "dateStart") or "")[:10],
+                                    (mem.get(NS + "dateEnd") or "")[:10]))
         ga.clear()
         while ga.getprevious() is not None:
             del ga.getparent()[0]
 
-    country_groups: dict[str, set] = {}
-    for member_id, grp_sid in memberships:
+    # country_groups[land] = [[gruppe-id, date_start, date_end], ...]
+    country_groups: dict[str, list] = {}
+    for member_id, grp_sid, ds, de in memberships:
         grp_id = sid_to_id.get(grp_sid)
         if grp_id and member_id:
-            country_groups.setdefault(member_id, set()).add(grp_id)
-    return {k: sorted(v) for k, v in country_groups.items()}, area_name
+            country_groups.setdefault(member_id, []).append([grp_id, ds, de])
+    return country_groups, area_name
 
 
 def build_preferences(measure_xml: Path, geo_xml: Path) -> dict:

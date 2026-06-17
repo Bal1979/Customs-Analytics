@@ -42,6 +42,24 @@ def test_preference_respects_import_date(tmp_path):
     assert db.lookup("6303929090", "VN", date="20210501120000+00").has_preference  # DMS-format
 
 
+def test_temporal_group_membership_gsp_graduation(tmp_path):
+    # Land graduereet ud af GSP-gruppen ved udgangen af 2014 (jf. Kina).
+    (tmp_path / "mfn_rates.csv").write_text(
+        "hs_code,description,mfn_rate\n6302310000,Linned,0.12\n", encoding="utf-8")
+    (tmp_path / "seed_arrangements.json").write_text('{"arrangements":{}}', encoding="utf-8")
+    (tmp_path / "preferential_rates.csv").write_text(
+        "hs_code,area,date_start,date_end,rate,is_quota\n"
+        "6302310000,GSP,,,0.096,0\n", encoding="utf-8")   # selve præferencen er åben
+    (tmp_path / "geo_areas.json").write_text(
+        '{"country_groups":{"CN":[["GSP","1984-01-01","2014-12-31"]]},'
+        '"area_name":{"GSP":"GSP - Toldpræferencer"}}', encoding="utf-8")
+    db = TariffDatabase(reference_dir=tmp_path)
+
+    assert db.lookup("6302310000", "CN", date="2013-01-01").preferential_rate == Decimal("0.096")
+    assert db.lookup("6302310000", "CN", date="2016-01-01").preferential_rate is None  # graduereet ud
+    assert db.lookup("6302310000", "CN", date=None).preferential_rate is None           # ikke længere medlem
+
+
 def test_temporal_mfn_and_suspension(tmp_path):
     # Autonom suspension (type 112) gør tredjelandssatsen 0 % mens den er i kraft.
     (tmp_path / "mfn_rates.csv").write_text(

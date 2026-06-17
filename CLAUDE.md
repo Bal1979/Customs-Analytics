@@ -83,9 +83,15 @@ ikke EY's mørke/gule look.
   gældende sats på datoen → en **suspenderet kode giver 0 %** (EDR-tjekket fejl-flagger den ikke længere),
   og MFN er nu dato-bevidst. Fallback til eVita-nutidssnapshot når temporal ikke dækker. Type 115
   (end-use-suspension, betinget) udeladt bevidst. Temporal gruppemedlemskab (GSP-graduering) er
-  fortsat dokumenteret næste-trin.
-- **38 tests** grønne. Kør appen via preview-config `customs-analytics` (port 5005)
+  nu også løst (se nedenfor).
+- **Temporal gruppemedlemskab (2026-06-17):** `geo_areas.json` country_groups bærer nu
+  medlemskabsperioder ({land: [[gruppe, ds, de], ...]}); `tariff` opløser gruppemedlemskab
+  PÅ importdatoen → GSP-graduering respekteres (verificeret: Kina i GSP-gruppen til 2014-12-31
+  → 2013-import får GSP-sats 9,6 %, 2016-import ingen). Sidste temporale afgrænsning lukket;
+  oprindelsesvurdering forbliver bevidst uden for scope (leverandørens ansvar).
+- **41 tests** grønne. Kør appen via preview-config `customs-analytics` (port 5005)
   eller `venv/bin/python app.py`. Verificeret visuelt: alle 7 faner renderer korrekt.
+  Repo: github.com/Bal1979/Customs-Analytics (månedlig TARIC-Action verificeret).
 
 ## Genoptag hurtigt
 

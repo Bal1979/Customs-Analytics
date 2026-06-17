@@ -70,3 +70,10 @@ measureType 103 (MFN) + 112 (autonom toldsuspension, alle lande, ubetinget), erg
 med date_start/date_end. `tariff.mfn_rate(hs, date)` = laveste gældende på datoen → suspenderet
 kode giver 0 %, og MFN er dato-bevidst. Type 115 (end-use, betinget) udeladt. Fallback til
 eVita-snapshot. Tilbage: temporal gruppemedlemskab (GSP-graduering).
+
+## Temporal gruppemedlemskab (2026-06-17)
+
+geo_areas.json' country_groups bærer nu medlemskabsperioder: {land: [[gruppe, ds, de], ...]}.
+tariff opløser et lands grupper PÅ importdatoen, så GSP-graduering respekteres (fx Kina i
+GSP-gruppen til 2014-12-31 → 2013-import får GSP, 2016-import ikke). Sidste dokumenterede
+afgrænsning er hermed lukket; oprindelsesvurdering forbliver bevidst uden for scope.

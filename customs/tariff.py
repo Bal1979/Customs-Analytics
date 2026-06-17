@@ -140,7 +140,9 @@ class TariffDatabase:
         En FTA der trådte i kraft efter importdatoen anvendes IKKE. Returnerer
         (rate, arrangement-navn, is_quota) for det mest specifikke niveau med gældende præference.
         """
-        areas = set(self._country_groups.get(origin, [])) | {origin}
+        # Grupper landet tilhørte PÅ importdatoen (medlemskab kan være ophørt/begyndt).
+        membership = self._country_groups.get(origin, [])
+        areas = {g for g, ds, de in membership if self._valid_at(ds, de, date)} | {origin}
         digits = "".join(ch for ch in hs_code if ch.isdigit()).ljust(10, "0")[:10]
         for length in (10, 8, 6, 4, 2):
             cand = digits[:length] + "0" * (10 - length)
