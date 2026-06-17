@@ -1,6 +1,6 @@
 /* Customs Analytics — dashboard-rendering med ECharts.
    Henter den fulde kerne-rapport fra API'et og tegner KPI'er, grafer og tabeller
-   i Bal AI-paletten. Faner skifter mellem JYSK-kernens analysesider. */
+   i Bal AI-paletten. Faner skifter mellem analysesiderne. */
 
 const NAVY = "#1B365D";
 const NAVY_LIGHT = "#2E5C8A";
@@ -246,12 +246,18 @@ function renderClassification(cls) {
     ], cls.fuzzy.slice(0, 25));
 }
 
+function showReport(show) {
+    document.getElementById("empty-state").hidden = show;
+    document.getElementById("dataset-note").hidden = !show;
+    document.getElementById("tabs").hidden = !show;
+    document.querySelectorAll(".panel").forEach((p) => { p.style.display = show ? "" : "none"; });
+}
+
 function render(data) {
     lastData = data;
-    const note = data.dataset === "demo"
-        ? `Viser <strong>demodata</strong> (syntetisk, JYSK-lignende · ${num(data.rows)} linjer). Upload din egen fil for at analysere rigtige data.`
-        : `Viser <strong>${data.dataset}</strong> · ${num(data.rows)} linjer.`;
-    document.getElementById("dataset-note").innerHTML = note;
+    showReport(true);
+    document.getElementById("dataset-note").innerHTML =
+        `Viser <strong>${data.dataset}</strong> · ${num(data.rows)} linjer.`;
 
     renderOverview(data.summary);
     renderSuppliers(data.suppliers);
@@ -282,25 +288,29 @@ document.getElementById("tabs").addEventListener("click", (e) => {
     resizeActive();
 });
 
-async function load(url, options) {
-    document.getElementById("dataset-note").textContent = "Beregner …";
-    const res = await fetch(url, options);
-    const data = await res.json();
-    if (!res.ok) {
-        document.getElementById("dataset-note").textContent = data.error || "Fejl ved indlæsning.";
-        return;
+async function uploadFile(file) {
+    const btn = document.getElementById("empty-upload-btn");
+    const err = document.getElementById("upload-error");
+    err.hidden = true;
+    if (btn) { btn.textContent = "Analyserer …"; btn.disabled = true; }
+    try {
+        const fd = new FormData();
+        fd.append("file", file);
+        const csrf = document.querySelector('meta[name="csrf-token"]')?.content || "";
+        const res = await fetch("/api/upload", { method: "POST", body: fd, headers: { "X-CSRF-Token": csrf } });
+        const data = await res.json();
+        if (!res.ok) { err.textContent = data.error || "Kunne ikke læse filen."; err.hidden = false; return; }
+        render(data);
+    } catch (e) {
+        err.textContent = "Netværksfejl — prøv igen."; err.hidden = false;
+    } finally {
+        if (btn) { btn.textContent = "Upload importdata"; btn.disabled = false; }
     }
-    render(data);
 }
 
-document.getElementById("file-input").addEventListener("change", (e) => {
-    const file = e.target.files[0];
-    if (!file) return;
-    const fd = new FormData();
-    fd.append("file", file);
-    const csrf = document.querySelector('meta[name="csrf-token"]')?.content || "";
-    load("/api/upload", { method: "POST", body: fd, headers: { "X-CSRF-Token": csrf } });
-});
+const fileInput = document.getElementById("file-input");
+fileInput.addEventListener("change", (e) => { if (e.target.files[0]) uploadFile(e.target.files[0]); });
+document.getElementById("empty-upload-btn").addEventListener("click", () => fileInput.click());
 
+showReport(false);  // start rent — ingen demo-data, klar til import
 window.addEventListener("resize", () => Object.values(charts).forEach((c) => c.resize()));
-load("/api/summary");

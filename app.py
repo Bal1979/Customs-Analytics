@@ -9,7 +9,6 @@ from __future__ import annotations
 
 import os
 from decimal import Decimal
-from pathlib import Path
 
 from flask import Flask, jsonify, render_template, request
 
@@ -46,8 +45,6 @@ app = Flask(__name__)
 app.config["MAX_CONTENT_LENGTH"] = 64 * 1024 * 1024  # 64 MB upload-loft
 auth.init_app(app)  # login, CSRF, sessioner, /login·/setup·/admin (porteret fra søsterprojekterne)
 
-SAMPLE = Path(__file__).resolve().parent / "sample_data" / "jysk_like_imports.csv"
-
 
 def _jsonable(obj):
     """Konvertér Decimal -> float rekursivt, så summary kan serialiseres til JSON."""
@@ -64,14 +61,6 @@ def _jsonable(obj):
 @auth.login_required
 def index():
     return render_template("dashboard.html")
-
-
-@app.get("/api/summary")
-@auth.login_required
-def api_summary():
-    """Fuld kerne-rapport på den medfølgende demodata (syntetisk, JYSK-lignende)."""
-    rows = parse_tabular(SAMPLE)
-    return jsonify({"dataset": "demo", "rows": len(rows), **_jsonable(_full_report(rows))})
 
 
 @app.post("/api/upload")

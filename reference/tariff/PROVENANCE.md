@@ -6,7 +6,7 @@ Driver told-motoren (MFN-satser + præference-/aftaledækning) bag opslagslaget
 ## Status: SEED (kurateret, illustrativt)
 
 `seed_mfn_rates.csv` og `arrangements.json` er et **kurateret seed** der dækker de
-JYSK-relevante kapitler (møbler 9401/9403/9404, tekstil 6301–6303, plast 3926, glas
+relevante kapitler (møbler 9401/9403/9404, tekstil 6301–6303, plast 3926, glas
 7013) + EU's aftale-/præferencedækning pr. oprindelsesland. Det gør motoren fuldt
 funktionel og testbar nu. Satserne er realistiske, men **ikke** en autoritativ kilde.
 

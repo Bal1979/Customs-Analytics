@@ -16,6 +16,7 @@
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
+[hidden] { display: none !important; }  /* så hidden-attributten slår CSS display: flex/grid */
 
 body {
     font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -58,6 +59,26 @@ main { max-width: 1240px; margin: 0 auto; padding: 1.5rem 1.75rem 3rem; }
     font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.1rem;
 }
 .dataset-note strong { color: var(--navy); }
+
+/* Ren start-tilstand (ingen demo-data) */
+.empty-state { display: flex; justify-content: center; padding: 4rem 1rem 5rem; }
+.empty-card {
+    background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius);
+    box-shadow: var(--shadow); padding: 2.5rem 2.25rem; max-width: 520px; text-align: center;
+}
+.empty-icon {
+    width: 52px; height: 52px; margin: 0 auto 1rem; border-radius: 50%;
+    background: var(--bg-section); color: var(--navy);
+    display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700;
+}
+.empty-card h2 { font-size: 1.3rem; color: var(--navy); margin-bottom: 0.5rem; }
+.empty-card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.25rem; }
+.empty-card .upload-btn { font-size: 0.95rem; padding: 0.7rem 1.4rem; }
+.empty-hint { font-size: 0.82rem; color: var(--text-muted); margin: 1rem 0 0; }
+.upload-error {
+    color: var(--error-text, #B91C1C); background: #FEF2F2; border: 1px solid #FCA5A5;
+    border-radius: var(--radius); padding: 0.6rem 0.9rem; font-size: 0.88rem; margin: 0.5rem 0 0;
+}
 
 /* Faner */
 .tabs { display: flex; gap: 0.25rem; border-bottom: 1px solid var(--border); margin-bottom: 1.25rem; flex-wrap: wrap; }

@@ -11,7 +11,7 @@ from customs.classification import (
 from customs.parsers.tabular import parse_tabular
 from customs.tariff import TariffDatabase
 
-SAMPLE = Path(__file__).resolve().parent.parent / "sample_data" / "jysk_like_imports.csv"
+SAMPLE = Path(__file__).resolve().parent / "fixtures" / "sample_imports.csv"
 
 
 def _db():

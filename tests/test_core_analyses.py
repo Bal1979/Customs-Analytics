@@ -13,10 +13,10 @@ from customs.analytics import (
 
 def _rows():
     return [
-        {"consignor_name": "JYSK A/S", "origin_country": "CN", "commodity_code": "9401790000",
+        {"consignor_name": "Nordisk Import A/S", "origin_country": "CN", "commodity_code": "9401790000",
          "customs_value_dkk": Decimal("1000"), "customs_duty": Decimal("0"),
          "border_mot": "1", "inland_mot": "3", "net_mass": Decimal("100"), "cpc": "4000000"},
-        {"consignor_name": "JYSK A/S", "origin_country": "VN", "commodity_code": "6303929090",
+        {"consignor_name": "Nordisk Import A/S", "origin_country": "VN", "commodity_code": "6303929090",
          "customs_value_dkk": Decimal("500"), "customs_duty": Decimal("60"),
          "border_mot": "1", "inland_mot": "3", "net_mass": Decimal("40"), "cpc": "4000000"},
         {"consignor_name": "Schou", "origin_country": "CN", "commodity_code": "6303929090",
@@ -27,11 +27,11 @@ def _rows():
 
 def test_supplier_overview_counts_countries_and_aggregates():
     sup = supplier_overview(_rows())
-    jysk = next(s for s in sup if s["consignor"] == "JYSK A/S")
-    assert jysk["countries_count"] == 2          # CN + VN
-    assert jysk["customs_value"] == Decimal("1500")
-    assert jysk["import_duty"] == Decimal("60")
-    assert sup[0]["consignor"] == "JYSK A/S"      # sorteret efter toldværdi
+    nordisk = next(s for s in sup if s["consignor"] == "Nordisk Import A/S")
+    assert nordisk["countries_count"] == 2          # CN + VN
+    assert nordisk["customs_value"] == Decimal("1500")
+    assert nordisk["import_duty"] == Decimal("60")
+    assert sup[0]["consignor"] == "Nordisk Import A/S"      # sorteret efter toldværdi
 
 
 def test_cpc_analysis_shares_sum_to_one():

@@ -1,6 +1,6 @@
 """Told-faglige tjek oven på tariferingslaget.
 
-Tre kerne-tjek (jf. JYSK's "FTA Opportunities" + EDR-analyse):
+Tre kerne-tjek (FTA Opportunities + EDR-analyse):
 - **CUS-P02 manglende FTA-mulighed:** ingen præference påberåbt (DutyRegimeCode 100),
   men oprindelseslandet har en aftale med en lavere sats → potentiel besparelse.
 - **CUS-P03 ugyldig præference:** præference påberåbt (≠100), men oprindelseslandet

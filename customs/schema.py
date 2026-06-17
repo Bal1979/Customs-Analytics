@@ -3,7 +3,7 @@
 Ét format som alle indlæsere (WCO DMS-XML, legacy SAD, Excel/CSV) oversætter til,
 og som al analyse og alle sanity-tjek arbejder oven på. Modellen er bevidst flad
 nok til at kunne "foldes ud" til én række pr. varepost (``Declaration.to_rows``),
-hvilket er den analyseklare form (jf. JYSK-dashboardet).
+hvilket er den analyseklare form (jf. analyse-dashboardet).
 
 Felter navngives fagligt (dansk/told-terminologi) og bærer reference til det
 underliggende WCO-/DMS-dataelement i docstrings, så kortlægningen er sporbar.

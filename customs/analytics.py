@@ -1,7 +1,7 @@
 """Analyselag — aggregeringer oven på analyseklare rækker (``Declaration.to_rows``
 eller Excel/CSV-adapterens output).
 
-Fase 1: **Imports Summary** — de KPI'er og fordelinger JYSK-dashboardet viser.
+Fase 1: **Imports Summary** — de KPI'er og fordelinger analyse-dashboardet viser.
 Alle beløb holdes som ``Decimal``; konvertering til JSON-venlige tal sker i web-laget.
 Funktionerne er rene (ingen I/O), så de er trivielt testbare.
 """

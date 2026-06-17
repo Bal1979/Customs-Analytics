@@ -24,9 +24,21 @@
     </header>
 
     <main>
-        <p class="dataset-note" id="dataset-note">Indlæser …</p>
+        <!-- Ren start-tilstand: ingen demo-data, klar til import -->
+        <section class="empty-state" id="empty-state">
+            <div class="empty-card">
+                <div class="empty-icon" aria-hidden="true">⬆</div>
+                <h2>Klar til import</h2>
+                <p>Upload en importfil — <strong>CSV, XLSX, DMS-XML</strong> eller <strong>PDF</strong> (gammelt toldsystem) — for at se told- og importanalyserne.</p>
+                <button class="upload-btn" id="empty-upload-btn">Upload importdata</button>
+                <p class="upload-error" id="upload-error" hidden></p>
+                <p class="empty-hint">Filen analyseres i hukommelsen og gemmes ikke.</p>
+            </div>
+        </section>
 
-        <nav class="tabs" id="tabs">
+        <p class="dataset-note" id="dataset-note" hidden></p>
+
+        <nav class="tabs" id="tabs" hidden>
             <button class="tab active" data-tab="overview">Oversigt</button>
             <button class="tab" data-tab="suppliers">Leverandører</button>
             <button class="tab" data-tab="sourcing">Sourcing</button>
@@ -101,7 +113,7 @@
         </section>
     </main>
 
-    <footer>Bal AI · Customs Analytics — demodata er syntetisk og fiktiv.</footer>
+    <footer>Bal AI · Customs Analytics — told- og importanalyse på Toldstyrelsens tarifdata.</footer>
 
     <script src="{{ url_for('static', filename='dashboard.js') }}"></script>
 </body>

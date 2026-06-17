@@ -1,6 +1,6 @@
 """Klassifikationsanalyse — finder fejlkvalificering (samme vare, forskellig HS-kode).
 
-To niveauer, jf. JYSK-forlægget:
+To niveauer, i to niveauer:
 - **Eksakt konsistens** (`classification_consistency`): samme varebeskrivelse →
   flere forskellige HS-koder = oplagte fejl (høj konfidens).
 - **Fuzzy matching** (`fuzzy_clusters`): klynger *lignende* beskrivelser (varianter,

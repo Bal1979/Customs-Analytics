@@ -8,7 +8,7 @@ Kontinuitets-note: hvor projektet er, hvorfor valgene blev truffet, og hvad der 
 Bal AI-værktøj til **told- og importanalyse** af danske importdata. Femte produkt i
 porteføljen (saft/vat/vies/vat-extract). Modelleret på **VAT Analytics**-mønstret:
 Flask-web-lag tyndt, al forretningslogik i den testbare `customs/`-pakke, genbrugt
-auth/datapolitik. Fagligt forlæg: en EY Power BI-rapport for JYSK (9 analysesider).
+auth/datapolitik. Fagligt forlæg: en told-importanalyse-rapport (9 analysesider, anonymiseret forlæg).
 Mål: EY-godkendelse, som søsterprojekterne. Front-end vægtes højt (rigtige
 dashboards) men i **Bal AI's lyse navy-identitet** (#1B365D på hvid, IBM Plex Sans),
 ikke EY's mørke/gule look.
@@ -19,11 +19,11 @@ ikke EY's mørke/gule look.
   (`customs/parsers/wco_xml.py`), **sanity-tjek** (`customs/sanity.py`), officiel
   referencedata i `reference/` (H1/I1-XSD'er + codelists), kilde-commit i
   `reference/SOURCE_COMMIT.txt`.
-- **Fase 1 (i gang):** analyselag (`customs/analytics.py`) med **hele JYSK-kernen** —
+- **Fase 1 (i gang):** analyselag (`customs/analytics.py`) med **hele analyse-kernen** —
   Imports Summary, Supplier Overview, Sourcing, CPC-analyse, Transport (grænse+indland,
   nettovægt); samlet via `build_report()`. **Excel/CSV-adapter**
   (`customs/parsers/tabular.py`), syntetisk demodata (`tools/generate_sample.py` →
-  `sample_data/jysk_like_imports.csv`) og **faneopdelt dashboard** (`app.py` +
+  `tests/fixtures/sample_imports.csv`) og **faneopdelt dashboard** (`app.py` +
   `templates/dashboard.html` + `static/`) i Bal AI-identitet (ECharts: choropleth-verdenskort,
   linje, bar, donut, tabeller). Verdenskort-GeoJSON vendret i `static/world.json`
   (apache/echarts testdata, keyed by `name`; ISO2→navn-map i `dashboard.js`).
@@ -31,7 +31,7 @@ ikke EY's mørke/gule look.
   HS×oprindelse → MFN/præferencesats/aftale; told-faglige tjek (`customs/duty_checks.py`):
   CUS-P02 manglende FTA-mulighed, CUS-P03 ugyldig præference (rød), CUS-E01 EDR-rimelighed;
   **FTA Opportunities**-rapport + UI-fane. Kører p.t. på **kurateret seed** (`reference/tariff/`,
-  JYSK-relevante kapitler + EU's aftaledækning); produktionskilde = officiel TARIC bulk
+  relevante kapitler + EU's aftaledækning); produktionskilde = officiel TARIC bulk
   (DG TAXUD), sync scaffoldet i `tools/sync_taric.py`. Demodata: told = 0 når præference
   påberåbt (kode 300), ellers MFN.
 - **Fase 3 (delvist) — klassifikation:** `customs/classification.py` med **eksakt

@@ -6,7 +6,7 @@ from pathlib import Path
 from customs.analytics import imports_summary
 from customs.parsers.tabular import parse_tabular
 
-SAMPLE = Path(__file__).resolve().parent.parent / "sample_data" / "jysk_like_imports.csv"
+SAMPLE = Path(__file__).resolve().parent / "fixtures" / "sample_imports.csv"
 
 
 def _rows():
