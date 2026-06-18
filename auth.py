@@ -337,6 +337,26 @@ def init_app(app):
         os.environ.get("SESSION_COOKIE_SECURE", "1").strip().lower()
         not in ("0", "false", "no", ""))
 
+    # Diagnostik: afslør om brugerdatabasen rent faktisk ligger på et persistent
+    # volume. Asks-for-admin-hver-deploy skyldes næsten altid at AUTH_DB_PATH ikke
+    # er sat, ELLER at intet volume er mountet på mappen (så /data findes som
+    # almindelig container-mappe og forsvinder ved deploy).
+    _db = _db_path()
+    _db_dir = os.path.dirname(_db) or "."
+    _is_mount = os.path.ismount(_db_dir)
+    logger.info(
+        "Auth-DB diagnostik: path=%s | AUTH_DB_PATH sat=%s | mappe-er-volume(mountpoint)=%s | db-fil-findes=%s",
+        _db, "AUTH_DB_PATH" in os.environ, _is_mount, os.path.exists(_db),
+    )
+    if not os.environ.get("AUTH_DB_PATH") or not _is_mount:
+        logger.warning(
+            "Auth-DB persisteres IKKE: %s. Sæt AUTH_DB_PATH=/data/auth.db og "
+            "mount et Railway-volume på /data (samme service), ellers nulstilles "
+            "brugere ved hver deploy.",
+            "AUTH_DB_PATH mangler" if not os.environ.get("AUTH_DB_PATH")
+            else f"{_db_dir} er ikke et mountet volume",
+        )
+
     init_db()
     app.teardown_appcontext(close_db)
     app.register_blueprint(bp)
