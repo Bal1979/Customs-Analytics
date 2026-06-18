@@ -27,13 +27,17 @@ body {
 }
 
 .topbar {
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+}
+.topbar-inner {
+    max-width: 1240px;
+    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
-    padding: 1rem 1.75rem;
-    background: var(--bg);
-    border-bottom: 1px solid var(--border);
+    padding: 0.9rem 1.75rem;
 }
 
 /* Bal AI tilbage-til-landing lockup — kanonisk, ens på tværs af alle værktøjer */
@@ -68,11 +72,11 @@ main { max-width: 1240px; margin: 0 auto; padding: 1.5rem 1.75rem 3rem; }
 }
 .dataset-note strong { color: var(--navy); }
 
-/* Ren start-tilstand (ingen demo-data) */
-.empty-state { display: flex; justify-content: center; padding: 4rem 1rem 5rem; }
+/* Ren start-tilstand (ingen demo-data) — bred dropzone som SAF-T */
+.empty-state { padding: 0.5rem 0 3rem; }
 .empty-card {
-    background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius);
-    box-shadow: var(--shadow); padding: 2.5rem 2.25rem; max-width: 520px; text-align: center;
+    background: var(--bg); border: 2px dashed #CBD5E1; border-radius: var(--radius);
+    box-shadow: none; padding: 3rem 2rem; text-align: center;
 }
 .empty-icon {
     width: 52px; height: 52px; margin: 0 auto 1rem; border-radius: 50%;
