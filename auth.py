@@ -337,25 +337,33 @@ def init_app(app):
         os.environ.get("SESSION_COOKIE_SECURE", "1").strip().lower()
         not in ("0", "false", "no", ""))
 
-    # Diagnostik: afslør om brugerdatabasen rent faktisk ligger på et persistent
-    # volume. Asks-for-admin-hver-deploy skyldes næsten altid at AUTH_DB_PATH ikke
-    # er sat, ELLER at intet volume er mountet på mappen (så /data findes som
-    # almindelig container-mappe og forsvinder ved deploy).
+    # Persistens-probe: definitivt tjek af om brugerdatabasens mappe overlever
+    # deploys. (os.path.ismount er upålidelig på Railways bind-mount-volumes — den
+    # gav falsk alarm. Vi bruger en markørfil i stedet: er den der ved boot,
+    # persisterer mappen; mangler den hver gang, gør den ikke.)
     _db = _db_path()
     _db_dir = os.path.dirname(_db) or "."
-    _is_mount = os.path.ismount(_db_dir)
-    logger.info(
-        "Auth-DB diagnostik: path=%s | AUTH_DB_PATH sat=%s | mappe-er-volume(mountpoint)=%s | db-fil-findes=%s",
-        _db, "AUTH_DB_PATH" in os.environ, _is_mount, os.path.exists(_db),
-    )
-    if not os.environ.get("AUTH_DB_PATH") or not _is_mount:
-        logger.warning(
-            "Auth-DB persisteres IKKE: %s. Sæt AUTH_DB_PATH=/data/auth.db og "
-            "mount et Railway-volume på /data (samme service), ellers nulstilles "
-            "brugere ved hver deploy.",
-            "AUTH_DB_PATH mangler" if not os.environ.get("AUTH_DB_PATH")
-            else f"{_db_dir} er ikke et mountet volume",
+    _auth_env = "AUTH_DB_PATH" in os.environ
+    try:
+        os.makedirs(_db_dir, exist_ok=True)
+        _marker = os.path.join(_db_dir, ".balai_persist_marker")
+        _persisted = os.path.exists(_marker)
+        if not _persisted:
+            with open(_marker, "w") as _fh:
+                _fh.write("balai\n")
+        logger.info(
+            "Auth-DB persistens-probe: dir=%s | AUTH_DB_PATH sat=%s | mappe-persisterer=%s | db-fil-findes=%s",
+            _db_dir, _auth_env, _persisted, os.path.exists(_db),
         )
+        if not _persisted:
+            logger.warning(
+                "Auth-DB: markør manglede ved boot — enten FØRSTE boot på et nyt "
+                "volume (forventet netop én gang), ELLER mappen %s persisterer ikke. "
+                "Tjek igen efter NÆSTE deploy: står der 'mappe-persisterer=True', er alt ok.",
+                _db_dir,
+            )
+    except OSError as _e:
+        logger.warning("Auth-DB persistens-probe kunne ikke skrive i %s: %s", _db_dir, _e)
 
     init_db()
     app.teardown_appcontext(close_db)
