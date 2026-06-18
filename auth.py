@@ -337,50 +337,37 @@ def init_app(app):
         os.environ.get("SESSION_COOKIE_SECURE", "1").strip().lower()
         not in ("0", "false", "no", ""))
 
-    # Persistens-probe: definitivt tjek af om brugerdatabasens mappe overlever
-    # deploys. (os.path.ismount er upålidelig på Railways bind-mount-volumes — den
-    # gav falsk alarm. Vi bruger en markørfil i stedet: er den der ved boot,
-    # persisterer mappen; mangler den hver gang, gør den ikke.)
+    # Persistens-markør: skriv en lille fil i db-mappen hvis den ikke findes.
+    # Findes den ved NÆSTE boot, persisterer mappen; mangler den hver gang, gør den ikke.
     _db = _db_path()
     _db_dir = os.path.dirname(_db) or "."
-    _auth_env = "AUTH_DB_PATH" in os.environ
+    _had_marker = None
     try:
         os.makedirs(_db_dir, exist_ok=True)
         _marker = os.path.join(_db_dir, ".balai_persist_marker")
-        _persisted = os.path.exists(_marker)
-        if not _persisted:
+        _had_marker = os.path.exists(_marker)
+        if not _had_marker:
             with open(_marker, "w") as _fh:
                 _fh.write("balai\n")
-        logger.info(
-            "Auth-DB persistens-probe: dir=%s | AUTH_DB_PATH sat=%s | mappe-persisterer=%s | db-fil-findes=%s",
-            _db_dir, _auth_env, _persisted, os.path.exists(_db),
-        )
-        if not _persisted:
-            logger.warning(
-                "Auth-DB: markør manglede ved boot — enten FØRSTE boot på et nyt "
-                "volume (forventet netop én gang), ELLER mappen %s persisterer ikke. "
-                "Tjek igen efter NÆSTE deploy: står der 'mappe-persisterer=True', er alt ok.",
-                _db_dir,
-            )
     except OSError as _e:
-        logger.warning("Auth-DB persistens-probe kunne ikke skrive i %s: %s", _db_dir, _e)
+        logger.warning("Auth-DB: kunne ikke skrive markør i %s: %s", _db_dir, _e)
 
     init_db()
 
-    # Endegyldig diagnostik: tæl brugere direkte i db'en ved boot (vises i Deploy
-    # Logs ved hver opstart). 'antal brugere=1' EFTER en redeploy = persistens virker;
-    # er den 0 hver gang efter admin er oprettet, nulstilles db'en reelt.
+    # Samlet diagnostik på WARNING-niveau, så den ALTID vises i Railway-loggen
+    # (INFO undertrykkes). brugere>=1 EFTER en redeploy = persistens virker.
     try:
-        _sz = os.path.getsize(_db) if os.path.exists(_db) else -1
-        _probe = sqlite3.connect(_db)
-        _users = _probe.execute("SELECT COUNT(*) FROM users").fetchone()[0]
-        _probe.close()
-        logger.info(
-            "Auth-DB indhold ved boot: fil=%s | findes=%s | stoerrelse=%dB | antal brugere=%d",
-            _db, os.path.exists(_db), _sz, _users,
+        _exists = os.path.exists(_db)
+        _sz = os.path.getsize(_db) if _exists else -1
+        _conn = sqlite3.connect(_db)
+        _users = _conn.execute("SELECT COUNT(*) FROM users").fetchone()[0]
+        _conn.close()
+        logger.warning(
+            "AUTH-DIAG: AUTH_DB_PATH=%r | resolved=%s | markoer_fandtes=%s | db_findes=%s | stoerrelse=%dB | brugere=%d",
+            os.environ.get("AUTH_DB_PATH"), _db, _had_marker, _exists, _sz, _users,
         )
     except Exception as _e:  # pragma: no cover - kun diagnostik
-        logger.warning("Auth-DB indhold-tjek fejlede: %s", _e)
+        logger.warning("AUTH-DIAG fejlede: %s", _e)
 
     app.teardown_appcontext(close_db)
     app.register_blueprint(bp)
