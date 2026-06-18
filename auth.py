@@ -339,38 +339,7 @@ def init_app(app):
         os.environ.get("SESSION_COOKIE_SECURE", "1").strip().lower()
         not in ("0", "false", "no", ""))
 
-    # Persistens-markør: skriv en lille fil i db-mappen hvis den ikke findes.
-    # Findes den ved NÆSTE boot, persisterer mappen; mangler den hver gang, gør den ikke.
-    _db = _db_path()
-    _db_dir = os.path.dirname(_db) or "."
-    _had_marker = None
-    try:
-        os.makedirs(_db_dir, exist_ok=True)
-        _marker = os.path.join(_db_dir, ".balai_persist_marker")
-        _had_marker = os.path.exists(_marker)
-        if not _had_marker:
-            with open(_marker, "w") as _fh:
-                _fh.write("balai\n")
-    except OSError as _e:
-        logger.warning("Auth-DB: kunne ikke skrive markør i %s: %s", _db_dir, _e)
-
     init_db()
-
-    # Samlet diagnostik på WARNING-niveau, så den ALTID vises i Railway-loggen
-    # (INFO undertrykkes). brugere>=1 EFTER en redeploy = persistens virker.
-    try:
-        _exists = os.path.exists(_db)
-        _sz = os.path.getsize(_db) if _exists else -1
-        _conn = sqlite3.connect(_db)
-        _users = _conn.execute("SELECT COUNT(*) FROM users").fetchone()[0]
-        _conn.close()
-        logger.warning(
-            "AUTH-DIAG: AUTH_DB_PATH=%r | resolved=%s | markoer_fandtes=%s | db_findes=%s | stoerrelse=%dB | brugere=%d",
-            os.environ.get("AUTH_DB_PATH"), _db, _had_marker, _exists, _sz, _users,
-        )
-    except Exception as _e:  # pragma: no cover - kun diagnostik
-        logger.warning("AUTH-DIAG fejlede: %s", _e)
-
     app.teardown_appcontext(close_db)
     app.register_blueprint(bp)
     app.jinja_env.globals["csrf_token"] = csrf_token
