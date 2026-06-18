@@ -366,6 +366,22 @@ def init_app(app):
         logger.warning("Auth-DB persistens-probe kunne ikke skrive i %s: %s", _db_dir, _e)
 
     init_db()
+
+    # Endegyldig diagnostik: tæl brugere direkte i db'en ved boot (vises i Deploy
+    # Logs ved hver opstart). 'antal brugere=1' EFTER en redeploy = persistens virker;
+    # er den 0 hver gang efter admin er oprettet, nulstilles db'en reelt.
+    try:
+        _sz = os.path.getsize(_db) if os.path.exists(_db) else -1
+        _probe = sqlite3.connect(_db)
+        _users = _probe.execute("SELECT COUNT(*) FROM users").fetchone()[0]
+        _probe.close()
+        logger.info(
+            "Auth-DB indhold ved boot: fil=%s | findes=%s | stoerrelse=%dB | antal brugere=%d",
+            _db, os.path.exists(_db), _sz, _users,
+        )
+    except Exception as _e:  # pragma: no cover - kun diagnostik
+        logger.warning("Auth-DB indhold-tjek fejlede: %s", _e)
+
     app.teardown_appcontext(close_db)
     app.register_blueprint(bp)
     app.jinja_env.globals["csrf_token"] = csrf_token
