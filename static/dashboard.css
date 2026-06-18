@@ -59,6 +59,10 @@ body {
 
 main { max-width: 1240px; margin: 0 auto; padding: 1.5rem 1.75rem 3rem; }
 
+.page-head { margin-bottom: 1.5rem; }
+.page-head h1 { font-size: 1.6rem; color: var(--navy); margin-bottom: 0.35rem; }
+.page-head p { color: var(--text-muted); font-size: 0.95rem; max-width: 760px; }
+
 .dataset-note {
     font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.1rem;
 }
