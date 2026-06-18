@@ -28,8 +28,18 @@
       max-width: 420px; margin: 8vh auto 0; padding: 0 1rem;
     }
     .wide { max-width: 880px; }
-    .brand { display: inline-block; color: var(--navy); font-weight: 700; font-size: 1.15rem; margin-bottom: 1.25rem; text-decoration: none; transition: opacity 0.15s ease; }
-    a.brand:hover { opacity: 0.7; }
+    /* Bal AI tilbage-til-landing lockup — kanonisk, ens på tværs af alle værktøjer */
+    .balai-home { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; transition: opacity 0.15s ease; margin-bottom: 1.25rem; }
+    .balai-home:hover { opacity: 0.72; }
+    .balai-home-mark {
+      flex: none; width: 32px; height: 32px; border-radius: 6px;
+      background: #1B365D; color: #fff;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 15px; line-height: 1;
+    }
+    .balai-home-text { display: inline-flex; flex-direction: column; line-height: 1.15; text-align: left; }
+    .balai-home-top { font-weight: 600; font-size: 14px; color: #1B365D; }
+    .balai-home-sub { font-weight: 400; font-size: 11px; color: #6B7280; }
     .card {
       background: #fff; border: 1px solid var(--border); border-radius: 8px;
       padding: 1.75rem;
@@ -78,7 +88,13 @@
 </head>
 <body>
   <div class="auth-wrap {% block wrap_class %}{% endblock %}">
-    <a class="brand" href="https://www.balai.dk" title="Tilbage til balai.dk">BAL AI · Customs Analytics</a>
+    <a class="balai-home" href="https://www.balai.dk" title="Tilbage til balai.dk">
+      <span class="balai-home-mark" aria-hidden="true">B</span>
+      <span class="balai-home-text">
+        <span class="balai-home-top">BALAI</span>
+        <span class="balai-home-sub">Customs Analytics</span>
+      </span>
+    </a>
     {% block content %}{% endblock %}
     <footer>Customs Analytics · adgangsstyring</footer>
   </div>

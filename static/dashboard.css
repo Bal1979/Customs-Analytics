@@ -36,16 +36,18 @@ body {
     border-bottom: 1px solid var(--border);
 }
 
-.wordmark { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
-a.wordmark { transition: opacity 0.15s ease; }
-a.wordmark:hover { opacity: 0.7; }
-.wordmark-mark {
+/* Bal AI tilbage-til-landing lockup — kanonisk, ens på tværs af alle værktøjer */
+.balai-home { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; transition: opacity 0.15s ease; }
+.balai-home:hover { opacity: 0.72; }
+.balai-home-mark {
+    flex: none; width: 32px; height: 32px; border-radius: 6px;
+    background: #1B365D; color: #fff;
     display: inline-flex; align-items: center; justify-content: center;
-    width: 30px; height: 30px; border-radius: 6px;
-    background: var(--navy); color: #fff; font-weight: 600; font-size: 1rem;
+    font-weight: 700; font-size: 15px; line-height: 1;
 }
-.wordmark-text { font-weight: 600; color: var(--navy); }
-.wordmark-text span { color: var(--text-muted); font-weight: 500; }
+.balai-home-text { display: inline-flex; flex-direction: column; line-height: 1.15; text-align: left; }
+.balai-home-top { font-weight: 600; font-size: 14px; color: #1B365D; }
+.balai-home-sub { font-weight: 400; font-size: 11px; color: #6B7280; }
 
 .upload-btn {
     display: inline-flex; align-items: center; gap: 0.45rem;
