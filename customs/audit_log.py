@@ -36,10 +36,12 @@ def _db_path() -> str:
     Prioritet: AUDIT_DB_PATH; ellers samme mappe som RUNS_DB_PATH/AUTH_DB_PATH
     (det persistente volumen); ellers <repo>/data/audit.db.
     """
-    explicit = os.environ.get("AUDIT_DB_PATH")
+    # .strip(): værn mod utilsigtet mellemrum i env-variablen (en " /data/..."-sti
+    # ville ellers blive relativ og lande på efemer disk i stedet for volumet).
+    explicit = (os.environ.get("AUDIT_DB_PATH") or "").strip()
     if explicit:
         return os.path.abspath(explicit)
-    base = os.environ.get("RUNS_DB_PATH") or os.environ.get("AUTH_DB_PATH")
+    base = (os.environ.get("RUNS_DB_PATH") or os.environ.get("AUTH_DB_PATH") or "").strip()
     if base:
         return os.path.join(os.path.dirname(os.path.abspath(base)), "audit.db")
     return os.path.abspath(_DEFAULT_DB)

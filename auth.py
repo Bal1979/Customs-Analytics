@@ -82,7 +82,9 @@ _DEFAULT_DB_PATH = os.path.join(os.path.dirname(__file__), "data", "auth.db")
 # ---------------------------------------------------------------------------
 
 def _db_path():
-    return os.environ.get("AUTH_DB_PATH", _DEFAULT_DB_PATH)
+    # .strip(): et utilsigtet mellemrum i env-variablen (fx " /data/auth.db") ville
+    # ellers gøre stien relativ og lande på efemer disk i stedet for /data-volumet.
+    return os.environ.get("AUTH_DB_PATH", _DEFAULT_DB_PATH).strip() or _DEFAULT_DB_PATH
 
 
 def get_db():
