@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Opret administrator · BALAI{% endblock %}
+{% block body %}
+<div class="wrap narrow">
+  <div class="card">
+    <h1>Opret administrator</h1>
+    <p class="note">Første gang systemet startes opretter du administratorkontoen.
+       Den får automatisk fuld adgang til alle værktøjer.</p>
+    {% if error %}<div class="err">{{ error }}</div>{% endif %}
+    <form method="post" action="{{ url_for('auth.setup') }}">
+      <input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+      <label for="email">E-mail</label>
+      <input id="email" name="email" type="email" autocomplete="username" required autofocus>
+      <label for="password">Password (mindst 10 tegn)</label>
+      <input id="password" name="password" type="password" autocomplete="new-password" required>
+      <label for="password2">Gentag password</label>
+      <input id="password2" name="password2" type="password" autocomplete="new-password" required>
+      <div style="margin-top:18px"><button class="btn" type="submit">Opret administrator</button></div>
+    </form>
+  </div>
+</div>
+{% endblock %}

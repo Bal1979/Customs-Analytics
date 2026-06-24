@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Opret konto · BALAI{% endblock %}
+{% block body %}
+<div class="wrap narrow">
+  <div class="card">
+    {% if invalid %}
+      <h1>Invitationen er ugyldig</h1>
+      <p class="note">Linket er enten brugt, udløbet eller tilbagekaldt.
+         Bed administratoren om et nyt invitationslink.</p>
+    {% else %}
+      <h1>Opret din konto</h1>
+      {% if note %}<p class="note">{{ note }}</p>{% endif %}
+      <p class="note">Du får adgang til: <strong>{{ access_label }}</strong></p>
+      {% if error %}<div class="err">{{ error }}</div>{% endif %}
+      <form method="post">
+        <input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+        <label for="email">E-mail</label>
+        <input id="email" name="email" type="email" autocomplete="username" required autofocus>
+        <label for="password">Vælg password (mindst 10 tegn)</label>
+        <input id="password" name="password" type="password" autocomplete="new-password" required>
+        <label for="password2">Gentag password</label>
+        <input id="password2" name="password2" type="password" autocomplete="new-password" required>
+        <div style="margin-top:18px"><button class="btn" type="submit">Opret konto</button></div>
+      </form>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

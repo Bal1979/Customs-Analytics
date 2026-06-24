@@ -1,0 +1,145 @@
+{% extends "base.html" %}
+{% block title %}Brugere · BALAI Admin{% endblock %}
+{% block body %}
+<header class="top">
+  <span class="brand">BALAI · Brugerstyring</span>
+  <form method="post" action="{{ url_for('auth.logout') }}">
+    <input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+    <span class="note" style="color:#cdd8ea; margin-right:12px">{{ me.email }}</span>
+    <button class="btn ghost sm" type="submit">Log ud</button>
+  </form>
+</header>
+
+<div class="wrap">
+
+  {% if new_invite_link %}
+  <div class="card">
+    <h2>Invitationslink oprettet</h2>
+    <p class="note">Send dette link til personen. Det vises kun nu, er
+       engangsbrug og udløber om {{ INVITE_TTL_DAYS }} dage.</p>
+    <div class="linkbox">{{ new_invite_link }}</div>
+  </div>
+  {% endif %}
+
+  <div class="card">
+    <h2>Inviter ny bruger</h2>
+    <form method="post" action="{{ url_for('admin.create_invite') }}">
+      <input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+      <div class="row" style="margin-bottom:8px">
+        <label class="inline"><input type="radio" name="level" value="all" checked> Fuld adgang (alle nuværende og fremtidige værktøjer)</label>
+      </div>
+      <div class="row">
+        <label class="inline"><input type="radio" name="level" value="individual"> Individuel adgang — vælg værktøjer:</label>
+      </div>
+      <div class="checks">
+        {% for slug, name in tools.items() %}
+        <label><input type="checkbox" name="tools" value="{{ slug }}"> {{ name }}</label>
+        {% endfor %}
+      </div>
+      <label for="note">Note (valgfri)</label>
+      <input id="note" name="note" type="text" placeholder="fx firma eller formål">
+      <label class="inline" style="margin-top:12px"><input type="checkbox" name="is_admin"> Gør til administrator</label>
+      <div style="margin-top:16px"><button class="btn" type="submit">Opret invitationslink</button></div>
+    </form>
+  </div>
+
+  <div class="card">
+    <h2>Brugere ({{ users|length }})</h2>
+    <table>
+      <thead><tr><th>E-mail</th><th>Status</th><th>Adgang</th><th>Sidste login</th><th>Handlinger</th></tr></thead>
+      <tbody>
+      {% for item in users %}
+        {% set u = item.u %}
+        <tr>
+          <td>{{ u.email }}{% if u.is_admin %} <span class="pill full">admin</span>{% endif %}</td>
+          <td>
+            {% if u.status == 'active' %}<span class="pill active">aktiv</span>
+            {% else %}<span class="pill blocked">blokeret</span>{% endif %}
+          </td>
+          <td>{{ item.access }}</td>
+          <td class="note">{{ u.last_login_at.strftime('%Y-%m-%d %H:%M') if u.last_login_at else '—' }}</td>
+          <td class="actions">
+            <details>
+              <summary class="btn ghost sm" style="display:inline-block">Rediger adgang</summary>
+              <form method="post" action="{{ url_for('admin.set_access', user_id=u.id) }}" style="margin-top:10px">
+                <input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+                <label class="inline"><input type="radio" name="level" value="all" {{ 'checked' if u.all_access }}> Fuld adgang</label><br>
+                <label class="inline"><input type="radio" name="level" value="individual" {{ 'checked' if not u.all_access }}> Individuel:</label>
+                <div class="checks">
+                  {% for slug, name in tools.items() %}
+                  <label><input type="checkbox" name="tools" value="{{ slug }}" {{ 'checked' if slug in item.tools }}> {{ name }}</label>
+                  {% endfor %}
+                </div>
+                <button class="btn sm" type="submit" style="margin-top:8px">Gem</button>
+              </form>
+            </details>
+            {% if u.status == 'active' %}
+              {% if u.id != me.id %}
+              <form method="post" action="{{ url_for('admin.block_user', user_id=u.id) }}">
+                <input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+                <button class="btn danger sm" type="submit" onclick="return confirm('Blokér {{ u.email }}?')">Blokér</button>
+              </form>
+              {% endif %}
+            {% else %}
+              <form method="post" action="{{ url_for('admin.unblock_user', user_id=u.id) }}">
+                <input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+                <button class="btn ghost sm" type="submit">Genåbn</button>
+              </form>
+            {% endif %}
+            {% if u.id != me.id %}
+            <form method="post" action="{{ url_for('admin.delete_user', user_id=u.id) }}">
+              <input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+              <button class="btn danger sm" type="submit" onclick="return confirm('Slet {{ u.email }} permanent? Dette kan ikke fortrydes.')">Slet</button>
+            </form>
+            {% endif %}
+          </td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>Åbne invitationer</h2>
+    {% set open_invites = invites | selectattr('used_at', 'none') | list %}
+    {% if open_invites %}
+    <table>
+      <thead><tr><th>Niveau</th><th>Note</th><th>Udløber</th><th></th></tr></thead>
+      <tbody>
+      {% for inv in open_invites %}
+        <tr>
+          <td>{% if inv.all_access %}Fuld adgang{% else %}Individuel{% endif %}{% if inv.is_admin %} · admin{% endif %}</td>
+          <td class="note">{{ inv.note or '—' }}</td>
+          <td class="note">{{ inv.expires_at.strftime('%Y-%m-%d') }}</td>
+          <td class="actions">
+            <form method="post" action="{{ url_for('admin.revoke_invite', invite_id=inv.id) }}">
+              <input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+              <button class="btn danger sm" type="submit">Tilbagekald</button>
+            </form>
+          </td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+    {% else %}<p class="note">Ingen åbne invitationer.</p>{% endif %}
+  </div>
+
+  <div class="card">
+    <h2>Aktivitetslog (seneste 50)</h2>
+    <table>
+      <thead><tr><th>Tidspunkt</th><th>Handling</th><th>Aktør</th><th>Detalje</th></tr></thead>
+      <tbody>
+      {% for a in audit %}
+        <tr>
+          <td class="note">{{ a.ts.strftime('%Y-%m-%d %H:%M') }}</td>
+          <td>{{ a.action }}</td>
+          <td class="note">{{ a.actor or '—' }}</td>
+          <td class="note">{{ a.detail or '' }}{% if a.outcome %} ({{ a.outcome }}){% endif %}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+</div>
+{% endblock %}

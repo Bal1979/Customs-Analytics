@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="da">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}BALAI{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --navy:#1B365D; --navy-700:#16294a; --line:#e3e8ef; --bg:#f6f8fb;
+            --muted:#5b6b82; --danger:#b3261e; --ok:#1e7e46; --warn:#9a6700; }
+    * { box-sizing: border-box; }
+    body { font-family:'IBM Plex Sans',system-ui,sans-serif; margin:0;
+           background:var(--bg); color:#1a2433; }
+    a { color:var(--navy); }
+    header.top { background:var(--navy); color:#fff; padding:14px 24px;
+                 display:flex; align-items:center; justify-content:space-between; }
+    header.top .brand { font-weight:600; font-size:18px; letter-spacing:.2px; }
+    header.top form { margin:0; }
+    .wrap { max-width:960px; margin:32px auto; padding:0 20px; }
+    .card { background:#fff; border:1px solid var(--line); border-radius:10px;
+            padding:24px; margin-bottom:20px; }
+    .narrow { max-width:420px; }
+    h1 { font-size:22px; margin:0 0 16px; }
+    h2 { font-size:16px; margin:0 0 14px; color:var(--navy); }
+    label { display:block; font-size:13px; font-weight:500; margin:12px 0 4px; }
+    input[type=email],input[type=password],input[type=text],textarea,select {
+      width:100%; padding:10px 12px; border:1px solid #cbd5e1; border-radius:8px;
+      font:inherit; }
+    .btn { display:inline-block; background:var(--navy); color:#fff; border:0;
+           padding:9px 16px; border-radius:8px; font:inherit; font-weight:500;
+           cursor:pointer; text-decoration:none; }
+    .btn:hover { background:var(--navy-700); }
+    .btn.sm { padding:5px 10px; font-size:13px; }
+    .btn.ghost { background:#fff; color:var(--navy); border:1px solid #cbd5e1; }
+    .btn.danger { background:#fff; color:var(--danger); border:1px solid #e5b3b0; }
+    .err { background:#fdecea; color:var(--danger); border:1px solid #f5c6c2;
+           padding:10px 12px; border-radius:8px; margin:12px 0; font-size:14px; }
+    .note { color:var(--muted); font-size:13px; }
+    table { width:100%; border-collapse:collapse; font-size:14px; }
+    th,td { text-align:left; padding:10px 8px; border-bottom:1px solid var(--line);
+            vertical-align:top; }
+    th { color:var(--muted); font-weight:500; font-size:12px; text-transform:uppercase;
+         letter-spacing:.4px; }
+    .pill { display:inline-block; padding:2px 8px; border-radius:999px; font-size:12px;
+            font-weight:500; }
+    .pill.active { background:#e6f4ea; color:var(--ok); }
+    .pill.blocked { background:#fdecea; color:var(--danger); }
+    .pill.full { background:#e8eefc; color:var(--navy); }
+    .inline { display:inline; }
+    .actions form { display:inline; }
+    .linkbox { background:#f0f5ff; border:1px solid #c9d9f7; border-radius:8px;
+               padding:12px; word-break:break-all; font-size:13px; margin:12px 0; }
+    .checks { display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
+              gap:6px; margin-top:6px; }
+    .checks label { display:flex; align-items:center; gap:6px; margin:0; font-weight:400; }
+    .checks input { width:auto; }
+    .row { display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+  </style>
+</head>
+<body>
+  {% block body %}{% endblock %}
+</body>
+</html>
