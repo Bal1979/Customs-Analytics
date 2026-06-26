@@ -1,5 +1,12 @@
 # Customs Analytics — projektkontekst (agent hand-off)
 
+> **Tværgående standarder (LÆS FØRST):** Ved nye værktøjer eller ændringer der
+> rører login, design eller drift på tværs, læs `balai-platform/PLATFORM-BUILD-STANDARD.md`
+> før du går i gang. Den fastlægger bl.a., at `SECRET_KEY` SKAL være **identisk**
+> på tværs af alle værktøjer (delt login), at cookien deles på `.balai.dk`, og
+> hvordan et værktøj kobles på den centrale brugerstyring.
+
+
 Kontinuitets-note: hvor projektet er, hvorfor valgene blev truffet, og hvad der er
 åbent. Hold den opdateret ved væsentlige ændringer.
 
