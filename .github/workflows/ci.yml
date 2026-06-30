@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    name: Tests (Python ${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.13"]   # baseline (se .python-version)
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Installér afhængigheder
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-dev.txt
+      - name: Kør tests
+        run: pytest -q
+      - name: Uafhængig valideringssuite (gate)
+        # Bekræfter at hver implementeret kontrol fyrer på sit defekt-scenarie.
+        # --quiet → kun exit-kode (0 = bestået). Porten fejler bygget hvis ikke.
+        run: python -m validation.run_validation --quiet
+
+  audit:
+    name: pip-audit (sårbarheder i afhængigheder)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Installér pip-audit
+        run: |
+          python -m pip install --upgrade pip pip-audit
+      - name: Audit pinnede runtime-afhængigheder
+        # Fejler bygget hvis en runtime-pakke har en kendt sårbarhed.
+        # Skal en konkret advisory midlertidigt ignoreres, tilføj:
+        #   --ignore-vuln GHSA-xxxx-xxxx-xxxx
+        run: pip-audit -r requirements.txt --strict
