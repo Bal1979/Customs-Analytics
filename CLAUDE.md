@@ -155,6 +155,27 @@ Referencedata (MFN + præferencer) holdes friske **automatisk**:
 - Skriv dansk, klart og konkret. **Slet aldrig filer uden tilladelse; modificér
   aldrig den uploadede angivelse** — kun analysér/rapportér.
 
+## Godkendelsespakke (Fase 4 — påbegyndt 2026-06-18)
+
+EY-godkendelsesrammen er rejst, **1:1 med SAF-T's docs-pakke** (verificeret med diff).
+Ærlig status (Dækket/Udkast/Åbent) i `docs/Customs-Analytics_Godkendelses-overblik.docx`.
+
+- **Regelkatalog (kilde):** `customs/rules/Customs-Validation-Rules.json` (`catalog_version`
+  0.1.0) — 12 implementerede + 4 planlagte kontroller i 5 lag, hver mappet til autoritativ
+  kilde → modul → test. Ved ny/ændret kontrol: bump version + opdatér suite + matrix + CHANGELOG.
+- **Uafhængig valideringssuite:** `validation/` (scenarios + run_validation) — plantet defekt
+  pr. implementeret kontrol, kørt gennem den RIGTIGE checker; gated i
+  `tests/test_validation_suite.py`. 13 scenarier, alle grønne. 48 tests i alt.
+- **Docs i `docs/`:** Godkendelses-overblik, Solution Architecture, Sikkerhed (Udkast),
+  Hosting (Udkast), Regel-sporbarhedsmatrix.xlsx, Valideringsrapport.md, README, CHANGELOG.
+- **Regenerér:** `python -m validation.run_validation` · `python tools/build_traceability.py`
+  (kræver openpyxl — i requirements.txt) · `npm install docx && node tools/build_approval_docs.js`.
+  Node-artefakter (`package.json`, `package-lock.json`, `node_modules/`) er gitignored.
+- **Åbent (overblikkets §4):** CI (pytest + pip-audit), central `balai_auth` + fælles
+  SECRET_KEY, EU data-residency, fuld TARIC (anti-dumping/suspension/kvote → stram EDR til RØD),
+  stress-test på rigtige klientdata, ekstern pen-test, jura-review af sikkerhedsdoc. **Auth-valg:**
+  nuværende lokale auth = Dækket, central auth = Åbent.
+
 ## Faseplan
 
 - **Fase 0 (nu):** skelet + kanonisk skema + WCO-XML-parser + struktur-sanity-tjek.
@@ -163,7 +184,9 @@ Referencedata (MFN + præferencer) holdes friske **automatisk**:
 - **Fase 2:** FTA-database (scrape præferencesatser pr. HS×land×aftale) +
   Taric MFN-satser → FTA Opportunities + EDR-rimelighed.
 - **Fase 3:** Classification Analysis, Fuzzy Match, Import Supply Path (flowkort).
-- **Fase 4:** godkendelsespakke (regelkatalog, valideringssuite, docx, CI, pip-audit).
+- **Fase 4 (påbegyndt 2026-06-18):** godkendelsespakke — regelkatalog, valideringssuite,
+  sporbarhedsmatrix og 4 docx er bygget (se §Godkendelsespakke ovenfor). Mangler: CI +
+  pip-audit, central auth, EU-residency, stress-test, pen-test.
 
 ## Åbne tråde
 
