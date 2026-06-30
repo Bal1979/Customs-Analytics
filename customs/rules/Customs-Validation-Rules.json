@@ -1,0 +1,217 @@
+{
+  "$schema": "https://balai.dk/schemas/validation-rules-1.json",
+  "catalog_version": "0.1.0",
+  "catalog_released": "2026-06-18",
+  "language": "da",
+  "description": "Regelkatalog for Customs Analytics — told- og importanalyse af danske DMS/WCO-importdata. Maskinlæsbar, versioneret kilde til sporbarhedsmatrix, valideringssuite og dokumentation. Hver kontrol er forankret i en autoritativ kilde (Toldstyrelsen/DMS-vejledning, TARIC, EU's FTA-grundlag) og mappet til implementeringsmodul + test. Status angiver om kontrollen er implementeret eller planlagt (udkast).",
+  "severity_levels": [
+    { "id": "red", "label_da": "Rød — handling krævet", "rank": 1 },
+    { "id": "yellow", "label_da": "Gul — gennemse", "rank": 2 },
+    { "id": "info", "label_da": "Info — oplysende", "rank": 3 }
+  ],
+  "layers": [
+    { "id": 1, "key": "struktur", "label_da": "Struktur & format" },
+    { "id": 2, "key": "konsistens", "label_da": "Intern konsistens (vægt & værdi)" },
+    { "id": 3, "key": "oprindelse", "label_da": "Oprindelse & præference-krav" },
+    { "id": 4, "key": "tarifering", "label_da": "Tarifering & told (TARIC/FTA)" },
+    { "id": 5, "key": "klassifikation", "label_da": "Klassifikation" }
+  ],
+  "statuses": [
+    { "id": "implemented", "label_da": "Implementeret" },
+    { "id": "planned", "label_da": "Planlagt (udkast)" }
+  ],
+  "rules": [
+    {
+      "id": "CUS-H01",
+      "layer": 1,
+      "severity": "red",
+      "status": "implemented",
+      "name_da": "Varekode er 10 cifre",
+      "description_da": "Varekoden skal kunne dannes som 10 cifre (HS 6 + KN 2 + TARIC 2). Mangler den, eller har den ikke 10 cifre, kan varen ikke tariferes entydigt.",
+      "authoritative_source": "DMS-vejledning, dataelement 18 09 056/057/058; Toldtariffen (TARIC).",
+      "implementation": "customs/sanity.py:_check_item",
+      "test": "tests/test_sanity.py; validation/scenarios.py (CUS-H01)",
+      "suggested_fix_da": "Kontrollér at HS6+KN2+TARIC2 er angivet fuldt; suppler manglende TARIC-led."
+    },
+    {
+      "id": "CUS-C01",
+      "layer": 1,
+      "severity": "yellow",
+      "status": "implemented",
+      "name_da": "Procedurekode (CPC) er 7 tegn",
+      "description_da": "Procedurekoden skal kunne dannes som 7 tegn (anmodet 2 + forudgående 2 + supplerende 3). Manglende eller forkert længde indikerer en ufuldstændig procedureangivelse.",
+      "authoritative_source": "DMS-vejledning, dataelement 11 09 001/002 + 11 10.",
+      "implementation": "customs/sanity.py:_check_item",
+      "test": "tests/test_sanity.py; validation/scenarios.py (CUS-C01)",
+      "suggested_fix_da": "Angiv anmodet + forudgående + supplerende procedurekode korrekt (fx 40 00 000)."
+    },
+    {
+      "id": "CUS-W01",
+      "layer": 2,
+      "severity": "red",
+      "status": "implemented",
+      "name_da": "Samlet bruttovægt ≥ summen af vareposternes bruttovægt",
+      "description_da": "Angivelsens samlede bruttovægt må ikke være mindre end summen af vareposternes bruttovægt — ellers er totalen eller en linje forkert.",
+      "authoritative_source": "DMS-vejledning, dataelement 18 04 (gruppe 18).",
+      "implementation": "customs/sanity.py:_check_weight_totals",
+      "test": "tests/test_sanity.py; validation/scenarios.py (CUS-W01)",
+      "suggested_fix_da": "Afstem totalen mod linjernes bruttovægt; ret den fejlbehæftede værdi."
+    },
+    {
+      "id": "CUS-W02",
+      "layer": 2,
+      "severity": "red",
+      "status": "implemented",
+      "name_da": "Nettovægt ≤ bruttovægt pr. linje",
+      "description_da": "En vareposts nettovægt kan ikke overstige dens bruttovægt.",
+      "authoritative_source": "DMS-vejledning, dataelement 18 01 vs. 18 04.",
+      "implementation": "customs/sanity.py:_check_item",
+      "test": "tests/test_sanity.py; validation/scenarios.py (CUS-W02)",
+      "suggested_fix_da": "Ret netto- eller bruttovægten; netto inkluderer ikke emballage, brutto gør."
+    },
+    {
+      "id": "CUS-V01",
+      "layer": 2,
+      "severity": "yellow",
+      "status": "implemented",
+      "name_da": "Toldværdi udfyldt og positiv",
+      "description_da": "Toldværdien (statistisk værdi i DKK) bør være udfyldt og positiv; ellers kan effektiv toldsats og statistik ikke beregnes.",
+      "authoritative_source": "DMS-vejledning, dataelement 99 06 001 (statistisk værdi).",
+      "implementation": "customs/sanity.py:_check_item",
+      "test": "tests/test_sanity.py; validation/scenarios.py (CUS-V01)",
+      "suggested_fix_da": "Angiv den statistiske værdi i DKK; verificér omregning fra fakturavaluta."
+    },
+    {
+      "id": "CUS-O01",
+      "layer": 3,
+      "severity": "red",
+      "status": "implemented",
+      "name_da": "Oprindelsesland udfyldt",
+      "description_da": "Oprindelsesland skal være udfyldt pr. varepost — det er grundlaget for tariferings-, præference- og handelspolitiske kontroller.",
+      "authoritative_source": "DMS-vejledning, dataelement 16 08 (oprindelsesland).",
+      "implementation": "customs/sanity.py:_check_item",
+      "test": "tests/test_sanity.py; validation/scenarios.py (CUS-O01)",
+      "suggested_fix_da": "Angiv oprindelseslandet (ISO-landekode) pr. varepost."
+    },
+    {
+      "id": "CUS-P01",
+      "layer": 3,
+      "severity": "yellow",
+      "status": "implemented",
+      "name_da": "Præference påberåbt → præference-oprindelsesland påkrævet",
+      "description_da": "Påberåbes præference (DutyRegimeCode ≠ 100), skal præference-oprindelseslandet (Origin TypeCode 2) være sat — ellers er kravet ufuldstændigt.",
+      "authoritative_source": "DMS-vejledning, dataelement 14 11 001 (DutyRegimeCode) + 16 09 (præference-oprindelse).",
+      "implementation": "customs/sanity.py:_check_item",
+      "test": "tests/test_sanity.py; validation/scenarios.py (CUS-P01)",
+      "suggested_fix_da": "Angiv præference-oprindelseslandet, eller fjern præference-påberåbelsen hvis den ikke gælder."
+    },
+    {
+      "id": "CUS-P02",
+      "layer": 4,
+      "severity": "yellow",
+      "status": "implemented",
+      "name_da": "Manglende FTA-mulighed",
+      "description_da": "Ingen præference påberåbt (DutyRegimeCode 100), men oprindelseslandet er omfattet af en frihandelsaftale/præferenceordning med en lavere sats på importdatoen → potentiel uudnyttet toldbesparelse.",
+      "authoritative_source": "TARIC præferencesatser (Trader Export Total) + EU's FTA-/GSP-/EPA-dækning; temporal match på importdatoen.",
+      "implementation": "customs/duty_checks.py:duty_findings (via evaluate_row + customs/tariff.py)",
+      "test": "tests/test_tariff.py; validation/scenarios.py (CUS-P02)",
+      "suggested_fix_da": "Verificér oprindelsesbevis og påberåb præferencen, hvis varen opfylder oprindelsesreglerne."
+    },
+    {
+      "id": "CUS-P03",
+      "layer": 4,
+      "severity": "red",
+      "status": "implemented",
+      "name_da": "Ugyldig præference",
+      "description_da": "Præference påberåbt (DutyRegimeCode ≠ 100), men oprindelseslandet har ingen kendt aftale med EU på importdatoen → toldrisiko/revisionsrisiko.",
+      "authoritative_source": "TARIC præferencesatser + EU's FTA-dækning (Access2Markets); temporal match på importdatoen.",
+      "implementation": "customs/duty_checks.py:duty_findings (via evaluate_row + customs/tariff.py)",
+      "test": "tests/test_tariff.py; validation/scenarios.py (CUS-P03)",
+      "suggested_fix_da": "Genovervej præference-påberåbelsen; uden gyldig aftale/oprindelsesbevis skal MFN-satsen anvendes."
+    },
+    {
+      "id": "CUS-E01",
+      "layer": 4,
+      "severity": "yellow",
+      "status": "implemented",
+      "name_da": "EDR-rimelighed (effektiv toldsats)",
+      "description_da": "Faktisk effektiv toldsats (told ÷ toldværdi) afviger væsentligt fra den forventede sats (MFN, eller præferencesats ved gyldigt påberåbt præference) → mulig fejlklassificering eller fejlberegning. Bevidst tolerant (gul) indtil anti-dumping/suspensioner/kvoter er fuldt synkroniseret.",
+      "authoritative_source": "TARIC MFN-satser (eVita-toldtarif) + præferencesatser; temporal match.",
+      "implementation": "customs/duty_checks.py:duty_findings (via evaluate_row + customs/tariff.py)",
+      "test": "tests/test_tariff.py; validation/scenarios.py (CUS-E01)",
+      "suggested_fix_da": "Afstem den anvendte varekode og toldberegning mod TARIC; undersøg om koden er fejlkvalificeret."
+    },
+    {
+      "id": "CUS-K01",
+      "layer": 5,
+      "severity": "yellow",
+      "status": "implemented",
+      "name_da": "Eksakt klassifikationskonsistens",
+      "description_da": "Samme (normaliserede) varebeskrivelse henføres til flere forskellige HS-koder = oplagt inkonsistens med høj konfidens. Indikativ besparelse ved tilpasning til laveste anvendte MFN i gruppen.",
+      "authoritative_source": "Toldtariffen / TARIC MFN-satser (intern konsistens-kontrol).",
+      "implementation": "customs/classification.py:classification_consistency",
+      "test": "tests/test_classification.py; validation/scenarios.py (CUS-K01)",
+      "suggested_fix_da": "Fastlæg den korrekte HS-kode for varen og ensret de afvigende linjer (kræver klassifikationsfaglig vurdering)."
+    },
+    {
+      "id": "CUS-K02",
+      "layer": 5,
+      "severity": "yellow",
+      "status": "implemented",
+      "name_da": "Fuzzy klassifikationsklynger",
+      "description_da": "Lignende varebeskrivelser (varianter, størrelser, forkortelser) klynges sammen (token-Jaccard) og flagges, når klyngen rummer flere HS-koder. Bredere, lavere konfidens end den eksakte kontrol — fanger det grupperingen misser.",
+      "authoritative_source": "Toldtariffen / TARIC MFN-satser (intern konsistens-kontrol).",
+      "implementation": "customs/classification.py:fuzzy_clusters",
+      "test": "tests/test_classification.py; validation/scenarios.py (CUS-K02)",
+      "suggested_fix_da": "Gennemgå klyngen; ensret HS-koderne for reelt samme vare efter klassifikationsfaglig vurdering."
+    },
+    {
+      "id": "CUS-V02",
+      "layer": 2,
+      "severity": "yellow",
+      "status": "planned",
+      "name_da": "Statistisk værdi ≥ fakturaværdi omregnet til DKK",
+      "description_da": "Planlagt: den statistiske værdi bør være ≥ fakturaværdien omregnet til DKK via angivelsens vekselkurs (tillæg af fragt/forsikring til EU-grænsen). Kræver robust valuta-/kursudtræk.",
+      "authoritative_source": "DMS-vejledning, dataelement 14 08/14 09 (fakturabeløb + vekselkurs) vs. 99 06 001.",
+      "implementation": "(ikke implementeret — markeret TODO i customs/sanity.py)",
+      "test": "(planlagt)",
+      "suggested_fix_da": "—"
+    },
+    {
+      "id": "CUS-X01",
+      "layer": 1,
+      "severity": "red",
+      "status": "planned",
+      "name_da": "XSD-strukturvalidering mod H1/I1-skema",
+      "description_da": "Planlagt: validér DMS-XML'ens struktur mod Toldstyrelsens officielle H1/I1-XSD'er før indholdskontrol. XSD'erne er vendret i reference/xsds/, men håndhæves endnu ikke i pipelinen.",
+      "authoritative_source": "Toldstyrelsen skat/dms-public — H1/I1 XSD-skemaer (reference/xsds/).",
+      "implementation": "(ikke wired — XSD'er foreligger i reference/xsds/)",
+      "test": "(planlagt)",
+      "suggested_fix_da": "—"
+    },
+    {
+      "id": "CUS-AD01",
+      "layer": 4,
+      "severity": "red",
+      "status": "planned",
+      "name_da": "Anti-dumping-/udligningstold anvendt korrekt",
+      "description_da": "Planlagt: når en HS×oprindelse er omfattet af anti-dumping- eller udligningstold, skal den være medregnet i den betalte told. Kræver fuld TARIC-sync af anti-dumping-measures.",
+      "authoritative_source": "TARIC anti-dumping-/udligningstold-measures (DG TAXUD).",
+      "implementation": "(ikke implementeret — afventer fuld TARIC-bulk)",
+      "test": "(planlagt)",
+      "suggested_fix_da": "—"
+    },
+    {
+      "id": "CUS-E02",
+      "layer": 4,
+      "severity": "red",
+      "status": "planned",
+      "name_da": "Strammet EDR-kontrol (RØD) ved fuld TARIC-dækning",
+      "description_da": "Planlagt: når anti-dumping, suspensioner, kvoter og mængdetold er fuldt modelleret, kan EDR-tjekket strammes fra GUL til RØD for klare afvigelser. Indtil da forbliver CUS-E01 bevidst tolerant.",
+      "authoritative_source": "TARIC fuld measure-dækning (DG TAXUD).",
+      "implementation": "(planlagt udvidelse af customs/duty_checks.py)",
+      "test": "(planlagt)",
+      "suggested_fix_da": "—"
+    }
+  ]
+}

@@ -17,3 +17,6 @@ reference/tariff/taric_raw/GeographicalArea_*
 # Auth/audit-databaser (lokale, persistente via Railway-volume i prod)
 data/*.db
 data/*.db-*
+node_modules/
+package.json
+package-lock.json
