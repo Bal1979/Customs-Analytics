@@ -46,6 +46,12 @@ ikke EY's mørke/gule look.
   (token-Jaccard m. blokning på sjældent token, dependency-frit) der klynger varianter;
   begge med indikativ besparelse ved tilpasning til laveste anvendte MFN i gruppen.
   UI-fane "Klassifikation". Demodata injicerer nu fejlkvalificeringer (alt-HS) + beskrivelsesvarianter.
+- **Risici & muligheder (analyse):** `customs/risk_analysis.py` konsoliderer FTA-besparelse,
+  toldrisiko (ugyldige præferencekrav), fejlklassificering og **EDR-anomalier** (ny — vareposter
+  hvor faktisk effektiv toldsats afviger væsentligt fra forventet, beløbsvægtet) til porteføljetal
+  + en prioriteret, beløbssorteret liste. UI-fane "Risici & muligheder". **Bevidst ANALYSE, ikke en
+  compliance-dom** — værktøjet analyserer trends/risici/muligheder på tværs af en portefølje, ikke
+  godkendt/afvist på én angivelse. (En tidligere "verdikt"-fane blev bevidst rullet tilbage.)
 - **TARIC-ingest-pipeline** (`tools/sync_taric.py`) — **auto-download virker uden login**:
   DDS-mekanik fundet (`daily_publications.jsp` → `taric_management.jsp?...&message=extract`
   returnerer ZIP'en direkte). `--fetch-latest` (urllib) eller `tools/fetch_taric.sh` (curl,

@@ -50,6 +50,7 @@
 
         <nav class="tabs" id="tabs" hidden>
             <button class="tab active" data-tab="overview">Oversigt</button>
+            <button class="tab" data-tab="risk">Risici &amp; muligheder</button>
             <button class="tab" data-tab="suppliers">Leverandører</button>
             <button class="tab" data-tab="sourcing">Sourcing</button>
             <button class="tab" data-tab="cpc">Procedurekoder</button>
@@ -70,6 +71,13 @@
                 <div class="card"><h2>Toldværdi pr. HS-kode</h2><div class="chart" id="chart-hs"></div></div>
                 <div class="card"><h2>Toldværdi pr. varebeskrivelse</h2><div class="chart" id="chart-desc"></div></div>
             </div>
+        </section>
+
+        <!-- Risici & muligheder (konsolideret analyse — porteføljetal, ingen dom) -->
+        <section class="panel" data-panel="risk">
+            <div class="kpis" id="risk-kpis"></div>
+            <div class="card"><h2>Prioriterede muligheder og risici</h2><div class="table-wrap" id="table-risk-opps"></div></div>
+            <div class="card"><h2>EDR-anomalier — vareposter med afvigende effektiv toldsats</h2><div class="table-wrap" id="table-risk-edr"></div></div>
         </section>
 
         <!-- Leverandører -->

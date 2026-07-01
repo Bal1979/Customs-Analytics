@@ -156,3 +156,10 @@ footer { text-align: center; color: var(--text-muted); font-size: 0.8rem; paddin
     .kpis { grid-template-columns: repeat(2, 1fr); }
     .grid, .grid.thirds { grid-template-columns: 1fr; }
 }
+
+/* Risici & muligheder — type-badges (analytisk kategorisering, ikke en dom) */
+.rtype { display: inline-block; padding: 0.1rem 0.5rem; border-radius: 99px; font-size: 0.72rem; font-weight: 600; white-space: nowrap; }
+.rtype-save { background: #F0FDF4; color: #166534; }
+.rtype-risk { background: #FEF2F2; color: #B91C1C; }
+.rtype-cls  { background: #FFFBEB; color: #B45309; }
+.rtype-edr  { background: #EEF2F7; color: #2E5C8A; }

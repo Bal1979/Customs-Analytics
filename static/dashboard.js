@@ -246,6 +246,44 @@ function renderClassification(cls) {
     ], cls.fuzzy.slice(0, 25));
 }
 
+/* ---- Risici & muligheder: konsolideret analyse (porteføljetal, ingen dom) ---- */
+const RTYPE = {
+    "FTA-besparelse": "save", "Toldrisiko": "risk",
+    "Fejlklassificering": "cls", "EDR-anomali": "edr",
+};
+
+function renderRisk(risk) {
+    const k = risk.kpis;
+    const cards = [
+        { value: kr(k.fta_saving) + " kr.", label: "Besparelsespotentiale (uudnyttet FTA)" },
+        { value: kr(k.invalid_pref_duty_at_risk) + " kr.", label: `Toldrisiko · ${num(k.invalid_pref_claims)} ugyldige krav` },
+        { value: num(k.misclassification_cases), label: `Fejlklassificering · ${kr(k.misclassification_saving)} kr.` },
+        { value: num(k.edr_anomalies), label: `EDR-anomalier · ${kr(k.edr_impact)} kr.` },
+    ];
+    document.getElementById("risk-kpis").innerHTML = cards
+        .map((c) => `<div class="kpi"><div class="kpi-value">${c.value}</div><div class="kpi-label">${c.label}</div></div>`)
+        .join("");
+
+    const badge = (t) => `<span class="rtype rtype-${RTYPE[t] || "x"}">${t}</span>`;
+    table("table-risk-opps", [
+        { label: "Type", value: (r) => badge(r.type), num: false },
+        { label: "HS-kode", value: (r) => r.hs_code || "–", num: false },
+        { label: "Oprindelse", value: (r) => r.origin || "–", num: false },
+        { label: "Detalje", value: (r) => r.detail, num: false },
+        { label: "Beløb", value: (r) => krFull(r.amount) },
+    ], risk.opportunities);
+
+    table("table-risk-edr", [
+        { label: "HS-kode", value: (r) => r.hs_code || "–", num: false },
+        { label: "Oprindelse", value: (r) => r.origin || "–", num: false },
+        { label: "Toldværdi", value: (r) => kr(r.customs_value) },
+        { label: "Faktisk sats", value: (r) => pct(r.actual_rate) },
+        { label: "Forventet", value: (r) => pct(r.expected_rate) },
+        { label: "Afvigelse", value: (r) => pct(r.deviation) },
+        { label: "kr.-effekt", value: (r) => krFull(r.impact) },
+    ], risk.edr_anomalies);
+}
+
 function showReport(show) {
     document.getElementById("empty-state").hidden = show;
     document.getElementById("dataset-note").hidden = !show;
@@ -266,6 +304,7 @@ function render(data) {
     renderTransport(data.transport);
     renderFta(data.fta);
     renderClassification(data.classification);
+    renderRisk(data.risk);
     // Resize charts i den aktive fane (ECharts måler 0 i skjulte paneler).
     requestAnimationFrame(() => resizeActive());
 }

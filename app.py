@@ -16,6 +16,7 @@ import auth
 from customs.analytics import build_report
 from customs.classification import classification_report
 from customs.duty_checks import fta_opportunities
+from customs.risk_analysis import risk_opportunity_report
 from customs.parsers.legacy_sad import parse_legacy_sad
 from customs.parsers.tabular import parse_tabular
 from customs.parsers.wco_xml import parse_wco_xml
@@ -35,10 +36,13 @@ TARIFF = TariffDatabase()  # indlæses én gang ved opstart
 
 
 def _full_report(rows):
+    fta = fta_opportunities(rows, TARIFF)
+    classification = classification_report(rows, TARIFF)
     return {
         **build_report(rows),
-        "fta": fta_opportunities(rows, TARIFF),
-        "classification": classification_report(rows, TARIFF),
+        "fta": fta,
+        "classification": classification,
+        "risk": risk_opportunity_report(rows, TARIFF, fta, classification),
     }
 
 app = Flask(__name__)
