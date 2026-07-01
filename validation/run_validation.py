@@ -17,6 +17,7 @@ from pathlib import Path
 from customs.sanity import check_declaration
 from customs.duty_checks import duty_findings
 from customs.classification import classification_consistency, fuzzy_clusters
+from customs.xsd_validation import validate_dms_xml
 from customs.tariff import TariffDatabase
 
 from validation import scenarios as S
@@ -60,6 +61,15 @@ def _run_all(tariff: TariffDatabase) -> tuple[list[dict], bool]:
         codes = [f.code for f in duty_findings([row], tariff)]
         results.append({
             "scenario": rule, "rule": rule, "family": "duty", "title": title,
+            "defect": defect, "expected": f"{rule} fyrer",
+            "actual": (", ".join(codes) or "ingen"), "passed": rule in codes,
+        })
+
+    # XSD-scenarier.
+    for rule, title, defect, xml in S.XSD_SCENARIOS:
+        codes = [f.code for f in validate_dms_xml(xml)]
+        results.append({
+            "scenario": rule, "rule": rule, "family": "xsd", "title": title,
             "defect": defect, "expected": f"{rule} fyrer",
             "actual": (", ".join(codes) or "ingen"), "passed": rule in codes,
         })

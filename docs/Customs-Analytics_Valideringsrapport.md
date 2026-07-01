@@ -2,8 +2,8 @@
 
 > **Auto-genereret** af `validation/run_validation.py`. Regenerér med `python -m validation.run_validation`. Rediger ikke i hånden.
 
-- **Regelkatalog:** v0.1.0 (2026-06-18)
-- **Scenarier:** 13 (13/13 bestået)
+- **Regelkatalog:** v0.2.0 (2026-07-01)
+- **Scenarier:** 14 (14/14 bestået)
 - **Metode:** Hvert scenarie planter præcis ÉN defekt i en ren baseline og kører kontrollen via dens rigtige indgang; det bekræftes, at netop den tilsigtede kontrol fyrer. En ren angivelse udløser ingen fund.
 
 ## Resultater
@@ -21,13 +21,14 @@
 | CUS-P02 | 4 · Tarifering & told (TARIC/FTA) | Manglende FTA-mulighed | VN-oprindelse med præference, men ingen præference påberåbt (told betalt MFN) | CUS-P02 fyrer | CUS-P02 | ✓ Bestået |
 | CUS-P03 | 4 · Tarifering & told (TARIC/FTA) | Ugyldig præference | Præference påberåbt (300) for CN, der ingen aftale har med EU | CUS-P03 fyrer | CUS-P03 | ✓ Bestået |
 | CUS-E01 | 4 · Tarifering & told (TARIC/FTA) | EDR-rimelighed | CN-gardin (MFN 12 %), men told betalt 0 → effektiv sats 0 % | CUS-E01 fyrer | CUS-E01 | ✓ Bestået |
+| CUS-X01 | 1 · Struktur & format | DMS-XML velformethed + skemavalidering | Ikke-velformet DMS-XML (uafsluttet tag) → kan ikke behandles | CUS-X01 fyrer | CUS-X01 | ✓ Bestået |
 | CUS-K01 | 5 · Klassifikation | Eksakt klassifikationskonsistens | Samme beskrivelse 'Gardin' på to forskellige HS-koder | CUS-K01 flagger ≥1 gruppe | 1 gruppe(r) | ✓ Bestået |
 | CUS-K02 | 5 · Klassifikation | Fuzzy klassifikationsklynger | Varianter 'Gardin syntetisk grå' og '... sort' på to HS-koder | CUS-K02 flagger ≥1 gruppe | 1 gruppe(r) | ✓ Bestået |
 
 ## Dækning
 
-- **Implementerede kontroller:** 12
-- **Dækket af et scenarie:** 12 / 12
+- **Implementerede kontroller:** 13
+- **Dækket af et scenarie:** 13 / 13
 - **Udækkede:** ingen ✓
 
 Planlagte kontroller (status `planned` i kataloget) er bevidst ikke dækket, da de endnu ikke er implementeret.

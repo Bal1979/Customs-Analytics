@@ -17,8 +17,8 @@ const {
 
 const NAVY = "1B365D";
 const LIGHT = "2E5C8A";
-const DATE = "18. juni 2026";
-const VERSION = "0.1.0";
+const DATE = "1. juli 2026";
+const VERSION = "0.2.0";
 const CONTENT_W = 9360;
 const DOCS = path.resolve(__dirname, "..", "docs");
 
@@ -95,18 +95,19 @@ const overblik = makeDoc([
   H1("3. Parathed pr. område"),
   table(["Område", "Status", "Bemærkning"], [
     ["Kanonisk datamodel + WCO DMS-XML-parser", "Dækket", "customs/schema.py + customs/parsers/ (XXE slået fra)"],
+    ["DMS-XML strukturvalidering (XSD, CUS-X01)", "Dækket", "customs/xsd_validation.py — velformethed (rød) + skema-advis (gul); H1 V2.5 / I1 V2.3 (ny)"],
     ["Analyselag (dashboards)", "Dækket", "customs/analytics.py — 7 faner, verificeret visuelt"],
     ["Told- og tariferingsmotor (TARIC/eVita, temporal)", "Dækket", "customs/tariff.py — MFN + præferencer, dato-bevidst opslag"],
     ["Klassifikationslag (eksakt + fuzzy)", "Dækket", "customs/classification.py — dependency-frit"],
     ["Versioneret regelkatalog", "Dækket", "customs/rules/Customs-Validation-Rules.json v0.1.0 (ny)"],
     ["Regel-sporbarhedsmatrix", "Dækket", "docs/...Regel-sporbarhedsmatrix.xlsx (ny, genereret)"],
-    ["Uafhængig valideringssuite", "Dækket", "validation/ — 12 kontroller, plantet defekt pr. kontrol, gated i pytest (ny)"],
+    ["Uafhængig valideringssuite", "Dækket", "validation/ — 13 kontroller, plantet defekt pr. kontrol, gated i pytest (ny)"],
     ["Automatiseret testsuite", "Dækket", "tests/ — kører uden netværk"],
     ["Datapolitik (in-memory, intet gemmes)", "Dækket", "Upload parses i hukommelsen; kun auth/audit på volume"],
     ["Adgangskontrol (login/auth)", "Dækket", "Lokal auth.py (pbkdf2, CSRF, rate-limit, persistent volume)"],
     ["Sikkerheds- og databehandlingsdoc", "Udkast", "Skal review'es af jura/databeskyttelse"],
     ["Hosting- og driftsdoc", "Udkast", "Railway i dag; EY-platform er åben beslutning"],
-    ["CI (pytest + pip-audit --strict)", "Åbent", "Pipeline ikke opsat endnu"],
+    ["CI (pytest + pip-audit --strict)", "Dækket", ".github/workflows/ci.yml — pytest + valideringssuite-gate + pip-audit (ny)"],
     ["Central balai_auth-migrering + fælles SECRET_KEY", "Åbent", "Kører i dag eget lokalt auth.py"],
     ["EU data-residency (Railway-volume)", "Åbent", "Volume-region skal verificeres/migreres til EU"],
     ["Fuld TARIC (anti-dumping/suspension/kvote)", "Åbent", "EDR-tjek bevidst tolerant (gul) indtil da"],
@@ -115,7 +116,6 @@ const overblik = makeDoc([
   ], [44, 16, 40]),
   H1("4. Åbne punkter — næste skridt og ejer"),
   table(["Punkt", "Næste skridt", "Ejer"], [
-    ["CI-pipeline", "Opsæt .github/workflows/ci.yml: pytest + pip-audit --strict; adskil runtime-/test-deps", "Udvikling (Bal)"],
     ["Central auth-migrering", "Portér til balai_auth-shim; fælles SECRET_KEY; login deles på *.balai.dk", "Udvikling / Platform"],
     ["EU data-residency", "Verificér Railway-volumeregion; migrér US→EU; bekræft AUTH_/AUDIT_DB_PATH", "Drift"],
     ["Fuld TARIC-sync", "Hent DG TAXUD-bulk; tilføj anti-dumping/suspension/kvote; stram EDR til RØD (CUS-E02/AD01)", "Udvikling"],
@@ -135,7 +135,7 @@ const overblik = makeDoc([
     "README.md + CHANGELOG.md — pakke-indeks + katalogversioner.",
   ]),
   H1("6. Ærlig modenhedsvurdering"),
-  P("Kerne-funktionaliteten (parser, analyselag, told-/tariferingsmotor på rigtige TARIC-/eVita-data, klassifikation) er på plads og dækket af tests. Det nye i denne runde er governance-rammen: versioneret regelkatalog, sporbarhedsmatrix og en uafhængig valideringssuite, der beviser at hver implementeret kontrol fyrer på sit defekt-scenarie. Det resterende er primært ekstern/governance-arbejde (CI, central auth, EU-residency, hosting, jura, pen-test, stress-test) — listet ovenfor med ejer og næste skridt."),
+  P("Kerne-funktionaliteten (parser, analyselag, told-/tariferingsmotor på rigtige TARIC-/eVita-data, klassifikation) er på plads og dækket af tests. Det nye i denne runde er governance-rammen: versioneret regelkatalog, sporbarhedsmatrix og en uafhængig valideringssuite, der beviser at hver implementeret kontrol fyrer på sit defekt-scenarie. Det resterende er primært ekstern/governance-arbejde (central auth, EU-residency, hosting, jura, pen-test, stress-test) — listet ovenfor med ejer og næste skridt."),
 ]);
 
 // ---- 2) Solution Architecture -------------------------------------------
@@ -163,7 +163,7 @@ const arch = makeDoc([
   H1("5. Kontrol- og analysemodel (5 lag)"),
   P("Kontrollerne er katalogiseret i 5 lag i det versionerede regelkatalog (customs/rules/Customs-Validation-Rules.json). Hver kontrol er forankret i en autoritativ kilde og mappet til modul + test (se sporbarhedsmatrixen)."),
   table(["Lag", "Fokus", "Kontroller"], [
-    ["1 · Struktur & format", "Varekode, procedurekode", "CUS-H01, CUS-C01 (+ planlagt CUS-X01)"],
+    ["1 · Struktur & format", "Varekode, procedurekode, XML-struktur", "CUS-H01, CUS-C01, CUS-X01 (XSD)"],
     ["2 · Intern konsistens", "Vægt- og værditotaler", "CUS-W01, CUS-W02, CUS-V01 (+ planlagt CUS-V02)"],
     ["3 · Oprindelse & præference-krav", "Oprindelse, præference-fuldstændighed", "CUS-O01, CUS-P01"],
     ["4 · Tarifering & told", "FTA-mulighed, ugyldig præference, EDR", "CUS-P02, CUS-P03, CUS-E01 (+ planlagt CUS-AD01, CUS-E02)"],
@@ -199,7 +199,7 @@ const arch = makeDoc([
   ]),
   H1("12. Åbne punkter for godkendelse"),
   bullets([
-    "CI-pipeline (pytest + pip-audit), central balai_auth-migrering, EU data-residency.",
+    "Central balai_auth-migrering, EU data-residency.",
     "Fuld TARIC-data → stram EDR til RØD; stress-test på rigtige klientdata; ekstern pen-test.",
     "Se Godkendelses-overblikket §4 for ejere og næste skridt.",
   ]),

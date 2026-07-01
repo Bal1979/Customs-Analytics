@@ -3,6 +3,22 @@
 Versionering følger regelkataloget (`customs/rules/Customs-Validation-Rules.json`,
 felt `catalog_version`). Dokumentationspakken versioneres sammen med koden.
 
+## 0.2.0 — 2026-07-01
+
+**CUS-X01 flyttet planlagt → implementeret** (DMS-XML strukturvalidering).
+
+- Ny `customs/xsd_validation.py`: velformetheds-tjek (RØD, XXE slået fra) +
+  strukturvalidering af DMS-XML mod de officielle **H1 V2.5 / I1 V2.3**-skemaer
+  (valgt på ProcedureCategory). Skemaafvigelser rapporteres **rådgivende (GUL)** —
+  ikke som afvisning.
+- **Fund:** Toldstyrelsens egne eksempel-XML'er afviger i elementrækkefølge fra de
+  vendrede V2.5/V2.3-skemaer (versions-mismatch). Derfor er skema-laget bevidst
+  rådgivende, ikke en hård port — så reelt brugbare angivelser ikke fejl-afvises.
+- Valideringssuiten udvidet med CUS-X01-scenarie (**14 scenarier**, alle bestået);
+  unit-tests i `tests/test_xsd_validation.py` (inkl. XXE-guard). 53 tests i alt.
+- Regelkataloget nu **13 implementerede + 3 planlagte** kontroller. Matrix,
+  valideringsrapport og de fire docx regenereret.
+
 ## 0.1.0 — 2026-06-18
 
 Første version af governance-rammen (samme skabelon som SAF-T/VIES/VAT Analytics/

@@ -1,7 +1,7 @@
 {
   "$schema": "https://balai.dk/schemas/validation-rules-1.json",
-  "catalog_version": "0.1.0",
-  "catalog_released": "2026-06-18",
+  "catalog_version": "0.2.0",
+  "catalog_released": "2026-07-01",
   "language": "da",
   "description": "Regelkatalog for Customs Analytics — told- og importanalyse af danske DMS/WCO-importdata. Maskinlæsbar, versioneret kilde til sporbarhedsmatrix, valideringssuite og dokumentation. Hver kontrol er forankret i en autoritativ kilde (Toldstyrelsen/DMS-vejledning, TARIC, EU's FTA-grundlag) og mappet til implementeringsmodul + test. Status angiver om kontrollen er implementeret eller planlagt (udkast).",
   "severity_levels": [
@@ -180,14 +180,14 @@
     {
       "id": "CUS-X01",
       "layer": 1,
-      "severity": "red",
-      "status": "planned",
-      "name_da": "XSD-strukturvalidering mod H1/I1-skema",
-      "description_da": "Planlagt: validér DMS-XML'ens struktur mod Toldstyrelsens officielle H1/I1-XSD'er før indholdskontrol. XSD'erne er vendret i reference/xsds/, men håndhæves endnu ikke i pipelinen.",
-      "authoritative_source": "Toldstyrelsen skat/dms-public — H1/I1 XSD-skemaer (reference/xsds/).",
-      "implementation": "(ikke wired — XSD'er foreligger i reference/xsds/)",
-      "test": "(planlagt)",
-      "suggested_fix_da": "—"
+      "severity": "yellow",
+      "status": "implemented",
+      "name_da": "DMS-XML velformethed + strukturvalidering mod H1/I1-skema",
+      "description_da": "Validér uploadet DMS-XML: velformethed (RØD hvis ikke parsebar; XXE slået fra) + strukturkonformitet mod det officielle skema valgt på ProcedureCategory (H1 → DMS_H1_V2.5, I1 → DMS_I1_V2.3). Skemaafvigelser rapporteres rådgivende (GUL) — de afviser ikke angivelsen, da reelle DMS-eksporter kan afvige let i elementrækkefølge fra en given skemaversion.",
+      "authoritative_source": "Toldstyrelsen skat/dms-public — H1 V2.5 / I1 V2.3 XSD-skemaer (reference/xsds/).",
+      "implementation": "customs/xsd_validation.py:validate_dms_xml",
+      "test": "tests/test_xsd_validation.py; validation/scenarios.py (CUS-X01)",
+      "suggested_fix_da": "Ret velformetheds-/strukturfejl i eksporten; verificér DMS-skemaversion ved vedvarende afvigelser."
     },
     {
       "id": "CUS-AD01",

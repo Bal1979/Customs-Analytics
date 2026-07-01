@@ -143,8 +143,21 @@ CLASSIFICATION_SCENARIOS = [
 ]
 
 
+# ---------------------------------------------------------------------------
+# XSD-scenarier: (rule, titel, defekt, xml_bytes) → customs.xsd_validation
+# ---------------------------------------------------------------------------
+
+XSD_SCENARIOS = [
+    ("CUS-X01", "DMS-XML velformethed + skemavalidering",
+     "Ikke-velformet DMS-XML (uafsluttet tag) → kan ikke behandles",
+     b"<ns2:Declaration xmlns:ns2='urn:wco:datamodel:WCO:DEC-DMS:2'>"
+     b"<ns2:ProcedureCategory>H1</ns2:ProcedureCategory><Uafsluttet>"),
+]
+
+
 def all_scenario_rules() -> list[str]:
     """Alle kontrol-ID'er, suiten dækker (til kryds-tjek mod kataloget)."""
     return ([r for r, *_ in SANITY_SCENARIOS]
             + [r for r, *_ in DUTY_SCENARIOS]
-            + [r for r, *_ in CLASSIFICATION_SCENARIOS])
+            + [r for r, *_ in CLASSIFICATION_SCENARIOS]
+            + [r for r, *_ in XSD_SCENARIOS])

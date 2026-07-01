@@ -161,17 +161,23 @@ EY-godkendelsesrammen er rejst, **1:1 med SAF-T's docs-pakke** (verificeret med 
 Ærlig status (Dækket/Udkast/Åbent) i `docs/Customs-Analytics_Godkendelses-overblik.docx`.
 
 - **Regelkatalog (kilde):** `customs/rules/Customs-Validation-Rules.json` (`catalog_version`
-  0.1.0) — 12 implementerede + 4 planlagte kontroller i 5 lag, hver mappet til autoritativ
+  0.2.0) — 13 implementerede + 3 planlagte kontroller i 5 lag, hver mappet til autoritativ
   kilde → modul → test. Ved ny/ændret kontrol: bump version + opdatér suite + matrix + CHANGELOG.
+- **XSD-strukturvalidering (CUS-X01, v0.2.0):** `customs/xsd_validation.py` — velformethed
+  (rød, XXE fra) + skemakonformitet mod H1 V2.5 / I1 V2.3 (rådgivende gul). NB: Toldstyrelsens
+  eksempel-XML'er afviger i elementrækkefølge fra de vendrede skemaversioner → skema-laget er
+  bevidst rådgivende, ikke en hård port.
 - **Uafhængig valideringssuite:** `validation/` (scenarios + run_validation) — plantet defekt
   pr. implementeret kontrol, kørt gennem den RIGTIGE checker; gated i
-  `tests/test_validation_suite.py`. 13 scenarier, alle grønne. 48 tests i alt.
+  `tests/test_validation_suite.py`. 14 scenarier, alle grønne. 53 tests i alt.
+- **CI:** `.github/workflows/ci.yml` — pytest + valideringssuite-gate + `pip-audit --strict`
+  på runtime-deps (kører på push til main + PR).
 - **Docs i `docs/`:** Godkendelses-overblik, Solution Architecture, Sikkerhed (Udkast),
   Hosting (Udkast), Regel-sporbarhedsmatrix.xlsx, Valideringsrapport.md, README, CHANGELOG.
 - **Regenerér:** `python -m validation.run_validation` · `python tools/build_traceability.py`
   (kræver openpyxl — i requirements.txt) · `npm install docx && node tools/build_approval_docs.js`.
   Node-artefakter (`package.json`, `package-lock.json`, `node_modules/`) er gitignored.
-- **Åbent (overblikkets §4):** CI (pytest + pip-audit), central `balai_auth` + fælles
+- **Åbent (overblikkets §4):** central `balai_auth` + fælles
   SECRET_KEY, EU data-residency, fuld TARIC (anti-dumping/suspension/kvote → stram EDR til RØD),
   stress-test på rigtige klientdata, ekstern pen-test, jura-review af sikkerhedsdoc. **Auth-valg:**
   nuværende lokale auth = Dækket, central auth = Åbent.
