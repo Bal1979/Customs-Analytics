@@ -2458,6 +2458,11 @@ der skal anvendes til fremstilling af øl, som lagres i tanke indeholdende bøge
 1515609110,Arachidonsyreolie,0.128
 1515609190,I andre tilfælde,0.128
 1515609910,Arachidonsyreolie,0.096
+1515609920,"Mikrobiel olie, raffineret eller halvraffineret, men ikke kemisk modificeret, med indhold af triglycerider på:
+
+-arachidonsyre på 35 vægtprocent eller derover, men ikke over 70 vægtprocent 
+
+-docosahexaensyre på ikke over 3 vægtprocent",0.096
 1515609990,I andre tilfælde,0.096
 1515901100,"Træolie (tungolie); jojobaolie, oiticicaolie, myrtevoks og japanvoks; fraktioner deraf(Visse varer, der er anført i bilag I til traktaten)",0.0
 1515902900,"I andre tilfælde(Visse varer, der er anført i bilag I til traktaten)",0.064
@@ -2482,6 +2487,10 @@ der skal anvendes til fremstilling af øl, som lagres i tanke indeholdende bøge
 -eicosapentaensyre på 10 vægtprocent eller derover, men ikke over 80 vægtprocent, og som minimum et forhold af EPA/(EPA+DHA) på over 20 % 
 standardiseret med vegetabilsk olie",0.16
 1517909990,Andre varer,0.16
+1517909992,"Microbial oil, refined, used in the manufacture of products other than animal feed: 
+- containing by weight 10 % or more but not more than 80 % of eicosapentaenoic acid, and 
+- with an eicosapentaenoic acid/(eicosapentaenoic acid+docosahexenoic acid) value of 0,2 or more, and
+- standardised with vegetable oil",0.16
 1517909999,Andre varer,0.16
 1518001000,Linoxyn,0.077
 1520000000,Rå glycerol (glycerin); glycerolvand og glycerollud,0.0
@@ -5052,6 +5061,7 @@ med indhold af Total-Na2O på ikke over 0,06|vægtprocent",0.055
 2835100020,Natriumhypophosphit (CAS|RN|7681-53-0),0.055
 2835100030,Aluminiumphosphinat (CAS RN 7784-22-7),0.055
 2835100040,Calciumphosphinat (CAS RN 7789-79-9) med en renhedsgrad på 98 vægtprocent og derover,0.055
+2835100050,"Natriumhypophosphit (CAS RN 7681-53-0) med en renhed på 97 vægtprocent eller derover eller som vandig opløsning med indhold af natriumhypophosphit på 55 vægtprocent eller derover, men ikke over 65 vægtprocent",0.055
 2835100090,Andre varer,0.055
 2835220000,Af mono- eller dinatrium,0.055
 2835240000,Af kalium,0.055
@@ -5126,6 +5136,7 @@ efter de metoder der er angivet i Den Europæiske Pharmakopi",0.055
 2841610000,Kaliumpermanganat,0.055
 2841690000,Andre varer,0.055
 2841700030,"Hexaammoniumheptamolybdat, vandfri (CAS RN 12027-67-7), eller som tetrahydrat (CAS RN 12054-85-2)",0.055
+2841700050,"Hexaammoniumheptamolybdat, vandfri (CAS RN 12027-67-7) eller som tetrahydrat (CAS RN 12054-85-2) med en renhed på 98 vægtprocent eller derover",0.055
 2841700090,Andre varer,0.055
 2841800010,Diammoniumwolframat (ammoniumparawolframat) (CAS RN 11120-25-5),0.055
 2841800020,Dinatriumwolframat (CAS RN 13472-45-2) med en renhedsgrad på 90 vægtprocent eller derover,0.055
@@ -5371,6 +5382,7 @@ til brug ved fremstilling af kobberzeolit eller washcoat-lag, der anvendes i pro
 2903998020,"1,2-Bis(pentabromphenyl)ethan (CAS RN 84852-53-9)",0.055
 2903998023,"3,5-Bis(trifluormethyl)benzylbromid (CAS RN 32247-96-4) med en renhedsgrad på 95 vægtprocent eller derover",0.055
 2903998025,"2,2'-Dibromobiphenyl (CAS RN 13029-09-9) med en renhedsgrad på 95 vægtprocent eller derover",0.055
+2903998028,Fluorbenzen (CAS RN 462-06-6) med en renhed på 99 vægtprocent eller derover,0.055
 2903998030,"1,3-Dichlorobenzen (CAS RN 541-73-1)",0.055
 2903998035,"2-Brom-9,9'-spirobi[9H-fluoren] (CAS RN 171408-76-7) med en renhedsgrad på 95 vægtprocent eller derover",0.055
 2903998040,"2,6-Dichlortoluen (CAS RN 118-69-4), af renhed på 99|vægtprocent og derover og med indhold af:
@@ -5413,6 +5425,8 @@ til brug ved fremstilling af kobberzeolit eller washcoat-lag, der anvendes i pro
 2904990055,"2,4-Dichlor-1,3-dinitro-5-(trifluoromethyl)benzen (CAS RN 29091-09-6) med en renhedsgrad på 96 vægtprocent eller derover",0.055
 2904990060,"4,4'-Dinitrostilben-2,2'-disulfonsyre (CAS RN 128-42-7)",0.055
 2904990065,"4-Nitrotoluen-2-sulfonsyre (CAS RN 121-03-9) i pulverform, med en renhed på 80 vægtprocent eller derover og et indhold af vand på 15 vægtprocent eller derover",0.055
+2904990075,Trifluormethansulfonsyre (CAS RN 1493-13-6) med en renhed på 99 vægtprocent eller derover,0.055
+2904990078,1-Chlor-2-nitrobenzen (CAS RN 88-73-3) med en renhed på 99 vægtprocent eller derover,0.055
 2904990080,1-Chlor-2-nitrobenzen (CAS RN 88-73-3),0.055
 2904990090,Andre varer,0.0
 2905110010,"Methanol (CAS RN 67-56-1) med en renhed på 99,85 vægtprocent eller derover",0.055
@@ -5440,6 +5454,7 @@ til brug ved fremstilling af kobberzeolit eller washcoat-lag, der anvendes i pro
 2905299010,Cis-hex-3-en-1-ol (CAS|RN|928-96-1),0.055
 2905299040,"Prop-2-yn-1-ol (CAS RN 107-19-7) med en renhed på 99 vægtprocent eller 
 derove",0.055
+2905299050,Prop-2-yn-1-ol (CAS RN 107-19-7) med en renhed på 99 vægtprocent eller derover,0.055
 2905299090,Andre varer,0.055
 2905310010,Monoethylenglycol (gældende EF-nummer 203-473-3),0.055
 2905310090,Andre varer,0.055
@@ -5483,6 +5498,7 @@ derove",0.055
 2906190050,4-tert-Butylcyclohexanol (CAS RN 98-52-2),0.055
 2906190060,"5-Methyl-2-(prop-1-en-2-yl)cyclohexanol, isomerblanding (CAS RN 7786-67-6), med en renhed på 90 vægtprocent eller derover",0.055
 2906190070,"(1S,2S,3R,5S)-(+)-2,3-pinandiol (CAS RN 18680-27-8) med en renhedsgrad på 98 vægtprocent eller derover",0.055
+2906190080,4-tert-Butylcyclohexanol (CAS RN 98-52-2) med en renhed på 97 vægtprocent eller derover,0.055
 2906190090,Andre varer,0.055
 2906210000,Benzylalkohol,0.055
 2906290015,Dicofol  (CAS 115-32-2),0.055
@@ -5621,6 +5637,7 @@ derove",0.055
 2914199040,Pentan-2-on (CAS RN 107-87-9),0.055
 2914199060,Zinkacetylacetonat (CAS RN 14024-63-6),0.055
 2914199070,Calcium acetylacetonat (CAS RN 19372-44-2) med en renhedsgrad på 95 vægtprocent eller derover,0.055
+2914199080,3-Metylbutanon (CAS RN 563-80-4) med en renhed på 97 vægtprocent eller derover,0.055
 2914199090,Andre varer,0.0
 2914220000,Cyclohexanon og methylcyclohexanoner,0.055
 2914230000,Iononer og methyliononer,0.055
@@ -5638,6 +5655,7 @@ derove",0.055
 2914390015,"2,6-Dimethyl-1-indanon (CAS RN 66309-83-9)",0.055
 2914390025,"1,3-Diphenylpropan-1,3-dion (CAS RN 120-46-7)",0.055
 2914390030,Benzophenon (CAS RN 119-61-9),0.055
+2914390035,Benzophenon (CAS RN 119-61-9) med en renhed på 99 vægtprocent eller derover,0.055
 2914390060,4-Metylbenzophenon (CAS RN 134-84-9),0.055
 2914390070,Benzil|(CAS RN|134-81-6),0.055
 2914390080,4'-Metylacetofenon (CAS RN|122-00-9),0.055
@@ -5893,6 +5911,7 @@ til brug ved fremstilling af ""one pack""-stabilisatorer baseret på pulverbland
 - et sigtet gennemfald på over 75 vægtprocent ved maskevidden 250 μm og over 99 vægtprocent ved maskevidden 500 μm og
 - et smeltepunkt på 110 °C eller derover, men ikke over 125 °C
 til brug ved fremstilling af ""one pack""-stabilisatorer baseret på pulverblandinger (pulver eller pressegranulat) til forarbejdning af PVC",0.065
+2918290085,"Hexamethylenbis[3-(3,5-di-tert-butyl-4-hydroxyphenyl)propionat] (CAS RN 35074-77-2) med en renhed på 97 vægtprocent eller derover",0.065
 2918290090,Andre varer,0.0
 2918300010,"Benzophenon-3,3′,4,4′-tetracarboxylsyredianhydrid (CAS RN 2421-28-5)",0.065
 2918300013,Undtagen til brug ved fremstilling af formaldehydfrie svovlbaserede reduktionsmidler (»FFSRA'er«) og har et jernindhold (Fe) på ≥ 10 og ≤ 20 PPM (dele pr. million).,0.065
@@ -6011,6 +6030,7 @@ til brug ved fremstilling af ""one pack""-stabilisatorer baseret på pulverbland
 2921410000,Anilin og salte deraf,0.065
 2921420025,"Natriumhydrogen-2-aminobenzen-1,4-disulfonat|(CAS RN 24605-36-5)",0.065
 2921420035,2-Nitroanilin (CAS RN 88-74-4),0.065
+2921420038,2-Nitroanilin (CAS RN 88-74-4) med en renhed på 99 vægtprocent eller derover,0.065
 2921420040,"Natriumsulphanilat (CAS RN 515-74-2), også i form af dets mono- eller dihydrater (CAS RN 123333-70-0 eller 6106-22-5)",0.065
 2921420050,3-Aminobenzensulfonsyre (CAS RN 121-47-1),0.065
 2921420060,Sulfanilsyre,0.065
@@ -6026,11 +6046,13 @@ til brug ved fremstilling af ""one pack""-stabilisatorer baseret på pulverbland
 2921430025,"6-Chlor-α,α,α-trifluor-m-toluidin (CAS RN 121-50-6) med en renhedsgrad på 98 vægtprocent eller derover",0.065
 2921430035,3-Chlor-o-toluidin (CAS RN 87-60-5) med en renhedsgrad på 95 vægtprocent eller derover,0.065
 2921430040,4-Aminotoluen-3-sulfonsyre (CAS RN 88-44-8),0.065
+2921430045,"α,α,α-Trifluor-o-toluidin (CAS RN 88-17-5) med en renhed på 98 vægtprocent eller derover",0.065
 2921430060,3-Aminobenzotrifluorid (CAS RN 98-16-8),0.065
 2921430080,2-Methylanilin (CAS RN 95-53-4) af renhed på mindst 99 vægtprocent,0.065
 2921430090,Andre varer,0.065
 2921440020,Diphenylamin (CAS RN 122-39-4),0.065
 2921440090,Andre varer,0.065
+2921450015,N-1-Naphthylanilin (CAS RN 90-30-2) med en renhed på 98 vægtprocent eller derover,0.065
 2921450060,1-Naphthylamin (CAS|RN|134-32-7),0.065
 2921450090,Andre varer,0.065
 2921460000,"Amphetamin (INN), benzfetamin (INN), dexamphetamin (INN), etilamphetamin (INN), fencamfamin (INN), lefetamin (INN), levamphetamin (INN), mefenorex (INN) og fentermin (INN); salte deraf",0.0
@@ -6102,6 +6124,7 @@ til brug ved fremstilling af ""one pack""-stabilisatorer baseret på pulverbland
 2922290030,"1,2-Bis(2-aminophenoxy)ethan (CAS|RN|52411-34-4)",0.065
 2922290033,o-Phenetidin (CAS RN 94-70-2),0.065
 2922290038,"4-Amino-2,3-dichlorophenol (CAS RN 39183-17-0) med en renhedsgrad på 98 vægtprocent eller derover",0.065
+2922290053,m-Anisidin (CAS RN 536-90-3) med en renhed på 95 vægtprocent eller derover,0.065
 2922290063,Aclonifen (ISO) (CAS|RN|74070-46-5) af renhed på 97|vægtprocent eller derover,0.065
 2922290065,4-Trifluormethoxyanilin (CAS RN 461-82-5),0.065
 2922290067,"4-chlor-2,5-dimethoxyanilin (CAS|RN|6358-64-1)",0.065
@@ -6186,6 +6209,7 @@ til brug ved fremstilling af ""one pack""-stabilisatorer baseret på pulverbland
 2924190048,"N,N-Dimethylcarbamoylchlorid (CAS RN 79-44-7) med en renhedsgrad på 99 vægtprocent eller derover",0.065
 2924190053,"Vandig opløsning af propamocarb hydrochlorid (ISOM) (CAS RN 25606-41-1) med et indhold af propamocarb hydrochlorid på 64 % eller derover, men ikke over 68 %",0.065
 2924190055,2-Propynylbutylkarbamat (CAS|RN|76114-73-3),0.065
+2924190058,"N,N-Dimethylacrylamid (CAS RN 2680-03-7) med en renhed på 97 vægtprocent eller derover",0.065
 2924190060,"N,N-Dimethylacrylamid (CAS RN 2680-03-7)",0.065
 2924190080,Tetrabutylurinstof (CAS RN 4559-86-8),0.065
 2924190085,3-iodprop-2-yn-1-yl N-butylcarbamat (CAS RN 55406-53-6),0.065
@@ -6211,6 +6235,7 @@ til brug ved fremstilling af ""one pack""-stabilisatorer baseret på pulverbland
 2924297040,"N,N'-1,4-Phenylenbis[3-oxobutyramid] (CAS RN 24731-73-5)",0.065
 2924297041,(2S)-6-amino-2-({[(9H-fluoren-9-yl)methoxy]carbonyl}amino)hexansyrehydrochlorid (CAS RN 139262-23-0) med en renhedsgrad på 90 vægtprocent eller derover,0.065
 2924297042,N-Benzyloxycarbonylglycin (CAS RN 1138-80-3) med en renhedsgrad på 99 vægtprocent eller derover,0.065
+2924297044,"4-(2,2-Diethoxyacetyl)-3,5-difluor-N-methylbenzamid (CAS RN 3089027-90-4) med en renhed på 95 vægtprocent eller derover",0.065
 2924297046,S-Metolachlor (ISO) (ISO) (CAS RN 87392-12-9) med en renhedsgrad på 98 vægtprocent eller derover,0.065
 2924297047,(S)-tert-butyl (1-amino-3-(4-iodophenyl)-1-oxopropan-2-yl)carbamat (CAS RN 868694-44-4) med en renhedsgrad på 95 vægtprocent eller derover,0.065
 2924297048,"(3R)-N-(tert-butoxycarbonyl)-3-amino-4-(2,4,5-trifluorphenyl)butansyre (CAS RN 486460-00-8) med en renhedsgrad på 97 vægtprocent eller derover",0.065
@@ -6222,6 +6247,7 @@ til brug ved fremstilling af ""one pack""-stabilisatorer baseret på pulverbland
 2924297056,Valifenalat (ISO) (CAS RN 283159-90-0) med en renhedsgrad på 98 vægtprocent eller derover,0.065
 2924297057,"2-(Dimethylaminomethyliden)-4-methoxy-3-oxo-N-[(2,4,6-trifluorphenyl)methyl]butanamid (CAS RN 1846582-17-9) med en renhedsgrad på 95 vægtprocent eller derover",0.065
 2924297058,2-chlor-N-[1-(4-chlor-3-fluorphenyl)-2-methylpropan-2-yl] acetamid (CAS RN 787585-35-7) med en renhed 98 vægtprocent eller derover,0.065
+2924297059,2-(Trifluormethyl)benzamid (CAS RN 360-64-5) med en renhed på 98 vægtprocent eller derover,0.065
 2924297062,2-Klorbenzamid (CAS|RN|609-66-5),0.065
 2924297064,"N-(3',4'-diklor-5-fluor[1,1'-biphenyl]-2-yl)-acetamid (CAS|RN|877179-03-8)",0.065
 2924297067,"N,N′-(2,5-Dichlor-1,4-phenylen)bis[3-oxobutyramid], (CAS RN 42487-09-2)",0.065
@@ -6237,6 +6263,7 @@ til brug ved fremstilling af ""one pack""-stabilisatorer baseret på pulverbland
 2924297097,"1,1-Cyclohexandieddikesyre monoamid (CAS RN 99189-60-3)",0.065
 2924297099,Andre varer,0.0
 2925110030,"1,2-benzisothiazol-3(2H)-on-1,1-dioxid (CAS RN 81-07-2) eller natrium-1,2-benzothiazol-3-olat-1,1-dioxid (CAS RN 128-44-9) med en renhedsgrad på 98 vægtprocent eller derover",0.065
+2925110040,"1,2-Benzisothiazol-3(2H)-on-1,1-dioxid (CAS RN 81-07-2) eller natriumsalt deraf (CAS RN 128-44-9) eller natriumsalt-dihydrat deraf (CAS RN 6155-57-3) med en renhed på 98 vægtprocent eller derover",0.065
 2925110090,Andre varer,0.065
 2925120000,Glutethimid (INN),0.0
 2925192000,"3,3′,4,4′,5,5′,6,6′-Octabrom-N,N′-ethylendiphthalimid; N,N′-ethylenbis(4,5-dibromhexahydro-3,6-methanophthalimid)",0.0
@@ -6311,8 +6338,11 @@ til brug ved fremstilling af ""one pack""-stabilisatorer baseret på pulverbland
 2928009053,Ethylchlor[(4-methoxyphenyl)hydrazono]acetat (CAS RN 27143-07-3) med en renhedsgrad på 98 vægtprocent eller derover,0.065
 2928009055,Aminoguanidinium-hydrogencarbonat (CAS RN 2582-30-1),0.065
 2928009063,Daminozid (ISO) (CAS RN 1596-84-5) med en renhedsgrad på 97 vægtprocent eller derover,0.065
+2928009068,Ethylhydrazinoacetathydrochlorid (CAS RN 6945-92-2) med en renhed på 98 vægtprocent eller derover,0.065
 2928009070,Butanonoxim (CAS RN 96-29-7),0.065
+2928009073,"3,3´-Bis(3,5-di-tert-butyl-4-hydroxyphenyl)-N,N´-bipropionamid (CAS RN 32687-78-8) med en renhed på 97 vægtprocent eller derover",0.065
 2928009075,Metaflumizon (ISO)|(CAS RN 139968-49-3),0.065
+2928009078,Aminoguanidiniumhydrogencarbonat (CAS RN 2582-30-1) med en renhed på 99 vægtprocent eller derover,0.065
 2928009080,Cyflufenamid (ISO) (CAS RN 180409-60-3),0.065
 2928009090,Andre varer,0.0
 2929100020,Butylisocyanat|(CAS RN 111-36-4),0.065
@@ -6330,6 +6360,13 @@ til brug ved fremstilling af ""one pack""-stabilisatorer baseret på pulverbland
 2929909050,N-(n-propyl)-thiophosphorsyretriamid (CAS RN 916809-14-8) med en renhedsgrad på 97 vægtprocent eller derover,0.065
 2929909060,(2S)-2-[[2-[2-[2-[2-[2-[2-[2-[2-[2-[2-(2-Azidoethoxy)ethoxy]ethoxy]ethoxy]ethoxy]ethoxy]ethoxy]ethoxy]ethylamino]-2-oxoethoxy]acetyl]amino]-N-[4-(hydroxymethyl)phenyl]-6-[[(4-methoxyphenyl)-diphenylmethyl]amino]hexanamid (CAS RN 1224601-12-0) med en renhedsgrad på 98 vægtprocent eller derover,0.065
 2929909070,"N',N''-[(2S,3E,5S)-1,6-diphenylhex-3-en-2,5-diyl]bis(N,N-dimethylsulfamid) (CAS RN 1247119-27-2) i form af en vandig opløsning med indhold af N',N''-[(2S,3E,5S)-1,6-diphenylhex-3-en-2,5-diyl]bis(N,N-dimethylsulfamid) på 70 vægtprocent eller derover men ikke over 95 %",0.065
+2929909080,"Vådmasse eller pulver 
+ 
+-med et indhold af N',N''-[(2S,3E,5S)-1,6-diphenylhex-3-en-2,5-diyl]bis(N,N-dimethylsulfamid) (CAS RN 1247119-27-2) på 70 vægtprocent eller derover
+ 
+-med et vandindhold på ikke over 30 vægtprocent 
+ 
+-med en renhedsgrad på 90 tørvægtsprocent eller derover af N',N''-[(2S,3E,5S)-1,6-diphenylhex-3-en-2,5-diyl]bis(N,N-dimethylsulfamid) (CAS RN 1247119-27-2)",0.065
 2929909090,Andre varer,0.065
 2930100000,"2-(N,N-Dimethylamino)ethanethiol",0.065
 2930200040,Prosulfocarb (ISO) (CAS RN 52888-80-9) med en renhed på 97 vægtprocent eller derover,0.065
@@ -6353,6 +6390,8 @@ til brug ved fremstilling af ""one pack""-stabilisatorer baseret på pulverbland
 2930909519,4-amino-5-(ethansulfonyl)-2-methoxybenzoesyre (CAS RN 71675-87-1) med en renhed på 98 vægtprocent eller derover,0.065
 2930909520,4-(4-Methylphenylthio)benzophenon (CAS RN 83846-85-9),0.065
 2930909521,"[2,2'-Thio-bis(4-tert-octylphenolato)]-n-butylamin-nikkel (CAS RN 14516-71-3)",0.065
+2930909522,"4,4,5,5,5-Pentafluorpentylcarbamimidothioat-methansulfonat (1:1) (CAS RN 1107606-68-7) med en renhed på 99 vægtprocent eller derover",0.065
+2930909524,Trimethyloxosulfoniumchlorid (CAS RN 5034-06-0) med en renhed på 98 vægtprocent eller derover,0.065
 2930909525,Bis(4-chlorphenyl)sulfon (CAS RN 80-07-9) med en renhedsgrad på 98 vægtprocent eller derover,0.065
 2930909526,"Folpet (ISO) (CAS RN 133-07-3) af renhed på 97,5 vægtprocent eller derover",0.065
 2930909528,"Mesotrion (ISO) (CAS RN 104206-82-8) i form af vådkage eller vådpasta eller i krystallinsk form, med
@@ -6421,6 +6460,7 @@ til brug ved fremstilling af ""one pack""-stabilisatorer baseret på pulverbland
 2931599050,2-Chlorethylphosphonsyre (CAS RN 16672-87-0) fast eller en vandig opløsning med et indhold af 2-Chlorethylphosphonsyre i vægtprocent på 65 eller derover,0.065
 2931599090,Andre varer,0.0
 2931900015,"Metylcyclopentadienyl-mangan-tricarbonyl (CAS RN 12108-13-3) med et indhold af cyclopentadienyl-mangan-tricarbonyl på 4,9 vægtprocent og derunder",0.065
+2931900021,(2-Fluor-4-phenoxyphenyl)boronsyre (CAS RN 1414356-30-1) med en renhed på 95 vægtprocent eller derover,0.065
 2931900023,Ixazomibcitrat (INNM) (CAS RN 1239908-20-3) med en renhed på 95 vægtprocent eller derover,0.065
 2931900028,Triethoxy (3-isocyanatopropyl)silan (CAS RN 24801-88-5) med en renhed på 96 vægtprocent eller derover,0.065
 2931900030,Tert-Butylchlordimethylsilan (CAS RN 18162-48-6) med en renhedsgrad på 99 vægtprocent eller derover,0.065
@@ -6444,6 +6484,7 @@ til brug ved fremstilling af ""one pack""-stabilisatorer baseret på pulverbland
 2932190025,Methyltetrahydro-2-furancarboxylat (CAS RN 37443-42-8) med en renhedsgrad på 98 vægtprocent eller derover,0.065
 2932190030,"Anhydride forbindelser af mannitol eller af sorbitol, undtagen maltol og isomaltol",0.065
 2932190035,"(2S,3S,4S,5R)-3-(3,4-Difluoro-2-methoxyphenyl)-4,5-dimethyl-5-(trifluoromethyl)tetrahydrofuran-2-yl-4-nitrobenzoat (CAS RN 2875066-49-0) med en renhedsgrad på 97 vægtprocent eller derover",0.065
+2932190038,"(2,2-Diphenyltetrahydrofuran-3-yl)methanol (CAS RN 93651-75-3) med en renhed på 98 vægtprocent eller derover",0.065
 2932190041,"2,2 di(tetrahydrofuryl)propan (CAS RN 89686-69-1)",0.065
 2932190055,(3S)-3-[4-[(5-Brom-2-chlorphenyl)methyl]phenoxy]tetrahydro-furan (CAS RN 915095-89-5) med en renhedsgrad på 97 vægtprocent eller derover,0.065
 2932190065,Tefuryltrion (ISO) (CAS RN 473278-76-1),0.065
@@ -6520,6 +6561,13 @@ til brug ved fremstilling af ""one pack""-stabilisatorer baseret på pulverbland
 2933199068,1-Methyl-1H-pyrazol-4-aminhydrochlorid (CAS RN 127107-23-7) med en renhedsgrad på 95 vægtprocent eller derover,0.065
 2933199070,"4,5-Diamino-1-(2-hydroxyethyl)-pyrazolsulfat (CAS RN 155601-30-2)",0.065
 2933199073,"2,4-Dihydro-2,5-dimethyl-3H-pyrazol-3-on (CAS RN 2749-59-9) med en renhedsgrad på 99 vægtprocent eller derover",0.065
+2933199078,"3-(3-Methyl-5-oxo-4,5-dihydro-1H-pyrazol-1-yl)benzensulfonsyre (CAS RN 119-17-5) med en renhed på 95 vægtprocent eller derover",0.065
+2933199083,"Isomerisk blanding med indhold af de to isomerer på 97 vægtprocent eller derover 
+
+-2-(3,4-Dimethyl-1H-pyrazol-1-yl)ravsyre og 
+
+-2-(4,5-Dimethyl-1H-pyrazol-1-yl)ravsyre 
+(CAS RN 2241455-89-8)",0.065
 2933199090,Andre varer,0.0
 2933210045,"Natrium (5S,8S)-8-methoxy-2,4-dioxo-1,3-diazaspiro[4.5]decan-3-ide (CAS RN 1400584-86-2) med en renhedsgrad på 90 vægtprocent eller derover",0.065
 2933210050,"1-Brom-3-chlor-5,5-dimethylhydantoin (CAS RN 16079-88-2)/ (CAS RN 32718-18-6)",0.065
@@ -6568,6 +6616,7 @@ til brug ved fremstilling af ""one pack""-stabilisatorer baseret på pulverbland
 2933399916,Tert-butyl(3R)-3-aminopiperidin-1-carboxylat (CAS RN 188111-79-7) med en renhedsgrad på 96 vægtprocent eller derover,0.065
 2933399917,"2,4-Dichlor-3-nitropyridin (CAS RN 5975-12-2) med en renhedsgrad på 99 vægtprocent eller derover",0.065
 2933399918,Perfluorphenyl 6-fluorpyridin-2-sulfonat (CAS RN 2608048-81-1) med en renhedsgrad på 98 vægtprocent eller derover,0.065
+2933399919,5-Chlor-1-(4-piperidyl)-1H-benzimidazol-2(3H)-on (CAS RN 53786-28-0) med en renhed på 99 vægtprocent eller derover,0.065
 2933399922,N-(5-brom-3-methylpyridin-2-yl)-N-methylbenzamid (CAS RN 446299-80-5) med en renhedsgrad på 98 vægtprocent eller derover,0.065
 2933399924,"2-(Chlormetyl)-4-methoxy-3,5-dimetylpyridin-hydrochlorid (CAS RN 86604-75-3)",0.065
 2933399927,"Pyridin-2,6-dikarboxylsyre (CAS|RN|499-83-2)",0.065
@@ -6618,6 +6667,7 @@ til brug ved fremstilling af ""one pack""-stabilisatorer baseret på pulverbland
 2933399991,Piperidin-4-on CAS nr.41661-47-6,0.065
 2933399992,Tert-butyl 4-oxopiperidin-1-carboxylat CAS nr.79099-07-3,0.065
 2933399993,Boscalid (ISO) (CAS RN 188425-85-6) med en renhedsgrad på 98 vægtprocent eller derover,0.065
+2933399994,Cyantraniliprol (ISO) (CAS RN 736994-63-1) med en renhed på 90 vægtprocent eller derover,0.065
 2933399999,Andre varer,0.0
 2933410000,Levorphanol (INN) og salte deraf,0.0
 2933491020,3-Hydroxy-2-metylquinolin-4-carboxylsyre (CAS RN 117-57-7),0.055
@@ -6652,8 +6702,10 @@ til brug ved fremstilling af ""one pack""-stabilisatorer baseret på pulverbland
 2933599532,"5-Chlor-3-nitropyrazol[1,5-a]pyrimidin (CAS RN 1363380-51-1) med en renhedsgrad på 98 vægtprocent eller derover",0.065
 2933599533,"4,6-Dichlor-5-fluorpyrimidin (CAS RN 213265-83-9)",0.065
 2933599534,"6-Chlor-1,3-dimethyluracil (CAS RN 6972-27-6) med en renhedsgrad på 97 vægtprocent eller derover",0.065
+2933599535,"3-Iod-1H-pyrazolo[3,4-d]pyrimidin-4-amin (CAS RN 151266-23-8) med en renhed på 98 vægtprocent eller derover",0.065
 2933599536,1-(Cyclopropylcarbonyl)piperazinhydrochlorid (CAS RN 1021298-67-8) med en renhedsgrad på 98 vægtprocent eller derover,0.065
 2933599538,"5-(5-Chlorsulfonyl-2-ethoxyphenyl)-1-methyl-3-propyl-1,6-dihydro-7H-pyrazolo[4,3-d]pyrimidin-7-on (CAS No 139756-22-2) med en renhedsgrad på 98 vægtprocent eller derover",0.065
+2933599540,Pirimiphos-methyl (ISO) (CAS RN 29232-93-7) med en renhed på 90 vægtprocent eller derover,0.065
 2933599541,"2- (4-phenoxyphenyl) -7- (piperidin-4-yl) -4,5,6,7-tetrahydropyrazolo [1,5-a] pyrimidin-3-carbonitril (CAS RN 2190506-57-9) med en renhedsgrad på 98 vægtprocent eller derover",0.065
 2933599544,"1,4,5,6-Tetrahydro-1,2-dimethylpyrimidin (CAS RN 4271-96-9) med en renhedsgrad på 98 vægtprocent eller derover",0.065
 2933599545,1-[3-(Hydroxymetyl)pyridin-2-yl]-4-metyl-2-phenylpiperazin (CAS RN 61337-89-1),0.065
@@ -6777,6 +6829,8 @@ til brug ved fremstilling af ""one pack""-stabilisatorer baseret på pulverbland
 2933998080,Pyrrol-2-carboxaldehyd (CAS RN 1003-29-8) med en renhedsgrad på 97 vægtprocent eller derover,0.065
 2933998081,"1,2,3-Benzotriazol (CAS RN 95-14-7)",0.065
 2933998082,Tolyltriazol (CAS RN 29385-43-1),0.065
+2933998083,"1-(3-Chlorpropyl)-1,3-dihydro-2H-benzimidazol-2-on (CAS RN 62780-89-6) med en renhed på 97 vægtprocent eller derover",0.065
+2933998084,"Allyl-(2S,4S)-4-benzoylsulfanyl-2-(dimethylcarbamoyl)pyrrolidin-1-carboxylat (CAS RN 141818-73-7) med en renhed på 96 vægtprocent eller derover",0.065
 2933998085,"2-(2H-benzotriazol-2-yl)-4,6-di-tert-butylphenol  (UV-320) (CAS RN 3846-71-7)",0.065
 2933998086,2-(2H-benzotriazol-2-yl)-4-(tert-butyl)-6-(sec-butyl)phenol (UV-350)  (CAS RN 36437-37-3),0.065
 2933998087,Carfentrazon-ethyl (ISOM) (CAS RN 128639-02-1) med en renhedsgrad på 90 vægtprocent eller derover,0.065
@@ -6824,13 +6878,18 @@ til brug ved fremstilling af ""one pack""-stabilisatorer baseret på pulverbland
 2934999028,"11-(Piperazin-1-yl)dibenzo[b,f][1,4]thiazepindihydrochlorid (CAS RN 111974-74-4)",0.065
 2934999030,"Dibenzo[b,f][1,4]thiazepin-11(10H)-on (CAS RN 3159-07-7)",0.065
 2934999031,Thensyre (CAS RN 1918-77-0) med en renhedsgrad på 97 vægtprocent eller derover,0.065
+2934999032,"(6R,7R)-Benzhydryl 3-hydroxy-8-oxo-7-(2-phenylacetamido)-5-thia-1-azabicyclo[4.2.0]oct-2-en-2-carboxylat (CAS RN 54639-48-4) med en renhed på 95 vægtprocent eller derover",0.065
+2934999034,Benzyl-4-(oxetan-3-yl)piperazin-1-carboxylat (CAS RN 1254115-22-4) med en renhed på 99 vægtprocent eller derover,0.065
 2934999035,Nusinersennatrium (INNM) (CAS RN 1258984-36-9) med en renhedsgrad på 95 vægtprocent eller derover,0.065
+2934999036,Dinatriumsalt af nadidphosphat (INNM) (CAS RN 24292-60-2) med en renhed på 97 vægtprocent eller derover,0.065
 2934999037,4-Propan-2-ylmorpholin (CAS RN 1004-14-4),0.065
 2934999038,2-Chloro-9H-thioxanthen-9-on (CAS RN 86-39-5) med en renhedsgrad på 98 vægtprocent eller derover,0.065
 2934999039,4-(Oxiran-2-ylmethoxy)-9H-carbazol (CAS|RN|51997-51-4),0.065
 2934999040,"2,3-pyrazindicarboxylsyreanhydrid (CAS RN 4744-50-7) med en renhed på 95 vægtprocent eller derover",0.065
 2934999041,"11-[4-(2-Klor-ethyl)-1-piperazinyl]dibenzo(b,f)(1,4)thiazepin (CAS|RN|352232-17-8)",0.065
 2934999045,"4-[4-[(5s)-5-(Aminomethyl)-2-oxo-3-oxazolidinyl] phenyl]-3-morpholinon, hydrochlorid (CAS RN 898543-06-1) med en renhedsgrad på 98 vægtprocent eller derover",0.065
+2934999046,"(6R-trans)-7-Amino-8-oxo-3-[[(1,2,5,6-tetrahydro-2-methyl-5,6-dioxo-1,2,4-triazin-3-yl)thio]methyl]-5-thia-1-azabicyclo[4.2.0]oct-2-en-2-carboxylsyre (CAS RN 58909-56-1) med en renhed på 97 vægtprocent eller derover",0.065
+2934999047,"2,4-Diethyl-9H-thioxanthen-9-on (CAS RN 82799-44-8) med en renhed på 97 vægtprocent eller derover",0.065
 2934999048,"Propan-2-ol -- 2-metyl-4-(4-metylpiperazin-1-yl)-10H-thieno[2,3-b][1,5]benzodiazepin (1:2) dihydrat, (CAS RN|864743-41-9)",0.065
 2934999049,Cytidin-5'-(dinatriumfosfat) (CAS|RN|6757-06-8),0.065
 2934999050,Vutrisiran (INN) (CAS RN 1867157-35-4) med en renhedsgrad på 98 vægtprocent eller derover,0.065
@@ -7125,6 +7184,7 @@ til brug ved fremstilling af ""one pack""-stabilisatorer baseret på pulverbland
 3204170026,Farvestof C.I. Pigment Orange 13|(CAS|RN|3520-72-7) og præparater på basis heraf med et indhold af farvestof C.I. Pigment Orange 13|på 80|vægtprocent eller derover,0.065
 3204170028,Farvestof C.I. Pigment Yellow 12 (CAS RN 6358-85-6) og præparater på basis deraf med et indhold af farvestof C.I. Pigment Yellow 12 på 21 vægtprocent eller derover,0.065
 3204170031,Farvestof C.I. Pigment Red 63:1 (CAS RN 6417-83-0) og præparater på basis deraf med et indhold af farvestof C.I. Pigment Red 63:1 på 70 vægtprocent eller derover,0.065
+3204170032,Farvestof C.I. Pigment Violet 23 (CAS RN 215247-95-3) og præparater på basis deraf med et indhold af farvestof C.I. Pigment Violet 23 på 70 vægtprocent eller derover,0.065
 3204170033,Farvestof C.I. Pigment Blue 15:1|(CAS RN 147-14-8) samt præparater på basis deraf med et indhold af Farvestof C.I. Pigment Blue 15:1|på 35|vægtprocent eller derover,0.065
 3204170035,Farvestof C.I. Pigment Red 202|(CAS RN 3089-17-6) og præparater på basis deraf med et indhold af farvestof C.I. Pigment Red 202|på 70|vægtprocent og derover,0.065
 3204170037,Farvestof C.I. Pigment Red 81:2|(CAS RN 75627-12-2) og præparater på basis deraf med et indhold af farvestof C.I. Pigment Red 81:2|på 30|vægtprocent eller derover,0.065
@@ -7640,10 +7700,32 @@ Granulatet har en massefylde p 0,80 g/cm³.",0.065
 -antimonpentoxid (CAS RN 1314-60-9) på 48 vægtprocent eller derover, men ikke over 55 vægtprocent
 
 -triethanolamin (CAS RN 102-71-6) på 1 vægtprocent eller derover, men ikke over 5 vægtprocent",0.063
+3809910030,"Vandig antimonpentoxid-blanding med indhold af:
+ 
+-46 vægtprocent eller derover, men ikke over 55 vægtprocent af antimonpentoxid (CAS RN 1314-60-9) , og
+ 
+-1 vægtprocent eller derover, men ikke over 10 vægtprocent af triethanolamin (CAS RN 102-71-6), eller 
+ 
+-1 vægtprocent eller derover, men ikke over 10 vægtprocent af triethanolaminphosphat (CAS RN 10017-56-8)",0.063
 3809910090,Andre varer,0.063
 3809920000,Af den art der anvendes i papirindustrien eller i nærstående industrier,0.063
 3809930000,Af den art der anvendes i læderindustrien eller i nærstående industrier,0.063
-3810100000,"Metalbejdser; lodde- og svejsepulver samt lodde- og svejsepasta, bestående af metal og andre stoffer",0.065
+3810100010,"Tin- eller zinkbaseret, halogenidfri, loddemasse til overflademonteringsteknik:
+ 
+-med et metalindhold på 87,5 vægtprocent eller derover, men ikke over 90,1 vægtprocent
+ 
+-med en solidustemperatur på 210 °C eller derover
+ 
+-med en viskositet på 178 Pa s eller derover, men ikke over 235 Pa s
+ 
+-med en partikelstørrelse på 40 µm eller derunder
+ 
+-med et sølvindhold enten på 3,15 vægtprocent eller derover, men ikke over 3,5 vægtprocent for tinbaseret loddemasse eller på 0,25 vægtprocent eller derover, men ikke over 0,28 vægtprocent for zinkbaseret loddemasse
+ 
+-med eller uden bismuthindhold på 2,55 vægtprocent eller derover, men ikke over 2,71 vægtprocent
+ 
+-med eller uden kobberindhold på 0,6 vægtprocent eller derover, men ikke over 0,7 vægtprocent",0.065
+3810100090,Andre varer,0.065
 3810901000,"Præparater, af den art der anvendes til fyldning eller belægning af svejseelektroder eller svejsetråd",0.041
 3810909000,Andre varer,0.05
 3811111000,Fremstillet på basis af tetraethylbly,0.065
@@ -7781,6 +7863,11 @@ bestemt til brug ved fremstilling af additivblandinger til smøreolier",0.053
  
 -|mere end 50, men ikke over 75|vægtprocent mineralolier
 til brug ved fremstillingen af|smøreolier",0.053
+3811210038,"Opløsning af mineralolier (CAS RN 64742-52-5, 64742-53-6, 64742-56-9 eller blandinger heraf) med et indhold på:
+ 
+-25 vægtprocent eller derover, men ikke over 55 vægtprocent af barium-, calcium-, magnesium- eller zinksalt af dinonylnaphthylsulfonsyre (CAS RN 25619-56-1, 28015-99-8, 28016-00-4 eller 57855-77-3)
+ 
+-dog ikke over 25 vægtprocent af barium-, calcium-, magnesium- eller zinksalt af en blanding af C3-C24-carboxylsyrer (CAS RN 68990-37-4)",0.053
 3811210048,"Tilsætningsstoffer med indhold af:
 -	magnesium(C20-C24)-alkylbenzensulfonater (CAS RN 231297-75-9) med overskud af base og
 -	mineralolier på over 25 vægtprocent, men ikke over 50 vægtprocent
@@ -7897,6 +7984,11 @@ til brug ved fremstilling af blandinger af additiver til smøreolier",0.058
 
 -|over 5|vægtprocent, men ikke over 20|vægtprocent mineralolier,
 til brug ved fremstilling af blandinger af additiver til brændstoffer",0.058
+3811900060,"Opløsning af mineralolier (CAS RN 64742-52-5, 64742-53-6, 64742-56-9 eller blandinger heraf) med et indhold på:
+ 
+-25 vægtprocent eller derover, men ikke over 55 vægtprocent af barium-, calcium-, magnesium- eller zinksalt af dinonylnaphthylsulfonsyre (CAS RN 25619-56-1, 28015-99-8, 28016-00-4 eller 57855-77-3)
+ 
+-dog ikke over 25 vægtprocent af barium-, calcium-, magnesium- eller zinksalt af en blanding af C3-C24-carboxylsyrer (CAS RN 68990-37-4)",0.058
 3811900090,Andre varer,0.058
 3812100010,Vulkaniseringsaccelerator baseret på difenylguanidingranulat|(CAS RN 102-06-7),0.063
 3812100030,"Vulkaniseringsaccelerator med indhold af: 
@@ -8007,6 +8099,26 @@ til brug ved fremstilling af blandinger af additiver til brændstoffer",0.058
 3814009099,I andre tilfælde,0.065
 3815110000,Med nikkel eller nikkelforbindelser som aktivt stof,0.065
 3815120010,"Katalysator, i form af korn eller ringe af diameter 3|mm og derover, men ikke over 10|mm, bestående af sølv på et bærestof af aluminiumoxid, med indhold af sølv på 8|vægtprocent og derover, men ikke over 40|vægtprocent",0.065
+3815120040,"Katalysator, der anvendes til fremstilling af paraxylen og orthoxylen ved isomerisering af methaxylen, med indhold af: 
+ 
+-60 vægtprocent eller derover, men ikke over 95 vægtprocent af aluminiumoxid (CAS RN 1344-28-1)
+ 
+-5 vægtprocent eller derover, men ikke over 15 vægtprocent af aluminosilikat (CAS RN 1327-36-2)
+ 
+-platin (CAS RN 7440-06-4) på ikke over 2 vægtprocent
+ 
+-aluminiumchloridhydroxid (CAS RN 12042-91-0) på ikke over 2 vægtprocent
+ 
+-hydrogensulfid (CAS RN 7783-06-4) på ikke over 0,2 vægtprocent",0.065
+3815120050,"Katalysator i form af granulat, hjul eller ringformede strukturer
+ 
+-med en diameter på 3 mm eller derover, men ikke over 10 mm
+ 
+-med et indhold af sølv på 8 vægtprocent eller derover, men ikke over 40 vægtprocent
+ 
+-på et bærestof, der er baseret på aluminiumoxid
+ 
+-med en eller flere promoter",0.065
 3815120090,Andre varer,0.065
 3815191000,"Katalysatorer i form af korn, af hvilke 90|vægtprocent og derover har en størrelse på 10|mikrometer og derunder, bestående af en blanding af oxider på et bærestof af magnesiumsilicat, med indhold af:
 -|kobber på 20|vægtprocent og derover, men ikke over 35|vægtprocent, og
@@ -8014,6 +8126,7 @@ til brug ved fremstilling af blandinger af additiver til brændstoffer",0.058
 og med aflæst densitet 0,2|g og derover, men ikke over 1,0",0.0
 3815199010,"Katalysator, bestående af chromtrioxid, dichromtrioxid eller organiske chromforbindelser på et bærestof af siliciumdioxid, med et porerumfang efter nitrogenabsorptionsmetoden på 2 cm³/g og derover",0.065
 3815199030,"Katalysator med indhold af titantetrachlorid anbragt på et bærestof af magnesiumdichlorid, bestemt til brug ved fremstilling af polypropylen",0.065
+3815199033,"Katalysator, i pulverform, bestående af en blanding af metaloxider på et bærestof af siliciumdioxid, med et samlet indhold af molybdæn, bismuth og jern på 20 vægtprocent og derover, men ikke over 50 vægtprocent, til brug ved fremstilling af acrylonitril",0.065
 3815199055,"Komponenter til et katalysatorsystem, importeret som enkelte komponenter eller som et sæt, bestående af mindst et af følgende præparater:
 
 -keramisk materiale (CAS RN 66402-68-4)
@@ -8084,6 +8197,7 @@ og et eller flere af følgende inaktive stoffer:
 
 -kaolin (CAS RN 1332-58-7)",0.065
 3815909058,"1,1′-Bis(4-triethylsilylphenyl)methylen(cyclopentadienyl)(2,7-di-tert-butyl-9-fluorenyl)dimethylhafnium (CAS RN 264926-41-2) i form af en hexanopløsning (CAS RN 110-54-3), med indhold af 1,1′-bis(4-triethylsilylphenyl)methylene(cyclopentadienyl)(2,7-di-tert-butyl-9-fluorenyl)dimethylhafnium på 2,0 vægtprocent eller derover, men ikke over 2,5 vægtprocent",0.065
+3815909060,"Dinonylnaphthylsulfonsyre (CAS RN 60223-95-2) med et indhold af 50 vægtprocent eller derover, men ikke over 65 vægtprocent, i form af opløsning i isobutanol (CAS RN 78-83-1)",0.065
 3815909076,"Katalysator, bestående af titandioxid og wolframtrioxid",0.065
 3815909080,Katalysator bestående hovedsagelig af dinonylnaphthalendisulfonsyre i form af opløsning i isobutanol,0.065
 3815909081,"Katalysator, med indhold af (2-hydroxy-1-metylethyl)trimetylammonium-2-ethylhexanoat på 69|vægtprocent og derover, men ikke over 79|vægtprocent",0.065
@@ -8437,6 +8551,17 @@ til brug ved fremstilling af stanoler/steroler eller stanol/sterolestere",0.065
 -|zirconiumoxid (CAS|RN|1314-23-4) og naturligt forekommende hafniumoxid på ikke mere end 65|vægtprocent",0.065
 3824999635,Calcineret bauxit (ildfast),0.065
 3824999637,Struktureret siliciumaluminiumphospat,0.065
+3824999638,"Varmeledende silikonemasse med lav afgivelse af gasser:
+ 
+-med en varmeledningsevne efter hærdning på 3,45 W/(m⋅K) eller derover, men ikke over 3,55 W/(m⋅K)
+ 
+-med kontinuerligt driftstemperaturområde fra -60 °C til 200 °C 
+ 
+-med en varmekapacitet efter hærdning på 0,75 J/g·K eller derover, men ikke over 0,85 J/g·K
+ 
+-med volumenresistivitet efter hærdning på 1 010 Ω·m eller derover
+ 
+-emballeret i beholdere med en vægt på 30 kg eller derover",0.065
 3824999640,"Antikorrosionspræparat bestående af salte af dinonylnaphthalensulfonsyre enten:
  
 -|på et bærestof af mineralsk voks, også kemisk modificeret, eller
@@ -8722,6 +8847,7 @@ til brug ved coekstrudering af folie til fleksibel fødevareemballage",0.065
 -|med en antalsvægtet gennemsnitsmolekylvægt (Mn) på 370|(±|50)
  
 -|med en massevægtet gennemsnitsmolekylvægt (Mw) på 500|(±|100)",0.065
+3902909063,Hydrogeneret poly(1-octen) (CAS RN 70693-43-5),0.065
 3902909065,"Bromineret butadien-styren-copolymer (CAS RN 1195978-93-8) med indhold af brom på 60 vægtprocent eller derover, men ikke over 68 vægtprocent, i former som angivet i bestemmelse 6b), kapitel 39",0.065
 3902909070,"Syntetisk polyalphaolefin med en viskositet ved 100°C (målt efter metoden i ASTM D 445) mellem 3 centistoke og 9 centistoke, fremstillet ved polymerisering af dodecen, også med:
 
@@ -8863,6 +8989,11 @@ til brug ved coekstrudering af folie til fleksibel fødevareemballage",0.065
 3906906000,"Copolymerer af methylacrylate, ethylen og en monomer, der indeholder en endeløs carboxylgruppe som erstatningsprodukt, med indhold på 50|vægtprocent og derover af methylacrylat, også blandet med siliciumdioxid",0.05
 3906909017,"Superabsorberende polymerer, der er uopløselige i vand, og som er resultatet af en polymerisation af acrylmonomermolekyler med tværbindinger, som danner et tværbundet netværk af polymerer, med en høj evne til at absorbere og tilbageholde vand og vandige væsker",0.065
 3906909023,"Copolymer af methylmethacrylat, butylacrylat, glycidylmethacrylate og styren (CAS|RN|37953-21-2) med en epoxyækvivalentvægt på højst 500|i form af formalede flager med en partikelstørrelse på højst 1|cm",0.065
+3906909028,"Blanding med indhold af:
+ 
+-80 vægtprocent eller derover, men ikke over 90 vægtprocent af en kerne-skal-polymer af butylacrylat, ethylacrylat, methylacrylat og allylmethacrylat (CAS RN 73026-23-0) og
+ 
+-10 vægtprocent eller derover, men ikke over 20 vægtprocent copolymer af methylmethacrylat og ethylacrylat (CAS RN 9010-88-2)",0.065
 3906909033,"Kerne-skal-copolymer af butylacrylat og alkylmethacrylat med en kornstørrelse på 5|µm eller derover, men ikke over 10|µm",0.065
 3906909043,"Copolymer af methacrylestere, butylacrylat og cycliske dimethylsiloxaner (CAS|RN|143106-82-5)",0.065
 3906909050,"Polymerer af estere af acrylsyre, med mindst en af følgende monomerer i kæden:
@@ -8934,6 +9065,42 @@ med indhold af de enkelte monomerenheder på ikke over 5|vægtprocent",0.065
  
 -|en inherent viskositet på 0,2|dl/g og derover, men ikke over 0,6|dl/g",0.065
 3907292055,"4-Nonylphenol, forgrenet og lineær, ethoxyleret",0.065
+3907292063,"Præparat med indhold af:
+ 
+-5 vægtprocent eller derover, men ikke over 15 vægtprocent polyethylen-polypropylenglycol (CAS RN 9003-11-6), og
+ 
+-85 vægtprocent eller derover, men ikke over 95 vægtprocent oxiran, 2-methyl-polymer med oxiran, ether med 5-(2-(4-(bis(2-hydroxyethyl)amino)-2-methylphenyl)diazenyl)-3-methyl-2,4-thiophendicarbonitril (2:1) (CAS RN 515857-23-5)",0.065
+3907292065,"Præparat med indhold af:
+ 
+-40 vægtprocent eller derover, men ikke over 60 vægtprocent oxiran, 2-methyl-polymer med oxiran, ether med 2,2-[[3-methyl-4-[(4-methyl-2-benzothiazolyl)azo]phenyl]imino]bis[ethanol] (2:1) (CAS RN 229306-55-2) og
+ 
+-40 vægtprocent eller derover, men ikke over 60 vægtprocent polyethylen-polypropylenglycol (CAS RN 9003-11-6)",0.065
+3907292068,"Præparat med indhold af:
+ 
+-90 vægtprocent eller derover, men ikke over 99 vægtprocent oxiran, 2-methyl-polymer med oxiran, ether med ethyl 3-(4-(bis(2-hydroxyethyl)amino)phenyl)-2-cyan-2-propenoat (2:1) (CAS RN 152286-82-3) og
+ 
+-1 vægtprocent eller derover, men ikke over 10 vægtprocent polyethylen-polypropylenglycol (CAS RN 9003-11-6)",0.065
+3907292070,"Præparat med indhold af:
+ 
+-50 vægtprocent eller derover, men ikke over 70 vægtprocent oxiran, methyl-polymer med oxiran, ether med bis(4-[bis(2-hydroxyethyl)amino)phenyl] (2-sulfophenyl)methyl (4:1), mononatrium salt i blok (CAS RN 126042-89-5) og
+ 
+-30 vægtprocent eller derover, men ikke over 50 vægtprocent polyethylen-polypropylenglycol (CAS RN 9003-11-6)",0.065
+3907292073,"Præparat med indhold af: 
+ 
+-23 vægtprocent eller derover, men ikke over 36 vægtprocent oxiran, 2-methyl-polymer med oxiran, ether med bis(4-(bis(2-hydroxyethyl)amino)phenyl)(2-sulfophenyl)methyl (4:1), mononatrium salt, i blok (CAS RN 126042-89-5),
+ 
+-4 vægtprocent eller derover, men ikke over 20 vægtprocent polyethylen-polypropylenglycol (CAS RN 9003-11-6)
+ 
+-25 vægtprocent eller derover, men ikke over 30 vægtprocent oxiran, 2-methyl-polymer med oxiran, ether med 2,2'-((3-methyl-4-((4-methyl-2-benzothiazolyl)azo)phenyl)imino)bis(ethanol)(2:1) (CAS RN 229306-55-2),
+ 
+-5 vægtprocent eller derover, men ikke over 10 vægtprocent oxiran, 2-methyl-polymer med oxiran, ether med 5-(2-(4-(bis(2-hydroxyethyl)amino)-2-methylphenyl)diazenyl)-3-methyl-2,4-thiophendicarbonitril (2:1) (CAS RN 515857-23-5) og
+ 
+-15 vægtprocent eller derover, men ikke over 25 vægtprocent oxiran, 2-methyl-polymer med oxiran, ether med ethyl 3-(4-bis(2-hydroxyethyl)amino)phenyl)-2-cyan-2-propenoat (2:1) (CAS RN 152286-82-3)",0.065
+3907292075,"Præparat med indhold af:
+ 
+-60 vægtprocent eller derover, men ikke over 80 vægtprocent oxiran, 2-methyl-polymer med oxiran, ether med 2,2',2"",2""'-(sulfonylbis(4,1-phenylen)-2,1-diazenediyl(3-methyl-4,1-phenylen)nitrilo))tetrakis(ethanol) (4:1) (CAS RN 927432-39-1) og
+ 
+-polyethylen-polypropylenglycol (CAS RN 9003-11-6) på 20 vægtprocent eller derover, men ikke over 40 vægtprocent polyethylen-polypropylenglycol (CAS RN 9003-11-6)",0.065
 3907292090,Andre varer,0.0
 3907299100,"Copolymer af 1-chlor-2,3-epoxypropan og ethylenoxid",0.0
 3907299920,"2,3-bis(methylpolyoxyethylen-oxy)-1-[(3-maleimido-1-oxopropyl)amino]propyloxypropan (CAS|RN|697278-30-1) med en antalsvægtet gennemsnitsmolekylvægt (Mn) på mindst 20|kDa, også modificeret med en kemisk enhed, der muliggør en binding mellem polyethylenglycolen og et protein eller et peptid",0.065
@@ -9444,6 +9611,17 @@ også varer med den anden side dækket af et klæbelag og et metalliseret polyme
 -også dækket på den ene side med en beskyttende folie af polyethylenterephthalat og på den anden side med et mikrostruktureret trykfølsomt akrylklæbemiddel og en slipfolie
 til brug ved fremstilling af stanset folie til indvendige og udvendige overflader på biler",0.065
 3919908056,"Gennemsigtig polyethylenfolie belagt på den ene side med et vandigt akrylklæbemiddel, med en tykkelse på 30 μm til 50 μm, i ruller med en bredde 52 cm og derover, men ikke over 154 cm",0.065
+3919908057,"Selvklæbende folie af polycarbonat, trykt, også buet, med:
+
+-en tykkelse på 0,3 mm eller derover, men ikke over 0,4 mm
+
+-en minimum størrelse på 63 mm x 15 mm
+
+-en maksimal størrelse på 278 mm x 117 mm
+
+-en vægt på ikke over 5 g pr. stk.
+beregnet til indbygning i kombinerede instrumentbræt til personbiler",0.065
+3919908058,"Biaxialt orienteret folie af poly(metylmethacrylat), med en tykkelse på 20 μm eller derover, men ikke over 90 μm, belagt på den ene side med et klæbelag og en aftagelig beskyttelsesfolie",0.065
 3919908065,"Selvklæbende folie af tykkelse 40 µm eller derover, men ikke over 475 µm, bestående af et eller flere lag af transparent, metalliseret eller farvet poly(ethylentereftalat), dækket på den ene side med en kradsefast belægning og på den anden side et trykfølsomt klæbemiddel og en beskyttelsesfolie",0.065
 3919908070,"Selvklæbende polerskiver af mikroporøs polyuretan, også beklædt med polerbal",0.065
 3919908080,"Selvklæbende reflekterende folie, bestående af flere lag, herunder 
@@ -9615,6 +9793,27 @@ til brug ved fremstilling af retroreflekterende produkter",0.065
 -|af en tykkelse på ikke over 20µm,
  
 -|belagt på mindst én side med et gastæt lag bestående af en polymermatrix, hvor der er dispergeret silica eller aluminiumoxid, og af en tykkelse på ikke over 2µm",0.065
+3920621970,"Film af poly(ethylenterephthalat) i ruller med:
+ 
+-en tykkelse på 35 μm eller derover, men ikke over 75 μm
+ 
+-en trækstyrke på 40 MPa eller derover i længderetningen og 200 MPa eller derover i tværretningen
+ 
+-en brudforlængelse på 400 % eller derover i længderetningen og 30 % eller derover i tværretningen
+ 
+-en varmekrympning (i vand ved 90 °C/10s) i længderetningen på 0,49 % eller derover, men ikke over 0,51 %
+ 
+-en dynamisk varmekrympning (mellem 55 °C og 70 °C) i tværretningen på højst 20 procentpoint
+ 
+-en lystransmission på 85 % eller derover
+ 
+-med et Haze-forhold på ikke over 6 %
+ 
+-en overfladespænding på 38 mN/m eller derover
+ 
+-en densitet på 1,30 g/cm³ eller derover, men ikke over 1,34 g/cm³
+ 
+-en af fabrikanten angivet holdbarhed på mindst 12 måneder",0.065
 3920621979,"Reflekterende folie af polyethylenterephthalat, præget i et pyramidemønster, med
 
 -en tykkelse på 0,07 mm eller derover, men ikke over 0,15 mm
@@ -9757,6 +9956,13 @@ til anvendelse som et beskyttende lag på bagsiden af fotovoltaiske moduler",0.0
 -|modstandsevne over for vandindtrængning på mellem 5|og 200|kPa, jf. ISO 811, og
 
 -|luftgennemtrængelighed på 0,08|cm$3/cm$2/s eller derover, jf. ISO 5636-5",0.065
+3921190053,"Plader af silikone-skumkunststof med lukkede celler med:
+ 
+-en tykkelse på 2,0 mm eller derover, men ikke over 4,8 mm
+ 
+-en varmeisoleringsevne på over 0,25 Km²/W men ikke over 0,4 Km²/W (iflg. ASTM-C518)
+ 
+-en dielektrisk styrke på over 3,0 KV/mm, men ikke over 3,8 KV/mm (ifølge ASTM-D149)",0.065
 3921190055,"Strimmel af mikroporøs polytetrafluorethylen på et underlag af fiberdug
 
 -omviklet en rulle på en kerne på 3 tommer
@@ -11242,7 +11448,20 @@ til brug ved fremstilling af varer henhørende under kapitel 87",0.025
 - udskåret i rektangler, hvis sider har en længde på 40 cm eller derover, men ikke over 140 m",0.058
 5311009090,Andre varer,0.058
 5401101200,Polyesterfibre omspundet med bomuldsfibre(Textilkategori 41),0.04
-5401101400,I andre tilfælde(Textilkategori 41),0.04
+5401101410,"Omspundet garn af endeløse polyesterfibre med høj styrke omgivet af korte syntetiske polyesterfibre:
+ 
+-snoet 410 omgange pr. meter eller derover, men ikke over 1200 omgange pr. meter
+ 
+-med en finhed på 200 dtex eller derover, men ikke over 1500 dtex
+ 
+-med en gennemsnitlig styrke på 46 cN/tex eller derover
+ 
+-med en brudforlængelse på 13 % eller derover, men ikke over 23 %
+ 
+-oprullet på et perforeret farvningsrør
+ 
+-med en vægt inkl. rør på 900 g eller derover",0.04
+5401101490,I andre tilfælde,0.04
 5401101600,Tekstureret garn(Textilkategori 41),0.04
 5401101800,Andet garn(Textilkategori 41),0.04
 5401109000,I detailsalgsoplægninger(Textilkategori 43),0.05
@@ -11251,6 +11470,19 @@ til brug ved fremstilling af varer henhørende under kapitel 87",0.025
 5402110000,Af aramider(Textilkategori 41),0.04
 5402190000,I andre tilfælde(Textilkategori 41),0.04
 5402200005,"Z-snoet flertrådet eller kabelslået garn, beregnet til fremstilling af sytråd, klar til farvning og til slutbehandling, løst omviklet en perforeret plastikspole",0.04
+5402200007,"Polyestermultifilamentgarn med høj styrke:
+ 
+-med ende-drejning i Z-retningen
+ 
+-med en finhed på 100 dtex eller derover, men ikke over 4000 dtex
+ 
+-med en gennemsnitlig minimumsstyrke på 64 cN/tex
+ 
+-med en brudforlængelse på 12 % eller derover, men ikke over 28 %
+ 
+-med en krympning ved 98 °C på 0 % eller derover, men ikke over 3,5 %
+ 
+-oprullet på det perforerede rør til farvning med 0,9 kg garn eller mere, som er klar til farvning",0.04
 5402200010,I andre tilfælde,0.04
 5402310000,"Af nylon eller andre polyamider, af finhed ikke over 50|tex pr.|tråd(Textilkategori 41)",0.04
 5402320000,"Af nylon eller andre polyamider, af finhed over 50|tex pr.|tråd(Textilkategori 41)",0.04
@@ -11393,6 +11625,15 @@ til brug ved fremstilling af malerpensler",0.04
 5503300000,Af acryl eller modacryl,0.04
 5503400000,Af polypropylen,0.04
 5503900020,"Fibre af poly(vinylalkohol), også acetaliserede",0.04
+5503900040,"Korte syntetiske fibre med en kerne af poly(ethylenterephthalat), der er fuldt indkapslet i polyethylen med: 
+ 
+-en finhed på 0,60 dtex eller derover, men ikke over 1,60 dtex 
+ 
+-en længde af de korte fibre på 37 mm eller derover, men ikke over 44 mm 
+ 
+-en brudforlængelse på 80 % eller derover 
+ 
+-en styrke på 1 cN/dtex eller derover",0.04
 5503900090,I andre tilfælde,0.04
 5504100000,Af viskose,0.04
 5504900000,Af andre regenererede fibre,0.04
@@ -11654,6 +11895,7 @@ til brug ved fremstilling af spædbarns- og barneplejeprodukter",0.043
 5603948020,"Strenge af akrylfibre, af længde 50 cm og derunder, bestemt til fremstilling af pennespidser til markere",0.043
 5603948030,"Fiberdug af aromatiske polyamider, fremstillet ved polycondensation af m-phenylendiamin og isophthalsyre, tilskåret i kvadratisk eller rektangulær form",0.043
 5603948040,"Fiberdug, bestående af flere lag af en blanding af smelteblæste fibre og korte fibre af polypropylen og polyester, også lamineret på den ene eller begge sider med spunbondede filamenter af polypropylen",0.043
+5603948050,"Spunbonded fiberdug af nålefilt, bestående af polyamid-fibre, der hver især er belagt med polyvinylalkohol, med et indhold af polyvinylalkohol på 20 vægtprocent eller derover, men ikke over 40 vægtprocent af polyvinylalkohol med en vægt på 400 g/m² eller derover",0.043
 5603948090,I andre tilfælde,0.043
 5604100000,"Tråde og snore af gummi, overtrukket med tekstil",0.04
 5604901010,"Af endeløse syntetiske filamenter, ikke i detailsalgsoplægninger, bortset fra enkeltrådet garn, ikke snoet eller snoet|50|omgange og derunder pr. meter(Textilkategori 41)",0.04
@@ -11904,7 +12146,27 @@ til brug ved fremstilling af redningsflåder",0.056
 5911321100,"Tekstilstof med et påsyet filtlag, af den art der anvendes i papirmaskiner (fx pressefilt)",0.058
 5911321900,Andre varer,0.058
 5911329000,Af andre tekstilmaterialer,0.044
-5911400000,"Filterdug og groft vævet stof, af den art der anvendes i oliepressere og lign., også af menneskehår(Textilkategori 114)",0.06
+5911400010,"Spunbonded fiberdug, bestående af poly(ethylenterephthalat): 
+ 
+-i løbende længder, afskåret eller tilskåret i firkantet (herunder kvadratisk) form 
+ 
+-med en vægt på 160 g/m² eller derover, men ikke over 300 g/m² 
+ 
+-med filtreringseffektivitet i overensstemmelse med DIN 60335-2-69, mindst filterklasse L 
+ 
+-foldelig 
+med eller uden følgende behandlinger: 
+ 
+-overtræk eller belægning med polytetrafluorethylen (PTFE) 
+ 
+-overtræk med aluminiumspartikler 
+ 
+-overtræk af fosforbaserede flammehæmmere 
+ 
+-nanofiberovertræk af polyamid-, polyurethan- eller fluorholdig polymer
+ 
+-en membran af ekspanderet polytetrafluorethylen (ePTFE)",0.06
+5911400090,Andre varer,0.06
 5911901000,Af filt,0.06
 5911909100,"Selvklæbende cirkulære svampe til polering, af den art der anvendes ved fremstilling af halvlederwafers",0.0
 5911909930,"Dele til udstyr til rensning af vand ved omvendt osmose, bestående hovedsagelig af plastikbaserede membraner understøttet inderst af vævede eller ikke vævede tekstilmaterialer, som er omviklet et perforeret rør og indkapslet i en cylindrisk plastikramme af vægtykkelse 4|mm og derunder, også anbragt i en cylinder af vægtykkelse 5|mm og derover",0.06
@@ -12719,6 +12981,13 @@ til brug ved fremstilling af redningsflåder",0.056
 -med en tråddiameter på 23 μm eller derover, men ikke over 350 μm
 
 -med en brudstyrke på 11 N eller derover, men ikke over 170 N",0.017
+6804210050,"Hjul, der er egnet til slibning, afrunding, polering, tilpasning eller skæring:
+ 
+-bestående af en metalbase med agglomererede syntetiske eller naturlige diamanter
+ 
+-også med et hul i midten
+ 
+-med en udvendig diameter på ikke over 870 mm, til maskiner til fremstilling af halvlederskiver",0.017
 6804210090,Andre varer,0.017
 6804221200,Ikke forstærket,0.0
 6804221800,Forstærket,0.0
@@ -12759,6 +13028,15 @@ til brug ved fremstilling af redningsflåder",0.056
 6813890020,"Friktionsmateriale, af tykkelse under 20|mm, ikke monteret, bestemt til fremstilling af friktionskomponenter",0.027
 6813890090,Andre varer,0.027
 6814100010,"Agglomereret glimmer af en tykkelse på ikke over 0,15|mm, i ruller, også brændt, også forstærket med aramidfibre",0.017
+6814100020,"Bånd af flogopit-mica agglomereret med silikoneharpiks til en glasfiberforstærket polyethylenfolie
+ 
+-med en tykkelse på 0,10 mm eller derover, men ikke over 1,60 mm
+ 
+-med en bredde på 500 mm eller derover, men ikke over 1200 mm 
+ 
+-med et indhold af mica på 80 g/m² eller derover, men ikke over 165 g/m² 
+ 
+-med en trækstyrke på 110 N/cm eller derover, men ikke over 130 N/cm",0.017
 6814100090,Andre varer,0.017
 6814900000,Andre varer,0.017
 6815110000,Kulfibre,0.0
@@ -12863,7 +13141,17 @@ til brug ved fremstilling af redningsflåder",0.056
 7001009900,Andre varer,0.0
 7002100000,Kugler,0.03
 7002201000,Af optisk glas,0.03
-7002209000,Af andet glas,0.03
+7002209010,"Cylindrisk preformet glas af kvartsglas af høj renhed:
+ 
+-med en optisk kerne af germaniumdoteret kvartsglas, beregnet til fremstilling af optiske lavtabsfibre:
+ 
+-med en længde på højst 2500 mm
+ 
+-med en diameter på 115 mm eller derover, men ikke over 139 mm 
+ 
+-på den ene side med en konisk ende 
+ 
+-på den anden side med et håndtag med en diameter på 25,4 mm overtrukket med aluminiumoxid for enden",0.03
 7002310000,Af kvartsglas,0.03
 7002320000,"Af andet glas, med en lineær udvidelseskoefficient på ikke over 5|!x!|10$-$6|pr.|kelvin mellem 0|°C og 300|°C",0.03
 7002390000,I andre tilfælde,0.03
@@ -13079,6 +13367,15 @@ til brug ved fremstilling af luftfartskomponenter",0.07
 7019610021,"Åben mesh-stoffer af glasfibre med en cellestørrelse på mere end 1,8 mm i både længde og bredde og med en vægt på mere end 35 g pr. m², som ikke omfatter glasfiberskiver",0.07
 7019610029,Andre varer,0.07
 7019610050,"Åben mesh-stoffer af glasfibre med en cellestørrelse på mere end 1,8|mm i både længde og bredde og med en vægt på mere end 35|g pr. m², som ikke omfatter glasfiberskiver",0.07
+7019610060,"Fleksible prepregs i ark eller ruller 
+ 
+-af modificeret epoxyharpiks med indlagt glasfiber 
+ 
+-uden halogenerede flammehæmmere
+ 
+-med en TMA-bestemt glasovergang på 145 °C eller derover, men ikke over 200 °C (ASTM E1545)
+ 
+-specificeret i henhold til IPC-4101/128, 130, 153 eller 154",0.07
 7019610070,"E-glasfibre:
 – med en vægt på 20 g/m² eller derover, men ikke over 214 g/m²
 – overfladebehandlet med et organosilankoblingsmiddelv
@@ -13440,20 +13737,25 @@ udelukkende til brug ved fremstilling af prepregs og kobberbelagte laminater",0.
 7210410020,"Aluminiumberoliget, belagt eller overtrukket via varmgalvanisering med zink og/eller med aluminium, og ingen andre metaller, kemisk passiveret, med indhold af: kulstof på mindst 0,015 vægtprocent men ikke over 0,170 vægtprocent, aluminium på mindst 0,015 vægtprocent men ikke over 0,100 vægtprocent, niobium på ikke over 0,045 vægtprocent, titan på ikke over 0,010 vægtprocent og vanadium på ikke over 0,010 vægtprocent, foreligger i oprullet stand, afkortede plader og smalle båndjern",0.0
 7210410030,"Belagt eller overtrukket via varmgalvanisering, eventuelt også legeret med silicium, kemisk passiveret, med eller uden yderligere overfladebehandling, såsom oliering eller forsegling, og med indhold af: kulstof på ikke over 0,5 vægtprocent, aluminium på ikke over 1,1 vægtprocent, niobium på ikke over 0,12 vægtprocent, titan på ikke over 0,17 vægtprocent og vanadium på ikke over 0,15 vægtprocent, som foreligger i oprullet stand, afkortede plader og smalle båndjern",0.0
 7210410080,I andre tilfælde,0.0
+7210410090,I andre tilfælde,0.0
 7210490020,"Aluminiumberoliget, belagt eller overtrukket via varmgalvanisering med zink og/eller med aluminium, og ingen andre metaller, kemisk passiveret, med indhold af: kulstof på mindst 0,015 vægtprocent men ikke over 0,170 vægtprocent, aluminium på mindst 0,015 vægtprocent men ikke over 0,100 vægtprocent, niobium på ikke over 0,045 vægtprocent, titan på ikke over 0,010 vægtprocent og vanadium på ikke over 0,010 vægtprocent, foreligger i oprullet stand, afkortede plader og smalle båndjern",0.0
 7210490030,"Belagt eller overtrukket via varmgalvanisering, eventuelt også legeret med silicium, kemisk passiveret, med eller uden yderligere overfladebehandling, såsom oliering eller forsegling, og med indhold af: kulstof på ikke over 0,5 vægtprocent, aluminium på ikke over 1,1 vægtprocent, niobium på ikke over 0,12 vægtprocent, titan på ikke over 0,17 vægtprocent og vanadium på ikke over 0,15 vægtprocent, som foreligger i oprullet stand, afkortede plader og smalle båndjern",0.0
 7210490080,I andre tilfælde,0.0
+7210490090,I andre tilfælde,0.0
 7210500010,Ikke yderligere bearbejdet end overfladebehandlet eller kun tilskåret i anden form end rektangulær eller kvadratisk,0.0
 7210500090,I andre tilfælde,0.0
 7210610020,"Aluminiumberoliget, belagt eller overtrukket via varmgalvanisering med zink og/eller med aluminium, og ingen andre metaller, kemisk passiveret, med indhold af: kulstof på mindst 0,015 vægtprocent men ikke over 0,170 vægtprocent, aluminium på mindst 0,015 vægtprocent men ikke over 0,100 vægtprocent, niobium på ikke over 0,045 vægtprocent, titan på ikke over 0,010 vægtprocent og vanadium på ikke over 0,010 vægtprocent, foreligger i oprullet stand, afkortede plader og smalle båndjern",0.0
 7210610030,"Belagt eller overtrukket via varmgalvanisering, eventuelt også legeret med silicium, kemisk passiveret, med eller uden yderligere overfladebehandling, såsom oliering eller forsegling, og med indhold af: kulstof på ikke over 0,5 vægtprocent, aluminium på ikke over 1,1 vægtprocent, niobium på ikke over 0,12 vægtprocent, titan på ikke over 0,17 vægtprocent og vanadium på ikke over 0,15 vægtprocent, som foreligger i oprullet stand, afkortede plader og smalle båndjern",0.0
 7210610080,I andre tilfælde,0.0
+7210610090,I andre tilfælde,0.0
 7210690020,"Aluminiumberoliget, belagt eller overtrukket via varmgalvanisering med zink og/eller med aluminium, og ingen andre metaller, kemisk passiveret, med indhold af: kulstof på mindst 0,015 vægtprocent men ikke over 0,170 vægtprocent, aluminium på mindst 0,015 vægtprocent men ikke over 0,100 vægtprocent, niobium på ikke over 0,045 vægtprocent, titan på ikke over 0,010 vægtprocent og vanadium på ikke over 0,010 vægtprocent, foreligger i oprullet stand, afkortede plader og smalle båndjern",0.0
 7210690030,"Belagt eller overtrukket via varmgalvanisering med aluminium og/eller silicium, eventuelt også legeret med silicium, kemisk passiveret, med eller uden yderligere overfladebehandling, såsom oliering eller forsegling, og med indhold af: kulstof på ikke over 0,5 vægtprocent, aluminium på ikke over 1,1 vægtprocent, niobium på ikke over 0,12 vægtprocent, titan på ikke over 0,17 vægtprocent og vanadium på ikke over 0,15 vægtprocent, som foreligger i oprullet stand, afkortede plader og smalle båndjern",0.0
 7210690080,I andre tilfælde,0.0
+7210690090,I andre tilfælde,0.0
 7210701015,Ikke malet,0.0
 7210701019,Andre varer,0.0
 7210701091,Andre varer,0.0
+7210701095,Andre varer,0.0
 7210708011,"Af ulegeret stål, der er malet, lakeret eller overtrukket med plast på mindst én side, undtagen varer med afsluttende overfladebehandling med zinkstøv (en zinkholdig maling med et indhold af zink på 70 vægtprocent eller derover) og undtagen varer med et substrat af metallisk coating med krom eller tin",0.0
 7210708020,Ikke malet,0.0
 7210708023,Andre varer,0.0
@@ -13508,6 +13810,7 @@ udelukkende til brug ved fremstilling af prepregs og kobberbelagte laminater",0.
 7212300020,"Aluminiumberoliget, belagt eller overtrukket via varmgalvanisering med zink og/eller med aluminium, og ingen andre metaller, kemisk passiveret, med indhold af: kulstof på mindst 0,015 vægtprocent men ikke over 0,170 vægtprocent, aluminium på mindst 0,015 vægtprocent men ikke over 0,100 vægtprocent, niobium på ikke over 0,045 vægtprocent, titan på ikke over 0,010 vægtprocent og vanadium på ikke over 0,010 vægtprocent, foreligger i oprullet stand, afkortede plader og smalle båndjern",0.0
 7212300030,"Belagt eller overtrukket via varmgalvanisering, eventuelt også legeret med silicium, kemisk passiveret, med eller uden yderligere overfladebehandling, såsom oliering eller forsegling, og med indhold af: kulstof på ikke over 0,5 vægtprocent, aluminium på ikke over 1,1 vægtprocent, niobium på ikke over 0,12 vægtprocent, titan på ikke over 0,17 vægtprocent og vanadium på ikke over 0,15 vægtprocent, som foreligger i oprullet stand, afkortede plader og smalle båndjern",0.0
 7212300080,I andre tilfælde,0.0
+7212300090,I andre tilfælde,0.0
 7212402010,Ikke malet,0.0
 7212402019,Andre varer,0.0
 7212402091,Ikke yderligere bearbejdet end overfladebehandlet,0.0
@@ -13539,10 +13842,12 @@ udelukkende til brug ved fremstilling af prepregs og kobberbelagte laminater",0.
 7212506120,"Aluminiumberoliget, belagt eller overtrukket via varmgalvanisering med zink og/eller med aluminium, og ingen andre metaller, kemisk passiveret, med indhold af: kulstof på mindst 0,015 vægtprocent men ikke over 0,170 vægtprocent, aluminium på mindst 0,015 vægtprocent men ikke over 0,100 vægtprocent, niobium på ikke over 0,045 vægtprocent, titan på ikke over 0,010 vægtprocent og vanadium på ikke over 0,010 vægtprocent, foreligger i oprullet stand, afkortede plader og smalle båndjern",0.0
 7212506130,"Belagt eller overtrukket via varmgalvanisering, eventuelt også legeret med silicium, kemisk passiveret, med eller uden yderligere overfladebehandling, såsom oliering eller forsegling, og med indhold af: kulstof på ikke over 0,5 vægtprocent, aluminium på ikke over 1,1 vægtprocent, niobium på ikke over 0,12 vægtprocent, titan på ikke over 0,17 vægtprocent og vanadium på ikke over 0,15 vægtprocent, som foreligger i oprullet stand, afkortede plader og smalle båndjern",0.0
 7212506180,I andre tilfælde,0.0
-7212506190,Af bredde|500|mm og derunder,0.0
+7212506185,I andre tilfælde,0.0
+7212506190,I andre tilfælde,0.0
 7212506920,"Aluminiumberoliget, belagt eller overtrukket via varmgalvanisering med zink og/eller med aluminium, og ingen andre metaller, kemisk passiveret, med indhold af: kulstof på mindst 0,015 vægtprocent men ikke over 0,170 vægtprocent, aluminium på mindst 0,015 vægtprocent men ikke over 0,100 vægtprocent, niobium på ikke over 0,045 vægtprocent, titan på ikke over 0,010 vægtprocent og vanadium på ikke over 0,010 vægtprocent, foreligger i oprullet stand, afkortede plader og smalle båndjern",0.0
 7212506930,"Belagt eller overtrukket via varmgalvanisering, eventuelt også legeret med silicium, kemisk passiveret, med eller uden yderligere overfladebehandling, såsom oliering eller forsegling, og med indhold af: kulstof på ikke over 0,5 vægtprocent, aluminium på ikke over 1,1 vægtprocent, niobium på ikke over 0,12 vægtprocent, titan på ikke over 0,17 vægtprocent og vanadium på ikke over 0,15 vægtprocent, som foreligger i oprullet stand, afkortede plader og smalle båndjern",0.0
 7212506980,I andre tilfælde,0.0
+7212506985,I andre tilfælde,0.0
 7212506990,I andre tilfælde,0.0
 7212509011,"Forsølvet, forgyldt, platineret eller emaljeret",0.0
 7212509013,Ikke yderligere bearbejdet end overfladebehandlet,0.0
@@ -13793,6 +14098,7 @@ udelukkende til brug ved fremstilling af prepregs og kobberbelagte laminater",0.
 7225920020,"Aluminiumberoliget, belagt eller overtrukket via varmgalvanisering med zink og/eller med aluminium, og ingen andre metaller, kemisk passiveret, med indhold af: kulstof på mindst 0,015 vægtprocent men ikke over 0,170 vægtprocent, aluminium på mindst 0,015 vægtprocent men ikke over 0,100 vægtprocent, niobium på ikke over 0,045 vægtprocent, titan på ikke over 0,010 vægtprocent og vanadium på ikke over 0,010 vægtprocent, foreligger i oprullet stand, afkortede plader og smalle båndjern",0.0
 7225920030,"Belagt eller overtrukket via varmgalvanisering, eventuelt også legeret med silicium, kemisk passiveret, med eller uden yderligere overfladebehandling, såsom oliering eller forsegling, og med indhold af: kulstof på ikke over 0,5 vægtprocent, aluminium på ikke over 1,1 vægtprocent, niobium på ikke over 0,12 vægtprocent, titan på ikke over 0,17 vægtprocent og vanadium på ikke over 0,15 vægtprocent, som foreligger i oprullet stand, afkortede plader og smalle båndjern",0.0
 7225920080,I andre tilfælde,0.0
+7225920090,I andre tilfælde,0.0
 7225990011,"Malet, lakeret eller overtrukket med plast på mindst én side, undtagen varer med afsluttende overfladebehandling med zinkstøv (en zinkholdig maling med et indhold af zink på 70 vægtprocent eller derover) og undtagen varer med et substrat af metallisk coating med krom eller tin",0.0
 7225990022,"Andre varer, aluminiumberoliget, belagt eller overtrukket via varmgalvanisering med zink og/eller med aluminium, og ingen andre metaller, kemisk passiveret, med indhold af: kulstof på mindst 0,015 vægtprocent men ikke over 0,170 vægtprocent, aluminium på mindst 0,015 vægtprocent men ikke over 0,100 vægtprocent, niobium på ikke over 0,045 vægtprocent, titan på ikke over 0,010 vægtprocent og vanadium på ikke over 0,010 vægtprocent, foreligger i oprullet stand, afkortede plader og smalle båndjern",0.0
 7225990023,"Belagt eller overtrukket via varmgalvanisering med magnesium og/eller aluminium, eventuelt også legeret med zink, eventuelt også legeret med silicium, kemisk passiveret, med yderligere overfladebehandling, såsom oliering eller forsegling, og med indhold af: kulstof på ikke over 0,5 vægtprocent, aluminium på ikke over 1,1 vægtprocent, niobium på ikke over 0,12 vægtprocent, titan på ikke over 0,17 vægtprocent og vanadium på ikke over 0,15 vægtprocent, som foreligger i oprullet stand, afkortede plader og smalle båndjern",0.0
@@ -14409,6 +14715,13 @@ beklædt på den ene eller begge sider med en kobberfilm med tykkelse 0,15|mm og
 — med en dielektricitetskonstant (DK) på under 5,4 ved 1 MHz målt i henhold til IPC- TM-650 2.5.5.2, 
 — med en tabsfaktor på mindre end 0,035 ved 1 MHz målt i henhold til IPC-TM- 650 2.5.5.2, 
 — med modstandsdygtighed mod krybestrøm (CTI) på 600 eller derover",0.052
+7410210065,"Plader
+ 
+-bestående af mindst ét lag glasfibervæv, der er imprægneret med modificeret epoxyharpiks uden brug af halogenerede flammehæmmere 
+ 
+-belagt på den ene side eller på begge sider med kobberfolie af en tykkelse på 0,15 mm eller derunder 
+ 
+-og med en TMA-bestemt TG på 145 °C eller derover, men ikke over 280 °C, i overensstemmelse med IPC-4101/128 eller 4101/130 eller IPC-4101/153 eller 4101/154",0.052
 7410210090,Andre varer,0.052
 7410220000,Af kobberlegeringer,0.052
 7411101000,Lige rør,0.048
@@ -14889,7 +15202,12 @@ af titanlegering",0.07
 8110100010,Antimon i form af barrer,0.07
 8110100090,I andre tilfælde,0.07
 8110200000,Affald og skrot,0.0
-8110900000,Andre varer,0.07
+8110900010,"Pellets af antimonberyllium med indhold af:
+ 
+-Beryllium (CAS RN 7440-41-7) på 20 vægtprocent eller derover, men ikke over 25 vægtprocent
+ 
+-Antimon (CAS RN 7440-36-0) på 77 vægtprocent eller derover, men ikke over 83 vægtprocent",0.07
+8110900090,Andre varer,0.07
 8111001100,Ubearbejdet mangan; pulver,0.0
 8111001900,Affald og skrot,0.0
 8111009000,Andre varer,0.05
@@ -15671,6 +15989,23 @@ til brug ved fremstilling af motorer til motorkøretøjer",0.017
 8414108990,I andre tilfælde,0.017
 8414202000,Cykelpumper,0.017
 8414208090,Andre varer,0.022
+8414302060,"Hermetisk kompressor til kølemiddel R290 til fremstilling af køleskabe og frysere:
+ 
+-med effekt på ikke over 0,4 kW
+ 
+-på forhånd påfyldt med smøremiddel fra 190 ml til 210 ml
+ 
+-indre diameter af suge- og forarbejdningsrør på mellem 6,40 mm og 6,60 mm
+ 
+-indre diameter af afgangsrøret på mellem 4,80 mm og 5,00 mm
+ 
+-drevet af en børsteløs jævnstrømsmotor
+ 
+-kølekapacitet fra 340 til 360 W ved ASHRAE LBP 3 000 omdrejninger pr. minut
+ 
+-fortrængt volumen fra 6,5 cm³ til 7,5 cm³
+ 
+-hastighedsområde fra 1600 omdrejninger pr. minut til 4200 omdrejninger pr. minut",0.022
 8414302090,I andre tilfælde,0.022
 8414308150,"Hermetiske eller halvhermetiske elektriske spiralkompressorer med variabel hastighed, med nominel effekt på 0,5 kW og derover, men ikke over 10 kW, med cylindervolumen på 35 cm³ og derunder, af den art, der anvendes til kølemaskiner og lign",0.022
 8414308160,"Hermetiske rotationskompressorer til hydrofluorcarbon- (HFC) eller carbonhydrid-kølemidler:
@@ -15766,6 +16101,21 @@ til brug ved fremstilling af hybridpersonbiler",0.023
 
 -med eller uden styreenhed til ventilatorens elektriske motor
 til brug ved produktion af genopladelige batterier til hybridkøretøjer og elkøretøjer",0.023
+8414593550,"Jævnstrømsmotordrevet centrifugalventilator med:
+ 
+-en nominel spænding på 8 V eller derover, men ikke over 13 V
+ 
+-en nominel maksimal hastighed på 1400 omdrejninger pr. minut eller derover, men ikke over 1950 omdrejninger pr. minut
+ 
+-en vandret eller lodret placering af ventilatorbladenes aksel
+ 
+-en boosting-tid på ikke over 10 sekunder
+ 
+-et kabel med en længde på 30 cm eller derover, men ikke over 50 cm, med RAST 2,5-konnektor
+ 
+-en nominel effekt på 0,7 W eller derover, men ikke over 3,5 W
+ 
+-et tako- eller feedback-signal til overvågning af hastigheden",0.023
 8414593590,Andre varer,0.023
 8414599590,Andre varer,0.023
 8414600000,Emhætter med største vandrette side 120|cm og derunder,0.027
@@ -16020,6 +16370,31 @@ til brug ved fremstilling af produkter henhørende under underpos. 8418 10, 841
 -3 klemmer
 
 -4 beslag svejset mellem stængerne",0.022
+8418999070,"Kondensator til husholdningsapparater, der er en type varmeveksler, udelukkende af aluminium A3102, A3003, A4045 eller A4343, bestående af to lodrette rør med 16 parallelle flade rør med ribber anbragt vandret mellem dem, med: 
+ 
+-et lodret rør med indgangs- og udgangsslanger 
+ 
+-en bredde på 297 mm eller derover, men ikke over 373 mm 
+ 
+-en højde på 154 mm eller derover, men ikke over 158 mm 
+ 
+-en dybde på 17 mm eller derover, men ikke over 23 mm
+ 
+-en planhedstolerance på under 2 mm for ribbepakningen i kondensatorens kerne 
+ 
+-en vægt på 224 g eller derover, men ikke over 283 g",0.022
+8418999080,"En fordamper, der er en type varmeveksler, bestående af aluminiumrør med endestykker af kobber omsluttet af aluminiumradiatorer: 
+
+-der måler 337 x 237 x 17 mm eller derover, men ikke over 868 x 399 x 78 mm 
+
+-med en samlet vægt på 236 g eller derover for et sæt, men ikke over 1750 g 
+
+-med en fastgjort sensor 
+
+-med eller uden støjdæmper 
+
+-med 2, 5 eller 7 tilslutningstifter til styring og strøm, der ender i et stik med temperaturføler, med eller uden stik til opvarmer eller sikring
+til brug ved fremstilling af produkter henhørende under underpos. 8418 10, 8418 21 eller 8418 40",0.022
 8418999091,På forhånd påfyldt hydrofluorkarboner (HFC'er),0.022
 8418999099,I andre tilfælde,0.022
 8419110000,Gasvandvarmere af gennemstrømningstypen,0.026
@@ -17173,6 +17548,13 @@ til fremstilling af koniske rullelejer",0.08
 
 -|også med vandkamre og forbindelsesdele",0.034
 8483303899,I andre tilfælde,0.034
+8483308030,"Lejeskjold til kommutatorer (lejehus med akselleje) til startmotorer til personbiler og erhvervskøretøjer 
+ 
+-fremstillet med præcisionsteknologi til højtryksstøbning
+ 
+-fremstillet af en aluminiumlegering (EN AC-46000 eller EN AC-46000 S i henhold til standarderne DIN EN 1706 og GB/T 16116)
+ 
+-med sintret radialleje",0.034
 8483308090,I andre tilfælde,0.034
 8483402190,I andre tilfælde,0.037
 8483402320,"Konisk tandhjul:
@@ -17280,8 +17662,27 @@ til fremstilling af motorer til motorkøretøjer",0.027
 
 -en diameter på 250 mm eller derover, men ikke over 280 mm
 til brug ved fremstilling af motorkøretøjer",0.027
+8483508050,"Metaltrykt enkelt eller dobbelt remskive:
+ 
+-fremstillet af DC03-stål eller lignende ulegeret stål eller automatstål
+ 
+-med en rullediameter på 67 mm eller derover, men ikke over 145 mm
+ 
+-med et indre hul beregnet til montering af lejer eller nøgler",0.027
+8483508060,"Metaltrykt tredobbelt remskive:
+ 
+-fremstillet af DC03-stål eller lignende ulegeret stål eller automatstål
+ 
+-med en rullediameter på 60 mm eller derover, men ikke over 130 mm
+ 
+-med et indre hul beregnet til montering af leje",0.027
 8483508090,Andre varer,0.027
 8483602090,Andre varer,0.027
+8483608020,"Friløbskobling til startmotorer til personbiler og erhvervskøretøjer med:
+ 
+-en samlet længde på 49,4 mm eller derover, men ikke over 210 mm
+ 
+-et startmotortandhjul med 9 tænder eller derover, men ikke over 16",0.027
 8483608090,Andre varer,0.027
 8483902090,Andre varer,0.057
 8483908190,Andre varer,0.027
@@ -18046,6 +18447,31 @@ til brug ved fremstilling af husholdningsapparater",0.027
 -	en afgivet effekt på 340W og derover, men ikke over 7,4kW
 -	en flange med dimensioner ikke over 180mm × 180mm og
 -	længde fra flangen til den fjerneste ende af resolveren ikke over 271mm",0.027
+8501522055,"Børsteløse elektriske vekselstrømssynkronmotorer med permanente magneter med:
+ 
+-en udgangseffekt på 1000 W eller derover, men ikke over 1400 W
+ 
+-en rotor med 8 poler genereret af permanente magneter, hovedsagelig bestående af praseodym, neodym, jern og bor (GB/T 13560-2017-standarden) indesluttet i et dæksel af rustfrit stål
+ 
+-en ydre diameter af motorens magnetaksel på 10,001 mm eller derover, men ikke over 10,007 mm
+ 
+-motorterminaler placeret i en radius af 37,00 mm adskilt af en vinkel på 30,00°
+ 
+-et motorhus bestående af sprøjtestøbt ADC12- eller EN AC46000-aluminiumlegering bestående af aluminium, silicium og kobber (iflg. JIS H5302-2000 eller EN 1706 -standarden)
+ 
+-en modelektromotorisk kraftkonstant (Ke) på 0,0265 V-s/rad eller derover, men ikke over 0,0293 V-s/rad
+ 
+-de harmoniske svingninger i den modelektromotoriske kraft - 5. orden på højst 0,4 % (af fundamentalsvingningen) og 7. orden på højst 0,2 % (af fundamentalsvingningen)
+ 
+-en synkron induktans på 33,49 µH eller derover, men ikke over 37,01 µH
+ 
+-et tandhjulsdrejningsmoment på ikke mere end 15 mNm
+ 
+-et friktionsmoment ved omgivende temperatur på ikke mere end 20 mNm
+ 
+-en maksimal motordriftstemperatur på ikke over 200 °C
+ 
+-med eller uden not på motorakslen",0.027
 8501522070,"Børsteløs og permanent magnetiseret vekselstrømssynkronmotor, klar til brug i motorkøretøjer, med:
 
 -en specificeret hastighed på ikke over 7 000 omdrejninger pr. minut,
@@ -18202,6 +18628,28 @@ til brug ved fremstilling af hybridbussers elektriske drivsystem",0.027
 8503001010,Til anvendelse i visse typer af luftfartøjer,0.027
 8503001090,I andre tilfælde,0.027
 8503002010,Til anvendelse i visse typer af luftfartøjer,0.027
+8503002020,"Belagt stålkerne i rotor i elektrisk motor i elektrisk kompressor til luftkonditioneringsanlæg i motorkøretøjer: 
+ 
+-med en ydre diameter på 65 mm eller derover, men ikke over 80 mm 
+ 
+-med en indre diameter på 15 mm eller derover, men ikke over 25 mm 
+ 
+-med en højde på 30 mm eller derover, men ikke over 45 mm 
+ 
+-med en vægt på 0,5 kg eller derover, men ikke over 0,8 kg
+ 
+-uden viklinger",0.027
+8503002030,"Belagt stålkerne i stator i elektrisk motor i elektrisk kompressor til luftkonditioneringsanlæg i motorkøretøjer: 
+ 
+-med en ydre diameter på 90 mm eller derover, men ikke over 120 mm
+ 
+-med en indre diameter på 65 mm eller derover, men ikke over 80 mm 
+ 
+-med en højde på 30 mm eller derover, men ikke over 45 mm 
+ 
+-med en vægt på 0,7 kg eller derover, men ikke over 1,2 kg
+ 
+-uden viklinger",0.027
 8503002090,I andre tilfælde,0.027
 8503009110,Til anvendelse i visse typer af luftfartøjer,0.027
 8503009131,"Rotor, der på indersiden er forsynet med en eller to ringmagneter (i et eller flere stykker), også monteret i en stålring eller lejebøsning i kappe af stål",0.027
@@ -18244,6 +18692,11 @@ til brug ved fremstilling af hybridbussers elektriske drivsystem",0.027
 -med eller uden tastaturfolie pålimet tastaturet
 
 -med eller uden ét- eller flerlags beskyttelsesfolie",0.027
+8503009845,"Anker til elektrisk motor i startmotorer til personbiler og erhvervskøretøjer med:
+ 
+-en ydre diameter på 52 mm eller derover, men ikke over 80 mm
+ 
+-en kommutatorkobbertråd med en diameter på 2 mm eller derover, men ikke over 4 mm",0.027
 8503009853,"Trykstøbt rotordække til kølekanalsystemet i en elektrisk motor:
 -	af EN AC-47100-F-aluminium
 -	med lukkehætte af rustfrit stål
@@ -18787,6 +19240,18 @@ til brug ved fremstilling af motorer til motorkøretøjer",0.032
 til brug ved fremstilling af totaktsmotorer",0.032
 8511800090,I andre tilfælde,0.032
 8511900010,Til anvendelse i visse typer af luftfartøjer,0.032
+8511900020,"Drivendeskjold til startmotorer og alternatorer til personbiler og erhvervskøretøjer 
+ 
+-fremstillet med præcisionsteknologi til højtryksstøbning
+ 
+-fremstillet af en aluminiumlegering (EN 1706 grade AC-47100 eller AC-47100 S eller AC-46000 eller AC-46000 S eller AC-44300)
+ 
+-med eller uden leje",0.032
+8511900030,"Kommutator til startmotorer til personbiler og erhvervskøretøjer 
+ 
+-med en længde på 27,7 mm eller derover, men ikke over 44,6 mm
+ 
+-med paraply- eller tromlekonstruktion",0.032
 8511900090,I andre tilfælde,0.032
 8512100000,"Lys- og visuelt signaludstyr, af den art der anvendes til cykler",0.027
 8512200025,"En elektrisk komponent med en integreret LED i et ABS-kabinet med:
@@ -18948,7 +19413,27 @@ til brug ved fremstilling af husholdningsapparater og dele hertil",0.027
  
 -|med et beskyttende papirlag på begge sider",0.027
 8516802090,I andre tilfælde,0.027
-8516808000,I andre tilfælde,0.027
+8516808010,"Elektrisk varmemodstand med tredobbelt sløjfekonstruktion: 
+ 
+-hovedsagelig fremstillet af rustfrit stål af typen AISI 316L
+ 
+-med en nominel spænding på 230 V
+ 
+-med en nominel effekt på 2000W
+ 
+-med en samlet længde af varmelegemet på 217 mm eller derover, men ikke over 223 mm 
+ 
+-med en samlet arbejdslængde af varmelegemet på 169,5 mm eller derover, men ikke over 174,5 mm 
+ 
+-med en diameter af monteringsflangen på 28 mm eller derover, men ikke over 32 mm
+ 
+-med en bøjningsradius for varmeelementet på 10,75 mm 
+ 
+-udstyret med termiske sikringer 
+ 
+-uden indbygget NTC-sensor
+ 
+-med forniklet terminalstift og konnektor",0.027
 8516900010,"Til opvarmning af propeldrevne flyvemaskiner og deres bæreplaner, til anvendelse i visse typer af luftfartøjer",0.027
 8516900051,"Ben, brætter og strygejernsholdere til strygebrætter, herunder ærmebrætter, også fritstående, med suge- og/eller varme- og/eller blæsefunktion",0.027
 8516900070,"Indvendig beholder:
@@ -19795,6 +20280,14 @@ til at forbinde en strømforsyning med hovedprintplader (PBA) og elektriske komp
 
 -|monteret med stikforbindelser,
 til brug ved fremstilling af høreapparater, tilbehørssæt og taleprocessorer",0.033
+8544429075,"Elektriske ledningsnet eller kabler til styretøj:
+
+-med en nominel spænding på 12 V
+
+-udstyret med konnektorer i begge ender og/eller med en særlig adapter med forsegling og antirotationsfunktion
+
+-med eller uden forankringskæber af plast til montering af styrehuset til motorkøretøjer
+til brug ved fremstilling af servostyringssystemer til motorkøretøjer",0.033
 8544429090,I andre tilfælde,0.033
 8544492000,"Af den art der anvendes til telekommunikation, til spænding 80|volt og derunder",0.0
 8544499100,"Ledninger og kabler, med en diameter af lederens enkelte tråde på over 0,51|mm",0.037
@@ -19869,12 +20362,34 @@ til brug ved fremstilling af høreapparater, tilbehørssæt og taleprocessorer",
 8546909000,Af andre materialer,0.037
 8547100000,Isolationsdele af keramisk materiale,0.047
 8547200000,Isolationsdele af plast,0.037
-8547900000,Andre varer,0.037
+8547900010,"Lithium-ion-batterimodulkomponent fremstillet af mica for brandsikring med særlig udformet top og sider med:
+ 
+-en længde på 480,0 mm eller derover, men ikke over 630,0 mm
+ 
+-en bredde på 78,0 mm eller derover, men ikke over 233,0 mm, og
+ 
+-en tykkelse på 0,75 mm eller derover, men ikke over 2,50 mm",0.037
+8547900090,Andre varer,0.037
 8548002000,"Hukommelsesenheder, der kan kombineres på flere måder, såsom stack D-RAMs og moduler",0.0
 8548003000,"Lysemitterende dioder (LED) til bagbelysning, som er lyskilder, der består af én eller flere LED'er og en eller flere konnektorer og er monteret på et trykt kredsløb eller andet lignende substrat, samt andre passive komponenter, der, uanset om de er kombineret med optiske komponenter eller beskyttelsesdioder, anvendes som bagbelysning i LCD-skærme",0.0
 8548009010,Til anvendelse i visse typer af luftfartøjer,0.027
 8548009041,"Enhed, bestående af 1|resonator, der arbejder med et frekvensområde på 1,8|MHz til 40|MHz og 1|kondensator, anbragt i en indkapsling",0.027
 8548009043,Modul til kontaktaftastning (Contact Image Sensor),0.027
+8548009045,"Et elektromagnetisk interferensfilter, der er konstrueret til at eliminere kontaktoverført elektromagnetisk interferens fra en højspændingsledning
+ 
+-med en nominel spænding på 250 V vekselstrøm
+ 
+-med en nominel strømstyrke på højst 15 A
+ 
+-med en driftsfrekvens på 50/60 Hz
+ 
+-med en dielektrisk styrke på 1500 V vekselstrøm i 1 minut
+ 
+-indeholdende en bleeder resistor med en modstand på 470 kΩ
+ 
+-der indeholder tre varistorer: en med en nominel spænding på 680 V, en på 910 V og en på 1800 V, hver ±10 %
+ 
+-monteret med en M8-skrue med en gennemsnitlig trækbrudstyrke på 93 kgf/cm",0.027
 8548009048,"Optisk enhed bestående af mindst
 -	en laserdiode og en fotodiode, der opererer ved en typisk bølgelængde på 635 nm eller derover, men ikke over 815|nm
 -	en optisk linse
@@ -20376,6 +20891,15 @@ til brug ved fremstilling af køretøjers styretøj",0.035
 
 -en grænseflade enten i form af en indvendig not med 10 tænder og en længde på 98,0 mm eller derover, men ikke over 160 mm, og en mindste diameter på 16,1 mm eller derover, men ikke over 16,4 mm, eller i form af en intern not med 48 tænder og en længde på 151 mm eller derover, men ikke over 160 mm, og en mindste diameter mellem 23,2 mm og 23,3 mm
 til brug ved fremstilling af køretøjers styretøj",0.035
+8708949980,"Ufærdig snekkehjulssamling, bestående af et nav af kulstofstål (GB/T 699 grade 25 eller DIN EN 10277 grade 11SMn30) og en ring af støbt polyamid 6/12 med:
+ 
+-en ydre diameter på 97,35 mm eller derover, men ikke over 102,65 mm
+ 
+-en indre diameter på 27,91 mm eller derover, men ikke over 27,93 mm
+ 
+-en navhøjde på 11,75 mm eller derover, men ikke over 12,00 mm
+ 
+-en samlet højde på 16,00 mm eller derover, men ikke over 18,00 mm",0.035
 8708949990,I andre tilfælde,0.035
 8708959100,Af sænksmedet stål,0.045
 8708959930,"Oppustelig airbag af stærkt polyamidfiber:
@@ -20411,6 +20935,17 @@ til brug ved fremstilling af køretøjers styretøj",0.035
 -med eller uden tastaturfolie pålimet tastaturet
 
 -med eller uden ét- eller flerlags beskyttelsesfolie",0.035
+8708999727,"Elektromagnetkerne med indre poler, der anvendes i magneto-rheologiske motorfundamenter til at mindske stød og til isolering og dæmpning i personbiler:
+ 
+-samlet af pulvermetal
+ 
+-med en diameter på ikke over 90,95 mm
+ 
+-med en samlet højde på 24,5 mm
+ 
+-imprægneret med tætningsmiddel
+ 
+-zinkgalvaniseret",0.035
 8708999743,"Udvendig sporstang med et hus af stål, enten AISI 4137 (SCM435) eller EN10083/2-C45R  N, eller lavtlegeret stål (JIS G4053-SCM435) med:
 
 -en kuglebolt fremstillet af stål (EN 10263/4-41CrS4 Q  T eller AISI 4137 (SCM435) eller EN10083/3-42CrMoS4Q  T) eller lavtlegeret stål (JIS G4053-SCM435)
@@ -21170,6 +21705,23 @@ til brug ved fremstilling af varer henhørende under kapitel 87",0.022
 -er udstyret med et låsesystem, der er konstrueret til at forblive sikkert ved kraftpåvirkninger på op til 20G
 
 -kræver en kraft på mindst 40 N for normal drift",0.027
+9401992030,"Låsemoduler til sædesystemer, der muliggør forskydning, fastlåsning og oplåsning af sædet i tilfældige, uafhængige positioner langs skinnerne:
+ 
+-med en integreret sikkerhedslåsemekanisme
+ 
+-med en kassettearkitektur til integrering med sædet via skrueforbindelser
+ 
+-med et trykstøbt hus af magnesiumlegering
+ 
+-med et lyddæmpningssystem
+ 
+-kan sammenkobles med skinnesystemer i biler
+ 
+-uden elektronisk styreenhed
+ 
+-uden halvledere
+ 
+-med en vægt på 1475 g eller derover, men ikke over 1619 g",0.027
 9401992090,Andre varer,0.027
 9401998000,I andre tilfælde,0.027
 9402100000,"Tandlægestole, frisørstole og lignende stole, samt dele dertil",0.0
@@ -21454,16 +22006,20 @@ til brug ved fremstilling af legetøj henhørende under position 9503",0.047
 9701920000,Mosaikker,0.0
 9701990000,Andre varer,0.0
 9702100010,Over 200 år gamle,0.0
+9702100011,Over 200 år gamle,0.0
 9702100015,Andre varer,0.0
+9702100021,Andre varer,0.0
 9702100080,Over 200 år gamle,0.0
 9702100090,Andre varer,0.0
 9702900010,"Træ i form af træstammer eller firskåret tømmer med simple processer i overfladen, udskårne eller med fint gevind eller malet, der ikke har betydelig merværdi og nogen væsentlig ændring i formen",0.0
-9702900080,Sjældne manuskripter,0.0
+9702900080,I andre tilfælde,0.0
 9702900085,I andre tilfælde,0.0
 9703100010,Over 200 år gamle,0.0
 9703100090,Andre varer,0.0
 9703900000,Andre varer,0.0
 9704000000,"Frimærker, stempelmærker, førstedagskuverter, helsager og lign., makulerede eller umakulerede, undtagen varer henhørende under pos.|4907",0.0
+9705100005,Over 200 år gamle,0.0
+9705100007,Andre varer,0.0
 9705100014,Samlinger og samlerobjekter af animalsk producter,0.0
 9705100016,Andre varer,0.0
 9705100020,Samlinger og samlerobjekter af animalsk producter,0.0
@@ -21483,7 +22039,9 @@ til brug ved fremstilling af legetøj henhørende under position 9503",0.047
 9705100058,Samlinger og samlerobjekter af animalsk producter,0.0
 9705100060,Andre varer,0.0
 9705100062,Over 200 år gamle,0.0
+9705100063,Over 200 år gamle,0.0
 9705100064,Andre varer,0.0
+9705100065,Andre varer,0.0
 9705100066,"Arkiver, herunder lydarkiver, fotografiske og kinematografiske arkiver",0.0
 9705100068,"Dele af inventar, der er over 100 år gamle, og gamle musikinstrumenter",0.0
 9705100072,Samlinger og samlerobjekter af animalsk producter,0.0
@@ -21497,13 +22055,21 @@ til brug ved fremstilling af legetøj henhørende under position 9503",0.047
 9705290012,Samlinger og samlerobjekter af animalsk producter,0.0
 9705290014,Andre varer,0.0
 9705290016,Samlinger og samlerobjekter af animalske produkter,0.0
+9705290018,Genstande af botanisk interesse,0.0
+9705290020,Mineraler,0.0
+9705290030,Genstande af palæontologisk interesse,0.0
+9705290050,Andre varer,0.0
 9705290080,Andre varer,0.0
-9705310000,Over 100|år gamle,0.0
+9705290090,Samlinger og samlerobjekter af animalske produkter,0.0
+9705290099,Andre varer,0.0
+9705310010,Mønter,0.0
+9705310020,Andre varer,0.0
+9705310090,Andre varer,0.0
 9705390000,Andre varer,0.0
 9706100012,fund fra arkæologiske udgravninger (herunder tilladte og skjulte) eller fra arkæologiske opdagelser på land eller under vand,0.0
 9706100014,"Dele af kunstneriske eller historiske monumenter eller fra arkæologiske fundsteder, og som er blevet adskilt fra disse",0.0
-9706100016,"Antikviteter såsom inskriptioner, mønter og graverede segl",0.0
-9706100020,Sjældne manuskripter og inkunabler,0.0
+9706100016,Antikviteter og graverede segl,0.0
+9706100020,Inkunabler,0.0
 9706100024,"Gamle bøger, dokumenter og publikationer af særlig interesse (historisk, kunstnerisk, videnskabelig, litterær osv.), enkeltvise eller i samlinger",0.0
 9706100028,Dele af inventar og gamle musikinstrumenter,0.0
 9706100090,Andre varer,0.0
