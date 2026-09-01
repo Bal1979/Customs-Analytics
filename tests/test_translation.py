@@ -128,3 +128,100 @@ def test_translate_upload_rejects_empty():
 
     with pytest.raises(Exception):
         translate_upload(b"kolonne_a;kolonne_b\n", "tom.csv")
+
+
+# ── Ny → gammel: DMS-print (PDF-rendering af det nye format) ────────────────
+
+_DMS_PRINT_LINES = [
+    "26DKTESTPRINT00A1B2",
+    "Overgang til fri",
+    "H1",
+    "omsætning",
+    "Oversigt",
+    "Nøgledata",
+    "Angivelses nummer: 26DKTESTPRINT00A1B2 Suppl. angivelsestype: IM/A",
+    "Klarerens navn: Angivelsestype: H1",
+    "Toldsteds ID: DK004700 Angivelse Status: Varerne er frigivet",
+    "Hoveddel",
+    "Gruppe 11 Meddelelsesoplysninger",
+    # Værdi indskudt i elementnummeret pga. linjeombrydning (observeret mønster).
+    "Angivelsestype (11 01 001 000) IM Supplerende angivelsestype (11 02 001 A",
+    "000)",
+    "LRN (12 09 001 000): TESTLRN-2026",
+    "Gruppe 13 Parter",
+    "Navn (13 01 016 000): Testfirma GmbH Landekode (13 01 018 020): DE",
+    "By (13 01 018 022): Hamburg",
+    "EORI nr. - Importør (13 04 017 000): DK11223344 By (13 04 018 022):",
+    "Gruppe 14 Beregningsoplysninger",
+    "UN/LOCODE (14 01 036 000) Lokalitet (14 01 037 000) Aarhus",
+    "INCOTERM kode (14 01 035 000) CIF Land (14 01 020 000) DK",
+    "Samlet fakturebeløb (14 06 001 000) 12345 Fakturavaluta (14 05 001 000) EUR",
+    "Gruppe 16 Steder-Lande-Regioner",
+    "Bestemmelsesland (16 03 001 000): DK Afsendelsesregion (16 04 001 000):",
+    "Afsendelsesland (16 06 001 000): DE",
+    "Gruppe 18 Vareoplysninger",
+    "Bruttovægt (18 04 001 000): 2.500",
+    "Varepost 1",
+    "Gruppe 11 Meddelelsesoplysninger",
+    "Anmodet procedure (11 09 001 000): 40 Forudgående procedure (11 09 002 000): 00",
+    "Supplerende procedurer (11 10 000 000)",
+    "Løbenummer Supplerende procedure (11 10 001 000)",
+    "1 000",
+    "Gruppe 14 Beregningsoplysninger",
+    "Værdiansættelsesindikator (14 Varepost fakturaværdi (14 08 001 000): 12345",
+    "07 001 000):",
+    "Præference (14 11 001 000): 400",
+    "Gruppe 16 Steder-Lande-Regioner",
+    "Afsendelsesland (16 06 001 000) Oprindelsesland (16 08 001 000) TR",
+    "Præference oprindelsesland (16 09 001 TR",
+    "000)",
+    "Gruppe 18 Vareoplysninger",
+    "Nettovægt (18 01 001 000) 2.400",
+    "Bruttovægt (18 04 001 000) 2.500",
+    "Varebeskrivelse (18 05 001 000) NATRIUMKARBONAT CUS kode (18 08 001 000)",
+    "HS-kode (18 09 056 000) 283620 KN-kode (18 09 057 000) 00",
+    "TARIC-kode (18 09 058 000) 00",
+    "Gruppe 99 Andre dataelementer (statistiske data, garantier, tarifrelaterede data)",
+    "Transaktionsart (99 05 001 000) 11 Statistisk værdi (99 06 001 000) 92100",
+    "Versioner",
+]
+
+
+def test_dms_print_lines_parse_and_translate():
+    from customs.parsers.dms_pdf import looks_like_dms_print, parse_dms_lines
+
+    assert looks_like_dms_print(_DMS_PRINT_LINES) is True
+    norm = parse_dms_lines(_DMS_PRINT_LINES)
+    t = build_translation(norm, "dms_pdf")
+
+    assert t["direction"] == "ny_til_gammel"
+    assert t["lossy_source"] is True
+
+    hdr = {f["key"]: f["value"] for f in t["header_fields"]}
+    assert hdr["decltype"] == "IM · H1"
+    assert hdr["mrn"] == "26DKTESTPRINT00A1B2"
+    assert hdr["lrn"] == "TESTLRN-2026"
+    assert hdr["office"] == "DK004700"
+    assert hdr["exporter"] == "Testfirma GmbH, Hamburg, DE"
+    assert hdr["importer"] == "DK11223344"
+    assert hdr["invoice"] == "EUR · 12.345"
+    assert hdr["delivery"] == "CIF · Aarhus, DK"
+    assert hdr["dispatch"] == "DE" and hdr["destination"] == "DK"
+    assert hdr["grosstotal"] == "2.500"
+
+    item = {f["key"]: f["value"] for f in t["item_sections"][0]["fields"]}
+    assert item["description"] == "NATRIUMKARBONAT"
+    assert item["commodity"] == "283620 · 00 · 00"
+    # Indskudte værdier (linjeombrudte elementnumre) fanges korrekt.
+    assert item["preforigin"] == "TR"
+    assert item["preference"] == "400"
+    assert item["procedure"] == "40 · 00 · 000"
+    assert item["statvalue"] == "92.100"
+    assert item["net"] == "2.400"
+
+
+def test_legacy_sad_pdf_lines_still_detected_as_legacy():
+    from customs.parsers.dms_pdf import looks_like_dms_print
+
+    legacy = ["2 Afsenders navn: X", "32 Varepost nummer: 1", "33 Varekode: 6303929090"]
+    assert looks_like_dms_print(legacy) is False

@@ -116,6 +116,8 @@ ikke EY's mørke/gule look.
   indsendes). Feltmapping deler grundlag med den offentlige Told-oversætter på
   balai.dk (`balai-landing/templates/told-oversaettelse.html`) — ændres mappingen
   ét sted, opdatér begge; Oversæt-siden linker til den offentlige side som generisk opslag. Filer: `customs/translation.py`,
+  `customs/parsers/dms_pdf.py` (DMS-print-PDF — PDF'er sniffes på indhold:
+  dataelement-numre → DMS-print, ellers legacy SAD),
   `templates/oversaet.html`, `static/oversaet.{css,js}`, link i dashboard-topbaren.
   Tests: `tests/test_translation.py` (5).
 

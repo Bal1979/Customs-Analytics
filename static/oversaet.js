@@ -94,6 +94,7 @@
 
     var FORMAT_LABELS = {
         wco_xml: "DMS-XML (nyt format)",
+        dms_pdf: "DMS-print (PDF, nyt format)",
         legacy_sad: "Gammelt toldsystem (PDF)",
         tabular: "Struktureret udtræk (CSV/XLSX)",
     };

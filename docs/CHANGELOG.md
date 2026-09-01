@@ -13,6 +13,9 @@ regelkataloget** (derfor intet versionsbump):
   formater side om side (SAD-rubrik ↔ DMS-dataelement) med tovejs-highlight,
   statusbadges og dækningsgrad; tabsgivende PDF-kilde flagges eksplicit.
 - Visningen er en oversættelse, ikke en angivelse (kan ikke indsendes).
+- PDF-upload skelner nu mellem **DMS-print** (nyt format som PDF, med
+  dataelement-numre — `customs/parsers/dms_pdf.py`) og gammel SAD-udskrift;
+  valget sker ved indholdssniffning, og begge flages som tabsgivende kilde.
 - 5 nye tests (`tests/test_translation.py`); feltmapping deler grundlag med den
   offentlige Told-oversætter på balai.dk. Link i dashboard-topbaren; siden
   linker til den offentlige side som generisk opslag.

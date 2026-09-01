@@ -22,7 +22,8 @@ from decimal import Decimal
 from typing import Optional
 
 from customs.schema import Declaration
-from customs.parsers.legacy_sad import parse_legacy_sad
+from customs.parsers.dms_pdf import looks_like_dms_print, parse_dms_lines
+from customs.parsers.legacy_sad import _lines_from_pdf, _rows_from_lines
 from customs.parsers.tabular import parse_tabular
 from customs.parsers.wco_xml import parse_wco_xml
 
@@ -375,7 +376,9 @@ def build_translation(norm: dict, source_format: str) -> dict:
     filled = [f for f in all_fields if f["value"] is not None]
     missing = [f for f in all_fields if f["value"] is None]
 
-    direction = "ny_til_gammel" if source_format == "wco_xml" else "gammel_til_ny"
+    direction = (
+        "ny_til_gammel" if source_format in ("wco_xml", "dms_pdf") else "gammel_til_ny"
+    )
     return {
         "source_format": source_format,
         "direction": direction,
@@ -387,7 +390,7 @@ def build_translation(norm: dict, source_format: str) -> dict:
             "total": len(all_fields),
             "missing_keys": sorted({f["key"] for f in missing}),
         },
-        "lossy_source": source_format == "legacy_sad",
+        "lossy_source": source_format in ("legacy_sad", "dms_pdf"),
     }
 
 
@@ -400,9 +403,20 @@ def translate_upload(data: bytes, filename: Optional[str] = None) -> dict:
     if fmt == "wco_xml":
         norm = _normalize_declaration(parse_wco_xml(data))
     elif fmt == "legacy_sad":
-        norm = _normalize_rows(parse_legacy_sad(data))
+        # En PDF kan være BÅDE gammelt (SAD-udskrift) og nyt format (DMS-print
+        # med dataelement-numre) — sniff indholdet, før parseren vælges.
+        lines = _lines_from_pdf(data)
+        if looks_like_dms_print(lines):
+            fmt = "dms_pdf"
+            norm = parse_dms_lines(lines)
+        else:
+            norm = _normalize_rows(_rows_from_lines(lines))
     else:
         norm = _normalize_rows(parse_tabular(data, filename=filename))
     if not norm["items"]:
-        raise ValueError("Angivelsen indeholder ingen vareposter.")
+        raise ValueError(
+            "Angivelsen indeholder ingen vareposter. Tjek at filen er en "
+            "DMS-XML, et DMS-print (PDF), en SAD-udskrift fra det gamle system "
+            "eller et struktureret CSV/XLSX-udtræk."
+        )
     return build_translation(norm, fmt)
