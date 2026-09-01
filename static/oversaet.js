@@ -115,7 +115,14 @@
         document.getElementById("ovs-coverage-text").textContent =
             cov.filled + " af " + cov.total + " felter udlæst af kilden" +
             (cov.missing_keys.length ? " · " + cov.missing_keys.length + " felttyper mangler" : "");
-        document.getElementById("ovs-lossy").hidden = !data.lossy_source;
+        var lossy = document.getElementById("ovs-lossy");
+        lossy.hidden = !data.lossy_source;
+        if (data.lossy_source) {
+            lossy.textContent =
+                data.source_format === "dms_pdf"
+                    ? "En PDF-udskrift er en tabsgivende kilde: felter vist som \u00bb\u2014 (ikke i kilden)\u00ab kunne ikke udl\u00e6ses af printet. Det komplette billede f\u00e5s ved at uploade selve DMS-XML\u2019en."
+                    : "En PDF-udskrift fra det gamle toldsystem er en tabsgivende kilde: felter vist som \u00bb\u2014 (ikke i kilden)\u00ab kunne ikke udl\u00e6ses af filen og m\u00e5 sl\u00e5s op i kildesystemet.";
+        }
 
         document.getElementById("sad-body").innerHTML = docHtml(data, "sad");
         document.getElementById("dms-body").innerHTML = docHtml(data, "dms");
