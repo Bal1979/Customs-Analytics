@@ -163,3 +163,14 @@ footer { text-align: center; color: var(--text-muted); font-size: 0.8rem; paddin
 .rtype-risk { background: #FEF2F2; color: #B91C1C; }
 .rtype-cls  { background: #FFFBEB; color: #B45309; }
 .rtype-edr  { background: #EEF2F7; color: #2E5C8A; }
+
+/* Link i topbaren (fx til Oversæt-siden) */
+.topbar-link {
+    margin-left: auto;
+    margin-right: 14px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #1B365D;
+    text-decoration: none;
+}
+.topbar-link:hover { text-decoration: underline; }

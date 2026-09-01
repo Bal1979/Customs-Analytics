@@ -20,6 +20,7 @@ from customs.risk_analysis import risk_opportunity_report
 from customs.parsers.legacy_sad import parse_legacy_sad
 from customs.parsers.tabular import parse_tabular
 from customs.parsers.wco_xml import parse_wco_xml
+from customs.translation import translate_upload
 from customs.tariff import TariffDatabase
 
 
@@ -84,6 +85,28 @@ def api_upload():
     return jsonify(
         {"dataset": file.filename, "rows": len(rows), **_jsonable(_full_report(rows))}
     )
+
+
+@app.get("/oversaet")
+@auth.login_required
+def oversaet():
+    """Oversæt-siden: én angivelse vist i både gammelt (SAD) og nyt (DMS) format."""
+    return render_template("oversaet.html")
+
+
+@app.post("/api/oversaet")
+@auth.login_required
+def api_oversaet():
+    """Oversæt én uploadet angivelse i hukommelsen. Intet gemmes, intet indsendes."""
+    auth._check_csrf()
+    file = request.files.get("file")
+    if file is None or not file.filename:
+        return jsonify({"error": "Ingen fil modtaget."}), 400
+    try:
+        result = translate_upload(file.read(), file.filename)
+    except Exception as exc:  # robust fejlbesked til brugeren
+        return jsonify({"error": f"Kunne ikke læse filen: {exc}"}), 422
+    return jsonify(_jsonable(result))
 
 
 if __name__ == "__main__":

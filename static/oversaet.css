@@ -1,0 +1,73 @@
+/* Customs Analytics — Oversæt-siden. Bygger oven på dashboard.css (Bal AI-identitet). */
+
+.ovs-meta { margin-bottom: 16px; }
+.ovs-meta-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
+.ovs-chip {
+    display: inline-flex; align-items: center;
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;
+    color: #1B365D; background: #EEF2F7; border: 1px solid #D5DEE9;
+    border-radius: 999px; padding: 0.15rem 0.6rem; white-space: nowrap;
+}
+.ovs-direction { font-size: 0.9rem; color: #4B5563; }
+.ovs-coverage { display: flex; align-items: center; gap: 12px; font-size: 0.85rem; color: #4B5563; }
+.ovs-coverage-bar { flex: 0 0 180px; height: 8px; border-radius: 999px; background: #E5E7EB; overflow: hidden; }
+.ovs-coverage-fill { height: 100%; background: #1B365D; border-radius: 999px; width: 0; }
+.ovs-lossy { margin: 10px 0 0; font-size: 0.85rem; color: #9A6A12; background: #F7EFDD; border-radius: 6px; padding: 8px 12px; }
+.ovs-missing-inline { font-family: "IBM Plex Mono", monospace; }
+
+.ovs-stage { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
+@media (max-width: 900px) { .ovs-stage { grid-template-columns: 1fr; } }
+
+.ovs-doc { padding: 0; overflow: hidden; }
+.ovs-doc-head {
+    display: flex; align-items: baseline; gap: 10px; color: #fff;
+    padding: 8px 14px; font-weight: 600; font-size: 0.9rem;
+}
+.ovs-doc-head-sad { background: #8C6A3F; }
+.ovs-doc-head-dms { background: #3B5BA8; }
+.ovs-doc-cap { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.85; }
+.ovs-doc-body { padding: 10px 12px 14px; }
+
+.ovs-sec {
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+    color: #6B7280; padding: 12px 14px 4px;
+}
+.ovs-field {
+    display: grid; grid-template-columns: minmax(120px, 42%) 1fr; gap: 2px 12px;
+    padding: 6px 14px; border-top: 1px dashed #E5E7EB;
+    cursor: pointer; outline: none;
+}
+.ovs-field:hover, .ovs-field:focus-visible, .ovs-field.hl { background: rgba(255, 213, 77, 0.30); }
+.ovs-field.pin { background: rgba(255, 213, 77, 0.5); box-shadow: inset 3px 0 0 #B8860B; }
+.ovs-field .no { font-family: "IBM Plex Mono", monospace; font-size: 0.72rem; font-weight: 600; white-space: nowrap; }
+.ovs-sad .ovs-field .no { color: #8C6A3F; }
+.ovs-dms .ovs-field .no { color: #3B5BA8; }
+.ovs-field .lb { font-size: 0.74rem; color: #4B5563; grid-column: 1; }
+.ovs-field .vl { font-family: "IBM Plex Mono", monospace; font-size: 0.8rem; color: #111827; grid-column: 2; grid-row: 1 / span 2; align-self: center; word-break: break-word; }
+.ovs-field .vl.missing { color: #9CA3AF; font-style: italic; }
+
+/* Forklaringspanel (fast bund) */
+.ovs-panelwrap {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
+    max-width: 1100px; margin: 0 auto; padding: 0 16px 12px; pointer-events: none;
+    transform: translateY(120%); transition: transform 0.15s ease;
+}
+.ovs-panelwrap.show { transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) { .ovs-panelwrap { transition: none; } }
+.ovs-panel {
+    pointer-events: auto; background: #1B365D; color: #fff; border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(17, 24, 39, 0.35); padding: 10px 16px;
+    display: flex; flex-wrap: wrap; gap: 4px 14px; align-items: baseline; font-size: 0.85rem;
+}
+.ovs-panel .st {
+    font-size: 0.66rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+    border-radius: 999px; padding: 0.12rem 0.55rem; white-space: nowrap;
+}
+.ovs-panel .st-ok { background: #E7F2EB; color: #2E7D4F; }
+.ovs-panel .st-warn { background: #F7EFDD; color: #9A6A12; }
+.ovs-panel .st-move { background: #EDF1FA; color: #3B5BA8; }
+.ovs-panel .st-gone { background: #EEF0F2; color: #6B7280; }
+.ovs-panel .st-newde { background: #EDF1FA; color: #1B365D; }
+.ovs-panel .pair { font-weight: 600; }
+.ovs-panel .note { opacity: 0.85; flex-basis: 100%; }
+.ovs-panel .note:empty { display: none; }

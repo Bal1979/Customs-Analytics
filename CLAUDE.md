@@ -106,6 +106,19 @@ ikke EY's mørke/gule look.
   eller `venv/bin/python app.py`. Verificeret visuelt: alle 7 faner renderer korrekt.
   Repo: github.com/Bal1979/Customs-Analytics (månedlig TARIC-Action verificeret).
 
+- **Oversæt-siden (2026-08-31):** `/oversaet` (bag login) — upload én angivelse
+  (DMS-XML, gammel-system-PDF eller CSV/XLSX); formatet **auto-detekteres**
+  (`customs/translation.py: detect_format` — filendelse + magiske bytes), og
+  angivelsen vises i **begge** formater side om side (SAD-rubrik ↔ DMS-dataelement)
+  med tovejs-highlight, statusbadges (1:1/opdelt/flyttet/udgået/nyt) og dækningsgrad;
+  tabsgivende PDF-kilde flagges eksplicit. Ren PRÆSENTATIONSLOGIK — ingen kontrol,
+  regelkataloget urørt. Visningen er en oversættelse, ikke en angivelse (kan ikke
+  indsendes). Feltmapping deler grundlag med den offentlige Told-oversætter på
+  balai.dk (`balai-landing/templates/told-oversaettelse.html`) — ændres mappingen
+  ét sted, opdatér begge. Filer: `customs/translation.py`,
+  `templates/oversaet.html`, `static/oversaet.{css,js}`, link i dashboard-topbaren.
+  Tests: `tests/test_translation.py` (5).
+
 ## Deploy (Railway → customs.balai.dk)
 
 - Deploy-filer: `Procfile` + `railway.json` (gunicorn, 2 workers, gthread, `--preload` deler
