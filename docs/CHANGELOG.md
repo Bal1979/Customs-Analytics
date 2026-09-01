@@ -3,6 +3,22 @@
 Versionering følger regelkataloget (`customs/rules/Customs-Validation-Rules.json`,
 felt `catalog_version`). Dokumentationspakken versioneres sammen med koden.
 
+## Uversioneret — 2026-08-31
+
+**Oversæt-siden** (`/oversaet`, bag login) — ren præsentation, **ingen ændring af
+regelkataloget** (derfor intet versionsbump):
+
+- Upload én angivelse (DMS-XML, gammel-system-PDF eller CSV/XLSX); format
+  **auto-detekteres** (`customs/translation.py`), og angivelsen vises i begge
+  formater side om side (SAD-rubrik ↔ DMS-dataelement) med tovejs-highlight,
+  statusbadges og dækningsgrad; tabsgivende PDF-kilde flagges eksplicit.
+- Visningen er en oversættelse, ikke en angivelse (kan ikke indsendes).
+- 5 nye tests (`tests/test_translation.py`); feltmapping deler grundlag med den
+  offentlige Told-oversætter på balai.dk. Link i dashboard-topbaren; siden
+  linker til den offentlige side som generisk opslag.
+- Udestår: nævn modulet i Solution Architecture ved næste regenerering af
+  docs-pakken.
+
 ## 0.2.0 — 2026-07-01
 
 **CUS-X01 flyttet planlagt → implementeret** (DMS-XML strukturvalidering).
