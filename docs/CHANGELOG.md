@@ -16,6 +16,9 @@ regelkataloget** (derfor intet versionsbump):
 - PDF-upload skelner nu mellem **DMS-print** (nyt format som PDF, med
   dataelement-numre — `customs/parsers/dms_pdf.py`) og gammel SAD-udskrift;
   valget sker ved indholdssniffning, og begge flages som tabsgivende kilde.
+  Samme sniffning bruges nu også af **dashboardets analyse-upload**
+  (`rows_from_dms_print` → analyseklare rækker; told/EDR kan ikke udledes
+  af printet og sættes bevidst til tom, aldrig 0).
 - 5 nye tests (`tests/test_translation.py`); feltmapping deler grundlag med den
   offentlige Told-oversætter på balai.dk. Link i dashboard-topbaren; siden
   linker til den offentlige side som generisk opslag.

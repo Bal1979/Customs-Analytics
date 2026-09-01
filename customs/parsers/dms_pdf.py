@@ -222,3 +222,60 @@ def parse_dms_lines(lines: list[str]) -> dict:
 def _join_parts(*parts: Optional[str]) -> Optional[str]:
     kept = [p for p in parts if p]
     return ", ".join(kept) if kept else None
+
+
+def rows_from_dms_print(norm: dict) -> list[dict]:
+    """Normaliseret DMS-print → analyseklare rækker (samme form som ``to_rows``).
+
+    Bruges af dashboardets upload, så et DMS-print også kan analyseres — med de
+    huller, PDF-kilden nu engang har (told/EDR kan ikke udledes af printet).
+    """
+    h = norm["header"]
+    rows = []
+    for it in norm["items"]:
+        commodity = "".join(
+            p for p in (it["hs_code"], it["cn_code"], it["taric_code"]) if p
+        ) or None
+        cpc = None
+        if it["procedure_current"]:
+            cpc = (
+                it["procedure_current"]
+                + (it["procedure_previous"] or "00")
+                + (it["supplementary_procedure"] or "000")
+            )
+        regime = it["duty_regime_code"]
+        rows.append(
+            {
+                "lrn": h["lrn"],
+                "mrn": h["mrn"],
+                "procedure_category": h["procedure_category"],
+                "declaration_office": h["declaration_office"],
+                "issue_datetime": None,  # antagelsesdato står tomt i printet
+                "invoice_currency": h["invoice_currency"],
+                "exchange_rate": h["exchange_rate"],
+                "importer_eori": h["importer_id"],
+                "consignor_name": h["exporter"],
+                "dispatch_country": h["dispatch_country"],
+                "destination_country": h["destination_country"],
+                "border_mot": h["border_mot"],
+                "inland_mot": h["inland_mot"],
+                "incoterm": h["incoterm"],
+                "item_number": it["item_number"],
+                "description": it["description"],
+                "commodity_code": commodity,
+                "hs_code": it["hs_code"],
+                "origin_country": it["origin_country"],
+                "preferential_origin_country": it["preferential_origin_country"],
+                "cpc": cpc,
+                "duty_regime_code": regime,
+                "claims_preference": bool(regime) and regime != "100",
+                "customs_value_dkk": it["statistical_value"],
+                "item_invoice_amount": it["item_invoice_amount"],
+                "customs_duty": None,   # 14 03-tabellen udfyldes af DMS, ikke printet
+                "effective_duty_rate": None,
+                "gross_mass": it["gross_mass"],
+                "net_mass": it["net_mass"],
+                "source_format": "dms_pdf",
+            }
+        )
+    return rows

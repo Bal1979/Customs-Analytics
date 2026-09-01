@@ -17,7 +17,12 @@ from customs.analytics import build_report
 from customs.classification import classification_report
 from customs.duty_checks import fta_opportunities
 from customs.risk_analysis import risk_opportunity_report
-from customs.parsers.legacy_sad import parse_legacy_sad
+from customs.parsers.dms_pdf import (
+    looks_like_dms_print,
+    parse_dms_lines,
+    rows_from_dms_print,
+)
+from customs.parsers.legacy_sad import _lines_from_pdf, _rows_from_lines
 from customs.parsers.tabular import parse_tabular
 from customs.parsers.wco_xml import parse_wco_xml
 from customs.translation import translate_upload
@@ -25,12 +30,17 @@ from customs.tariff import TariffDatabase
 
 
 def _parse_upload(data: bytes, filename: str) -> list[dict]:
-    """Vælg indlæser ud fra filtype: XML=DMS/WCO, PDF=gammelt toldsystem, ellers Excel/CSV."""
+    """Vælg indlæser ud fra filtype: XML=DMS/WCO, PDF=gammel SAD-udskrift eller DMS-print (sniffes), ellers Excel/CSV."""
     name = (filename or "").lower()
     if name.endswith(".xml"):
         return parse_wco_xml(data).to_rows()
     if name.endswith(".pdf"):
-        return parse_legacy_sad(data)
+        # En PDF kan være BÅDE gammelt format (SAD-udskrift) og nyt format
+        # (DMS-print med dataelement-numre) — sniff indholdet før parservalg.
+        lines = _lines_from_pdf(data)
+        if looks_like_dms_print(lines):
+            return rows_from_dms_print(parse_dms_lines(lines))
+        return _rows_from_lines(lines)
     return parse_tabular(data, filename=filename)
 
 TARIFF = TariffDatabase()  # indlæses én gang ved opstart

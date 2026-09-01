@@ -225,3 +225,24 @@ def test_legacy_sad_pdf_lines_still_detected_as_legacy():
 
     legacy = ["2 Afsenders navn: X", "32 Varepost nummer: 1", "33 Varekode: 6303929090"]
     assert looks_like_dms_print(legacy) is False
+
+
+def test_dms_print_rows_for_dashboard_analysis():
+    """Dashboardets analyse-upload skal også kunne bruge et DMS-print."""
+    from decimal import Decimal
+
+    from customs.parsers.dms_pdf import parse_dms_lines, rows_from_dms_print
+
+    rows = rows_from_dms_print(parse_dms_lines(_DMS_PRINT_LINES))
+    assert len(rows) == 1
+    r = rows[0]
+    assert r["source_format"] == "dms_pdf"
+    assert r["commodity_code"] == "2836200000"
+    assert r["cpc"] == "4000000"
+    assert r["duty_regime_code"] == "400" and r["claims_preference"] is True
+    assert r["customs_value_dkk"] == Decimal("92100")
+    assert r["origin_country"] == "TR"
+    assert r["importer_eori"] == "DK11223344"
+    assert r["invoice_currency"] == "EUR"
+    # Told kan ikke udledes af printet — må aldrig fremstå som 0.
+    assert r["customs_duty"] is None
