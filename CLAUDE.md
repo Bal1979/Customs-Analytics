@@ -115,7 +115,7 @@ ikke EY's mørke/gule look.
   regelkataloget urørt. Visningen er en oversættelse, ikke en angivelse (kan ikke
   indsendes). Feltmapping deler grundlag med den offentlige Told-oversætter på
   balai.dk (`balai-landing/templates/told-oversaettelse.html`) — ændres mappingen
-  ét sted, opdatér begge. Filer: `customs/translation.py`,
+  ét sted, opdatér begge; Oversæt-siden linker til den offentlige side som generisk opslag. Filer: `customs/translation.py`,
   `templates/oversaet.html`, `static/oversaet.{css,js}`, link i dashboard-topbaren.
   Tests: `tests/test_translation.py` (5).
 
