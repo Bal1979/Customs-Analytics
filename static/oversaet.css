@@ -71,3 +71,15 @@
 .ovs-panel .pair { font-weight: 600; }
 .ovs-panel .note { opacity: 0.85; flex-basis: 100%; }
 .ovs-panel .note:empty { display: none; }
+
+/* Træk-og-slip: overlay mens en fil holdes over siden */
+body.dropping::after {
+    content: "Slip filen her";
+    position: fixed; inset: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(27, 54, 93, 0.08);
+    border: 3px dashed #1B365D;
+    font-size: 1.25rem; font-weight: 600; color: #1B365D;
+    pointer-events: none;
+}
+body.dropping .empty-card { background: #EDF1FA; }

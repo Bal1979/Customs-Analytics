@@ -148,4 +148,21 @@
     var fileInput = document.getElementById("file-input");
     fileInput.addEventListener("change", function (e) { if (e.target.files[0]) uploadFile(e.target.files[0]); });
     document.getElementById("empty-upload-btn").addEventListener("click", function () { fileInput.click(); });
+
+    // Træk-og-slip: hele siden er slip-flade (klik-upload virker fortsat).
+    var dropDepth = 0;
+    function setDropping(on) { document.body.classList.toggle("dropping", on); }
+    document.addEventListener("dragover", function (e) { e.preventDefault(); });
+    document.addEventListener("dragenter", function (e) {
+        e.preventDefault(); dropDepth += 1; setDropping(true);
+    });
+    document.addEventListener("dragleave", function () {
+        dropDepth = Math.max(0, dropDepth - 1);
+        if (dropDepth === 0) setDropping(false);
+    });
+    document.addEventListener("drop", function (e) {
+        e.preventDefault(); dropDepth = 0; setDropping(false);
+        var f = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0];
+        if (f) uploadFile(f);
+    });
 })();
