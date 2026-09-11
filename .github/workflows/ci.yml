@@ -57,7 +57,10 @@ jobs:
         # Fejler bygget hvis en runtime-pakke har en kendt sårbarhed.
         # Skal en konkret advisory midlertidigt ignoreres, tilføj:
         #   --ignore-vuln GHSA-xxxx-xxxx-xxxx
-        # pip-audit resolver requirements.txt og skal kunne hente privat balai-auth.
-        env:
-          GITHUB_TOKEN: ${{ secrets.BALAI_AUTH_TOKEN }}
-        run: pip-audit -r requirements.txt --strict
+        # First-party balai-auth (privat git-pakke) filtreres fra: den findes
+        # ikke på PyPI og kan ikke auditeres dér (--strict fejler ellers).
+        # Dens deps (Flask/SQLAlchemy/psycopg) står direkte i requirements.txt
+        # og auditeres stadig.
+        run: |
+          grep -v '^balai-auth' requirements.txt > requirements-audit.txt
+          pip-audit -r requirements-audit.txt --strict
