@@ -23,7 +23,11 @@ jobs:
         with:
           python-version: "3.13"
 
+      # requirements-dev.txt inkluderer requirements.txt, som henter den private
+      # balai-auth-pakke — kræver repo-secret BALAI_AUTH_TOKEN.
       - name: Installér afhængigheder
+        env:
+          GITHUB_TOKEN: ${{ secrets.BALAI_AUTH_TOKEN }}
         run: pip install -r requirements-dev.txt
 
       - name: Hent kilder, regenerér og selvtjek

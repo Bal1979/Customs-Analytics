@@ -6,3 +6,4 @@ pymupdf>=1.24   # PDF-parsing (gammelt toldsystem)
 gunicorn>=23.0
 SQLAlchemy>=2.0
 psycopg[binary]>=3.1
+balai-auth @ git+https://x-access-token:${GITHUB_TOKEN}@github.com/Bal1979/balai-auth@v1.3.0

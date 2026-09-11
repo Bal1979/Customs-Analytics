@@ -15,10 +15,23 @@ jobs:
         python-version: ["3.13"]   # baseline (se .python-version)
     steps:
       - uses: actions/checkout@v4
+      # Gelænder fra auth-konsolideringen (2026-09-11): balai_auth hentes som pinnet
+      # pakke — en re-vendoret kopi vil rådne og genindføre driften.
+      - name: Gelænder — vendored balai_auth må ikke genopstå
+        run: |
+          if [ -d "balai_auth" ]; then
+            echo "::error::balai_auth/ er re-vendoret. Brug den pinnede pakke i requirements.txt (se balai-platform/AUTH-DRIFT-og-konsolidering.md)."
+            exit 1
+          fi
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
+      # balai-auth er et privat repo; pin'en i requirements.txt bruger
+      # ${GITHUB_TOKEN}, som pip udvider fra miljøet. Kræver repo-secret
+      # BALAI_AUTH_TOKEN (fine-grained PAT, read-only Contents, Bal1979/balai-auth).
       - name: Installér afhængigheder
+        env:
+          GITHUB_TOKEN: ${{ secrets.BALAI_AUTH_TOKEN }}
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements-dev.txt
@@ -44,4 +57,7 @@ jobs:
         # Fejler bygget hvis en runtime-pakke har en kendt sårbarhed.
         # Skal en konkret advisory midlertidigt ignoreres, tilføj:
         #   --ignore-vuln GHSA-xxxx-xxxx-xxxx
+        # pip-audit resolver requirements.txt og skal kunne hente privat balai-auth.
+        env:
+          GITHUB_TOKEN: ${{ secrets.BALAI_AUTH_TOKEN }}
         run: pip-audit -r requirements.txt --strict
